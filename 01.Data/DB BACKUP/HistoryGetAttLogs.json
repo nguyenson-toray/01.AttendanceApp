@@ -1,0 +1,4 @@
+{"_id":{"$oid":"661f37736a06d74902c5a8c1"},"machine":1,"lastTimeGetAttLogs":{"$date":"2024-04-26T14:16:55.163Z"},"lastCount":1}
+{"_id":{"$oid":"661f37736a06d74902c5a8c2"},"machine":2,"lastTimeGetAttLogs":{"$date":"2024-04-26T07:51:55.579Z"},"lastCount":1}
+{"_id":{"$oid":"661f37736a06d74902c5a8c3"},"machine":3,"lastTimeGetAttLogs":{"$date":"2024-04-26T14:16:57.656Z"},"lastCount":1}
+{"_id":{"$oid":"661f37736a06d74902c5a8c4"},"machine":4,"lastTimeGetAttLogs":{"$date":"2024-04-26T13:54:18.387Z"},"lastCount":1}

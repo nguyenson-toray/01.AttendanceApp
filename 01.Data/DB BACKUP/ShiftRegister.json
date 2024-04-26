@@ -1,0 +1,639 @@
+{"_id":{"$oid":"6629c37050f370e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1103","name":"Hồ Văn Nhím","shift":"Day"}
+{"_id":{"$oid":"6629c37050f371e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1102","name":"Nguyễn Thị Tuyết Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f372e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1101","name":"Huỳnh Tấn Viên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f373e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1100","name":"Lê Lâm Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f374e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1099","name":"Nguyễn Thị Thanh Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f375e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1098","name":"Nguyễn Thị Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f376e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1097","name":"Mai Văn Toàn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f377e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1096","name":"Đoàn Thị Thơm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f378e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1095","name":"Nguyễn Thị Thuyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f379e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1094","name":"Đoàn Thị Minh Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1093","name":"Nguyễn Thị Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1092","name":"Nguyễn Văn Trường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1091","name":"Đoàn Thị Cẩm Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1090","name":"Thới Thị Lệ Phi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1089","name":"Nguyễn Trần Kiều Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f37fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1088","name":"Đặng Thị Chung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f380e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1087","name":"Đặng Thị Thanh Yến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f381e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1086","name":"Kiều Thị Mỹ Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f382e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1085","name":"Lê Thị Thu Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f383e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1084","name":"Phạm Thị Phương Mai","shift":"Day"}
+{"_id":{"$oid":"6629c37050f384e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1083","name":"Lê Thị Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f385e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1082","name":"Phạm Thị Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f386e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1081","name":"Huỳnh Thị Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f387e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1080","name":"Kitajima Motoharu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f388e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1079","name":"Nguyễn Thị Trà Vi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f389e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1078","name":"Hori Shotaro","shift":"Day"}
+{"_id":{"$oid":"6629c37050f38ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1076","name":"Nguyễn Anh Tuấn","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f38be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1075","name":"Lê Thị Thu Sương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f38ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1074","name":"Hà Thị Huyền Trâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f38de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1073","name":"Lê Văn Hải","shift":"Day"}
+{"_id":{"$oid":"6629c37050f38ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1072","name":"Hà Thị Thu Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f38fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1071","name":"Nguyễn Thị Bích Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f390e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1069","name":"Nguyễn Thị Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f391e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1068","name":"Đào Thị Kim Trâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f392e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1067","name":"Nguyễn Thị Kim Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f393e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1066","name":"Nguyễn Thị Thanh Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f394e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1065","name":"Phạm Thị Phi Diễm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f395e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1064","name":"Bùi Thị Thu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f396e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1063","name":"Đỗ Thị Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f397e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1062","name":"Lê Duy Nhất","shift":"Day"}
+{"_id":{"$oid":"6629c37050f398e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1061","name":"Ngô Thị Nở","shift":"Day"}
+{"_id":{"$oid":"6629c37050f399e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1060","name":"Nguyễn Thị Thu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1059","name":"Nguyễn Duy Trình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1057","name":"Nguyễn Thị Trúc Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1056","name":"Nguyễn Thủy Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1055","name":"Ngô Thị Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1053","name":"Dương Thị Bé Ích","shift":"Day"}
+{"_id":{"$oid":"6629c37050f39fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1051","name":"Trương Thị Thuận","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1050","name":"Nguyễn Thị Thanh Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1049","name":"Nguyễn Thị Hòa Tân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1048","name":"Nguyễn Thị Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1046","name":"Nguyễn Văn Luân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1045","name":"Nguyễn Thị Kim Lin","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1044","name":"Trương Thị Nguyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1043","name":"Lê Thị Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1042","name":"Nguyễn Thị Trà My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1040","name":"Trương Minh Vũ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3a9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1039","name":"Lê Thanh Tuấn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3aae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1037","name":"Nguyễn Thị Sim","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3abe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1034","name":"Trần Thị Phụng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ace8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1033","name":"Bùi Thị Thương Mến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ade8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1032","name":"Nguyễn Thị Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3aee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1030","name":"Tạ Thị Mỹ Cảm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3afe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1028","name":"Phạm Thị Tuyết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1027","name":"Nguyễn Thanh Thị Ngọc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1026","name":"Trần Thị Kim Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1024","name":"Nguyễn Thị Lệ Diễm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1023","name":"Phan Thị Thu Thuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1022","name":"Lê Thị Hồng Cẩm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1021","name":"Trần Thị Tố Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1019","name":"Nguyễn Thị Kim Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1018","name":"Phạm Thị Bảy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1016","name":"Huỳnh Ngọc Triêm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3b9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1015","name":"Trần Minh Quang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1014","name":"Trần Văn Trực","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1013","name":"Võ Đức Sang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1012","name":"Phạm Thị Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1011","name":"Nguyễn Thị Tú Cẩm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1010","name":"Lê Thị Hồng Gấm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3bfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1009","name":"Lê Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1008","name":"Trần Thị Nương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1007","name":"Đỗ Thị Bích","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1006","name":"Nguyễn Thị Mến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1005","name":"Dương Thị Thúy Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1004","name":"Trịnh Hữu Hiệu","shift":"Shift 1"}
+{"_id":{"$oid":"6629c37050f3c5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1003","name":"Trần Thị Kim Oanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1002","name":"Nguyễn Thị Bộ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1001","name":"Trần Thị Mỹ Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1000","name":"Nguyễn Thị Kim Thao","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3c9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0998","name":"Nguyễn Thị Thanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0997","name":"Phạm Lâm Sanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0996","name":"Nguyễn Mậu Kiều My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0995","name":"Lê Thị Thu Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0994","name":"Dương Thị Thu Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0991","name":"Nguyễn Thị Thanh Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3cfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0990","name":"Võ Thị Luyến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0989","name":"Bùi Thị Nhân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0986","name":"Nguyễn Thị Ngọc Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0985","name":"Nguyễn Thị Tứ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0983","name":"Võ Thị Lên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0982","name":"Nguyễn Thị Kim Ngọc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0981","name":"Nguyễn Thị Kim Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0980","name":"Hasegawa Ryoko","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0979","name":"Phạm Hướng Dương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0978","name":"Nguyễn Ngọc Bình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3d9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0977","name":"Phạm Thị Oanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0976","name":"Phan Thị Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0975","name":"Nguyễn Thị Minh Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0973","name":"Nguyễn Thị Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0972","name":"Lương Thị Kim Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0970","name":"Võ Ngọc Tuân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3dfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0969","name":"Tôn Thị Mỹ Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0968","name":"Nguyễn Thị Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0966","name":"Võ Thị Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0964","name":"Hoàng Thị Thu Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0963","name":"Châu Văn Chí","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0962","name":"Nguyễn Thị Kim Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0960","name":"Đỗ Thị Cẩm Vi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0959","name":"Nguyễn Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0958","name":"Lê Minh Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0957","name":"Trịnh Thị Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3e9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0956","name":"Lương Văn Hải","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3eae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0955","name":"Cao Thị Sang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ebe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0954","name":"Lê Thị Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ece8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0953","name":"Bùi Thị Ly","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ede8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0952","name":"Lê Thị Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3eee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0950","name":"Nguyễn Thị Thu Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3efe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0949","name":"Phạm Thị Thiện","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0948","name":"Nguyễn Thị Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0946","name":"Huỳnh Thị Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0945","name":"Trần Thị Lưu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0943","name":"Trần Thị Thu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0942","name":"Đào Thị Ngọc Mến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0941","name":"Võ Thị Minh Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0940","name":"Đinh Thị Tốt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0939","name":"Lương Thị Minh Châu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0936","name":"Đoàn Thị Thu Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3f9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0935","name":"Nguyễn Thị Bích Chính","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3fae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0934","name":"Nguyễn Thị Hồng Ly","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3fbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0932","name":"Hà Thị Lệ Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3fce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0931","name":"Trần Thị Nguyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3fde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0929","name":"Nguyễn Văn Thuần","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3fee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0927","name":"Võ Thị Kim Yến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f3ffe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0926","name":"Nguyễn Văn Chung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f400e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0925","name":"Nguyễn Thị Ngọc Ánh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f401e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0924","name":"Nguyễn Thị Thanh Thanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f402e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0922","name":"Nguyễn Thị Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f403e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0920","name":"Nguyễn Thị Hồng Vấn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f404e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0919","name":"Nguyễn Thị Ánh Tiết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f405e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0918","name":"Đỗ Thị Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f406e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0916","name":"Hồng Thị Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f407e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0915","name":"Lê Thị Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f408e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0914","name":"Nguyễn Thị Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f409e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0913","name":"Nguyễn Thị Kim Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0912","name":"Nguyễn Thế Tỉnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0911","name":"Nguyễn Thị Xuân Nhật","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0910","name":"Bùi Thị Tiên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0909","name":"Nguyễn Thị Thu Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0908","name":"Nguyễn Bùi Nguyệt Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f40fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0907","name":"Châu Thị Thanh Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f410e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0906","name":"Nguyễn Thị Diễm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f411e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0904","name":"Trần Thị Hậu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f412e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0901","name":"Trần Thị Kim Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f413e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0900","name":"Nguyễn Thị Thúy Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f414e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0899","name":"Đặng Thị Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f415e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0898","name":"Nguyễn Ngọc Thân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f416e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0895","name":"Hồ Chí Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f417e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0893","name":"Huỳnh Thị Kim Tính","shift":"Day"}
+{"_id":{"$oid":"6629c37050f418e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0890","name":"Lê Văn Tồn","shift":"Shift 1"}
+{"_id":{"$oid":"6629c37050f419e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0889","name":"Phạm Thị Hồng Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0887","name":"Đỗ Vũ Tín","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0886","name":"Lê Thị Minh Tuyến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0885","name":"Ngô Thị Minh Hoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0884","name":"Nguyễn Vũ Thái Uyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0883","name":"Dương Thị Lưu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f41fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0882","name":"Vũ Dương Vi Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f420e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0881","name":"Võ Thị Lai","shift":"Day"}
+{"_id":{"$oid":"6629c37050f421e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0880","name":"Khương Khánh Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f422e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0878","name":"Ngô Thị Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f423e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0877","name":"Trần Thị Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f424e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0876","name":"Phạm Ni Na","shift":"Day"}
+{"_id":{"$oid":"6629c37050f425e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0875","name":"Đỗ Thị Lài","shift":"Day"}
+{"_id":{"$oid":"6629c37050f426e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0874","name":"Đỗ Thị Thắm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f427e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0873","name":"Văn Thị Thu Bích","shift":"Day"}
+{"_id":{"$oid":"6629c37050f428e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0870","name":"Nguyễn Thị Như Quỳnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f429e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0868","name":"Phan Thị Nương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0867","name":"Phạm Ngọc Cường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0866","name":"Đào Ngọc Cần","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0865","name":"Trịnh Duy Cảnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0864","name":"Đặng Thị Thanh Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0862","name":"Trương Vũ Cường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f42fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0861","name":"Hoàng Văn Bảy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f430e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0860","name":"Nguyễn Quang Lợi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f431e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0857","name":"Huỳnh Thị Kim Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f432e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0856","name":"Phạm Thị Mến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f433e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0855","name":"Lê Thị Ly","shift":"Day"}
+{"_id":{"$oid":"6629c37050f434e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0854","name":"Nguyễn Thị Dương Quyến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f435e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0853","name":"Bùi Thị Tuyết Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f436e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0852","name":"Lê Thị Thùy Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f437e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0851","name":"Nguyễn Thương Huyền Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f438e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0850","name":"Hoàng Thị Hợi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f439e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0848","name":"La Thị Tiến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0847","name":"Phạm Thị Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0846","name":"Phạm Nguyễn Ngọc Phúc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0845","name":"Lê Nguyễn Y Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0844","name":"Lê Thị Minh Sang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0842","name":"Lê Đại Quang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f43fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0840","name":"Nguyễn Thị Ngọc Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f440e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0839","name":"Nguyễn Thị Hồng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f441e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0838","name":"Hồ Thị Tường Vi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f442e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0837","name":"Huỳnh Thị Anh Thư","shift":"Day"}
+{"_id":{"$oid":"6629c37050f443e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0836","name":"Nguyễn Thị Kim Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f444e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0835","name":"Đoàn Thị Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f445e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0833","name":"Huỳnh Tân Ngọc Ân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f446e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0832","name":"Nguyễn Thị Kim Tuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f447e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0830","name":"Ngô Thị Kim Tuyết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f448e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0829","name":"Phạm Thị Nguyệt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f449e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0828","name":"Phan Thị Thanh Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0826","name":"Lê Thị Thùy Thân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0823","name":"Lâm Thị Mỹ Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0821","name":"Đỗ Thị Minh Kỷ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0820","name":"Nguyễn Thị Hoàng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0819","name":"Lê Thị Mỹ Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f44fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0818","name":"Phạm Thị Ngọc Lài","shift":"Day"}
+{"_id":{"$oid":"6629c37050f450e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0816","name":"Trương Thị Thu Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f451e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0815","name":"Trần Thị Ngà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f452e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0814","name":"Huỳnh Thị Hồng Khương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f453e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0813","name":"Bùi Thị Quý","shift":"Day"}
+{"_id":{"$oid":"6629c37050f454e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0809","name":"Phạm Thị Mỹ Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f455e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0808","name":"Bùi Thị Lệ Mỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f456e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0807","name":"Nguyễn Thị Bích Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f457e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0806","name":"Nguyễn Thị Phước","shift":"Day"}
+{"_id":{"$oid":"6629c37050f458e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0805","name":"Cao Thị Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f459e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0804","name":"Nguyễn Thị Lệ Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0801","name":"Nguyễn Thị Hồng Vinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0800","name":"Nguyễn Thị Lệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0799","name":"Đỗ Đình Sơn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0798","name":"Nguyễn Văn Dự","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0797","name":"Huỳnh Thị Mỹ Mến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f45fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0793","name":"Trần Hải Đăng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f460e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0789","name":"Trần Thị Tình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f461e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0785","name":"Nguyễn Thị Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f462e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0784","name":"Trương Thị Trà My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f463e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0780","name":"Phan Thanh Hùng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f464e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0779","name":"Huỳnh Thị Thơm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f465e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0774","name":"Huỳnh Thị Hậu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f466e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0772","name":"Lê Thị Kim Thoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f467e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0769","name":"Nguyễn Thị Hồng Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f468e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0768","name":"Nguyễn Thị Tường Vi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f469e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0767","name":"Nguyễn Thị Diện","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0766","name":"Chương Thị Thao","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0764","name":"Huỳnh Thị Thu Xuân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0763","name":"Từ Thị Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0761","name":"Nguyễn Thị Ánh Nguyệt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0758","name":"Lý Thị Kim Phường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f46fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0755","name":"Trần Thị Thu Hảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f470e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0754","name":"Nguyễn Thị Tiến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f471e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0753","name":"Huỳnh Thị Kim Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f472e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0751","name":"Bùi Thị Bích Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f473e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0747","name":"Nguyễn Truyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f474e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0744","name":"Võ Thị Huỳnh Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f475e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0743","name":"Đoàn Thị Phương Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f476e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0740","name":"Võ Thị Ngọc Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f477e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0735","name":"Ngô Thị Bích Ly","shift":"Day"}
+{"_id":{"$oid":"6629c37050f478e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0734","name":"Nguyễn Thị Ái Phi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f479e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0733","name":"Nguyễn Thị Như Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0732","name":"Nguyễn Đình Nhu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0731","name":"Nguyễn Thị Cẩm Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0729","name":"Lê Văn Việt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0727","name":"Lâm Văn Tuấn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0725","name":"Lê Thị Út","shift":"Day"}
+{"_id":{"$oid":"6629c37050f47fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0720","name":"Lê Thị Gấm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f480e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0717","name":"Đỗ Thị Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f481e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0715","name":"Trần Thị Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f482e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0714","name":"Phạm Thị Kim Ánh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f483e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0713","name":"Nguyễn Thị Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f484e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0712","name":"Nguyễn Thị Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f485e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0711","name":"Phạm Thị Nở","shift":"Day"}
+{"_id":{"$oid":"6629c37050f486e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0710","name":"Nguyễn Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f487e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0709","name":"Nguyễn Thị Như Ca","shift":"Day"}
+{"_id":{"$oid":"6629c37050f488e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0708","name":"Ngô Thị Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f489e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0707","name":"Huỳnh Thị Thiết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0706","name":"Nguyễn Thị Mỹ Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0705","name":"Huỳnh Thị Nở","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0702","name":"Đỗ Thị Minh Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0701","name":"Võ Thị Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0700","name":"Nguyễn Thị Hồng Hoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f48fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0699","name":"Lê Thị Việt Bắc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f490e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0697","name":"Bùi Thị Bảo Yến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f491e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0695","name":"Phạm Viển","shift":"Day"}
+{"_id":{"$oid":"6629c37050f492e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0692","name":"Nguyễn Văn Pháp","shift":"Day"}
+{"_id":{"$oid":"6629c37050f493e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0683","name":"Lâm Thị Hồng Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f494e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0682","name":"Nguyễn Thị Thanh Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f495e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0680","name":"Điền Thị Thanh Mẫn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f496e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0679","name":"Nguyễn Thị Trâm Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f497e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0677","name":"Amagata Osamu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f498e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0675","name":"Nguyễn Thị Kim Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f499e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0674","name":"Phạm Thị Kim Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0672","name":"Huỳnh Thị Kim","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0671","name":"Hồ Trọng Nghĩa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0670","name":"Hồ Văn Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0669","name":"Phạm Thị Minh Nguyệt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0668","name":"Phạm Trương Thành Ý","shift":"Day"}
+{"_id":{"$oid":"6629c37050f49fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0665","name":"Đỗ Thị Hậu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0663","name":"Phạm Thị Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0660","name":"Phạm Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0659","name":"Trần Thị Hồng Nương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0658","name":"Phùng Thị Thanh Hoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0656","name":"Trương Thị Thu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0655","name":"Lương Thị Thanh Hảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0654","name":"Phạm Thị Thu Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0652","name":"Nguyễn Thị Công","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0651","name":"Võ Thị Lãnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4a9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0644","name":"Shoji Izumi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4aae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0643","name":"Nguyễn Thị Tư","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4abe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0641","name":"Trương Ngọc Thạch","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4ace8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0640","name":"Phạm Thị Vỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4ade8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0637","name":"Võ Thị Ba","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4aee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0636","name":"Trần Thị Thúy Liểu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4afe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0634","name":"Tô Thị Bé Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0633","name":"Phạm Thị Hồng Phước","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0632","name":"Lê Thị Bích Trâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0627","name":"Võ Thị Ngọc Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0626","name":"Nguyễn Hữu Quý","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0625","name":"Trần Thị Lịnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0619","name":"Tô Thị Minh Nữ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0616","name":"Trương Thị Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0615","name":"Nguyễn Phúc Trình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0613","name":"Hồ Thị Ái Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4b9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0611","name":"Võ Thanh Trinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0610","name":"Lý Thị Bích Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0608","name":"Lê Thị Bích Đào","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0607","name":"Đỗ Thị Như Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0606","name":"Phạm Thị Nguyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0605","name":"Lê Thị Minh Tuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4bfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0602","name":"Lương Thị Lý","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0601","name":"Phạm Thị Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0600","name":"Phạm Thị Ngọc Ánh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0599","name":"Đào Thị Thanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0598","name":"Nguyễn Thị Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0596","name":"Đoàn Thị Nhàn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0594","name":"Nguyễn Thị Tuyết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0593","name":"Lương Thị Hoàng Oanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0592","name":"Nguyễn Thị Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0591","name":"Ngô Tấn Xịn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4c9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0589","name":"Võ Thị Thu Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4cae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0588","name":"Lê Thị Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4cbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0586","name":"Nguyễn Thị Thuý Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4cce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0585","name":"Nguyễn An","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f4cde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0583","name":"Nguyễn Thị Thu Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4cee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0579","name":"Trương Quang Thắng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4cfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0576","name":"Nguyễn Duy Ngọc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0572","name":"Thới Thị Quyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0571","name":"Kiều Thị Việt Trinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0570","name":"Nguyễn Văn Trường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0567","name":"Lê Thôi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0563","name":"Trần Thị Kim Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0561","name":"Lê Thị Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0560","name":"Lê Thị Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0558","name":"Huỳnh Thị Thu Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0557","name":"Huỳnh Thị Thu Hoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4d9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0556","name":"Phạm Thị Triều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0551","name":"Lê Thị Diễm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0550","name":"Lưu Kim Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0549","name":"Lý Thị Kim Luyến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0547","name":"Ngô Thị Trầm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0545","name":"Nguyễn Thị Tường Vy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4dfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0543","name":"Nguyễn Thị Thu Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0542","name":"Đồng Thị Như Quỳnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0538","name":"Cao Thị Mỹ Thắm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0537","name":"Nguyễn Thị Bích Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0534","name":"Nguyễn Thị Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0533","name":"Nguyễn Trung Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0528","name":"Lưu Thị Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0527","name":"Trần Thị Hạng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0524","name":"Đinh Thị Thanh Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0523","name":"Lê Thị Son","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4e9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0522","name":"Nguyễn Thị Giang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4eae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0519","name":"Nguyễn Thị Thư","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4ebe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0518","name":"Phạm Ngọc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4ece8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0517","name":"Đào Minh Hùng","shift":"Shift 2"}
+{"_id":{"$oid":"6629c37050f4ede8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0516","name":"Võ Duy Thoại","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4eee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0514","name":"Nguyễn Thị Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4efe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0513","name":"Nguyễn Thị Mỹ Hương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0512","name":"Thân Thị Thu Trà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0510","name":"Nguyễn Đoàn Hương Giang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0506","name":"Nguyễn Bính","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0502","name":"Đinh Thị Yến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0501","name":"Bạch Thị Minh Hiếu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0498","name":"Nguyễn Thị Liễu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0496","name":"Nguyễn Thị Thu Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0494","name":"Mai Thị Thúy Trinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0492","name":"Nguyễn Thị Ngọc Quý","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4f9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0491","name":"Đỗ Thị Truyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4fae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0490","name":"Nguyễn Thị Ngọt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4fbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0489","name":"Võ Thị Nguyệt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4fce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0488","name":"Dương Thị Thu Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4fde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0486","name":"Huỳnh Thị Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4fee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0485","name":"Kiều Thị Mỹ Lan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f4ffe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0484","name":"Đoàn Minh Chung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f500e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0483","name":"Nguyễn Thị Chung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f501e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0481","name":"Nguyễn Thị Tuyết Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f502e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0479","name":"Nguyễn Thị Nam","shift":"Day"}
+{"_id":{"$oid":"6629c37050f503e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0476","name":"Bùi Thị Lắm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f504e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0475","name":"Nguyễn Thị Ái Nam","shift":"Day"}
+{"_id":{"$oid":"6629c37050f505e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0474","name":"Lê Thị Hồng Tin","shift":"Day"}
+{"_id":{"$oid":"6629c37050f506e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0473","name":"Phạm Thị Nữ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f507e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0472","name":"Phan Văn Tiên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f508e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0468","name":"Võ Thị Xuân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f509e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0461","name":"Nguyễn Thị Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0458","name":"Nguyễn Thị Lưu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0453","name":"Lê Thị Thuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0452","name":"Đặng Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0450","name":"Trần Thị Hoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0449","name":"Hồ Thị Thúy Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f50fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0445","name":"Tạ Thị Lan Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f510e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0444","name":"Nguyễn Thị Ly Na","shift":"Day"}
+{"_id":{"$oid":"6629c37050f511e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0443","name":"Nguyễn Thị Tuyết Nhung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f512e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0441","name":"Trần Thị Ngọc Sen","shift":"Day"}
+{"_id":{"$oid":"6629c37050f513e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0437","name":"Trần Thị Bích Phượng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f514e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0436","name":"Đặng Thị Kim Cúc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f515e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0435","name":"Nguyễn Thị Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f516e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0433","name":"Đỗ Thị Bích Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f517e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0432","name":"Lý Thị Nữ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f518e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0431","name":"Phạm Thị Thu Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f519e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0430","name":"Võ Duy Trị","shift":"Day"}
+{"_id":{"$oid":"6629c37050f51ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0429","name":"Nguyễn Thị Hoàng Trinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f51be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0426","name":"Võ Thị Lệ Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f51ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0423","name":"Trần Thị Tin","shift":"Day"}
+{"_id":{"$oid":"6629c37050f51de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0421","name":"Nguyễn Thị Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f51ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0419","name":"Nguyễn Dự","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f51fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0418","name":"Lê Thị Kiều Hoanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f520e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0415","name":"Châu Thị Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f521e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0412","name":"Nguyễn Thị Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f522e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0405","name":"Nguyễn Thị Tuyết Trinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f523e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0403","name":"Nguyễn Thị Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f524e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0402","name":"Trần Thị Xinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f525e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0400","name":"Nguyễn Thị Em","shift":"Day"}
+{"_id":{"$oid":"6629c37050f526e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0398","name":"Nguyễn Hoàng Điền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f527e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0389","name":"Lê Thị Danh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f528e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0388","name":"Nguyễn Thị Thúy Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f529e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0387","name":"Nguyễn Thị Kim Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0386","name":"Nguyễn Thị Diệu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0385","name":"Bạch Thị Tịnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0384","name":"Trần Thị Ly","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0381","name":"Nguyễn Tấn Việt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0378","name":"Nguyễn Thị Vi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f52fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0376","name":"Trần Thị Hậu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f530e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0374","name":"Nguyễn Văn Trọng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f531e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0372","name":"Đỗ Hoàng Phương Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f532e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0371","name":"Nguyễn Thị Mỹ Lệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f533e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0370","name":"Đặng Thị Thùy Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f534e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0369","name":"Đặng Thị Mỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f535e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0368","name":"Dương Thị Như Trâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f536e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0367","name":"Lê Thị Trinh Nữ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f537e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0366","name":"Trương Thị Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f538e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0365","name":"Nguyễn Thị Như Tuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f539e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0362","name":"Huỳnh Thị Bé Dự","shift":"Day"}
+{"_id":{"$oid":"6629c37050f53ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0361","name":"Nguyễn Thị Như Lý","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f53be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0360","name":"Hoàng Thị Diệu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f53ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0359","name":"Đoàn Thị Sen","shift":"Day"}
+{"_id":{"$oid":"6629c37050f53de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0352","name":"Lê Thị Phương","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f53ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0351","name":"Lê Thị Mai","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f53fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0350","name":"Trương Thị Mai Sương","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f540e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0345","name":"Đào Thị Thu Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f541e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0344","name":"Lê Thị Vương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f542e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0343","name":"Nguyễn Thị Ngọc Lệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f543e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0342","name":"Nguyễn Thị Thúy Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f544e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0341","name":"Huỳnh Thị Nhân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f545e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0340","name":"Huỳnh Thị Thu My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f546e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0337","name":"Phạm Thị Hồng Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f547e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0336","name":"Phạm Thị Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f548e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0332","name":"Trương Thị Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f549e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0330","name":"Nguyễn Thị Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0327","name":"Nguyễn Thị Lợi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0326","name":"Ngô Thị Kim Trúc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0321","name":"Nguyễn Thị Phương Thi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0316","name":"Trần Thị Tài","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0314","name":"Nguyễn Thị Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f54fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0313","name":"Trần Thị Nha","shift":"Day"}
+{"_id":{"$oid":"6629c37050f550e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0311","name":"Nguyễn Thị Chi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f551e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0309","name":"Bùi Thị Mỹ Vận","shift":"Day"}
+{"_id":{"$oid":"6629c37050f552e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0308","name":"Phùng Nguyễn Tố Uyên","shift":"Canteen"}
+{"_id":{"$oid":"6629c37050f553e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0306","name":"Hồ Ngọc Vũ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f554e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0305","name":"Trần Ngọc Chế Duy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f555e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0304","name":"Võ Đăng Trình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f556e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0303","name":"Phan Thị Thu Nhi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f557e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0302","name":"Nguyễn Thị Mỹ Danh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f558e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0300","name":"Nguyễn Thị Mỹ Thuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f559e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0298","name":"Nguyễn Thùy Dương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f55ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0296","name":"Đoàn Thị Thanh Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f55be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0295","name":"Nguyễn Thị Thu","shift":"Shift 2"}
+{"_id":{"$oid":"6629c37050f55ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0294","name":"Võ Thị Lan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f55de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0293","name":"Phạm Thị Bích Hồng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f55ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0292","name":"Bùi Thị Xuân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f55fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0291","name":"Nguyễn Duy Toàn","shift":"Shift 1"}
+{"_id":{"$oid":"6629c37050f560e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0289","name":"Phạm Hồng Phúc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f561e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0286","name":"Bồ Trọng Giang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f562e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0284","name":"Trần Thị Thanh Huyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f563e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0282","name":"Võ Thị Thúy Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f564e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0281","name":"Trần Thị Thuận","shift":"Day"}
+{"_id":{"$oid":"6629c37050f565e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0280","name":"Nguyễn Thị Trà My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f566e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0279","name":"Lê Văn Thành","shift":"Day"}
+{"_id":{"$oid":"6629c37050f567e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0275","name":"Nguyễn Thành Vinh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f568e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0274","name":"Lê Thị Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f569e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0273","name":"Lê Thị Xuân Thời","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0269","name":"Dương Thị Mỹ Trâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0266","name":"Cao Thị Bích Hường","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0264","name":"Đoàn Thị Thanh Trà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0262","name":"Nguyễn Thị Tám","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0261","name":"Bùi Thị Ánh Văn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f56fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0260","name":"Ngô Thị Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f570e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0259","name":"Đỗ Thị Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f571e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0258","name":"Nguyễn Thị Kim Mơ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f572e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0257","name":"Trần Thị Nở","shift":"Day"}
+{"_id":{"$oid":"6629c37050f573e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0254","name":"Nguyễn Quỳnh Như","shift":"Day"}
+{"_id":{"$oid":"6629c37050f574e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0253","name":"Nguyễn Thị Thương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f575e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0250","name":"Hồ Thị Mỹ Thoa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f576e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0247","name":"Phạm Thị Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f577e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0246","name":"Ao Thị Nương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f578e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0242","name":"Nguyễn Thị Bích Quỳnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f579e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0240","name":"Nguyễn Thị Hiếu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0239","name":"Phạm Thị Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0233","name":"Nguyễn Thị Hồng Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0232","name":"Ngô Thị Trà Giang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0231","name":"Hồ Thị Thùy Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0227","name":"Nguyễn Thị Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f57fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0226","name":"Lê Phước Đạt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f580e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0224","name":"Đỗ Ngọc Hiển","shift":"Day"}
+{"_id":{"$oid":"6629c37050f581e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0222","name":"Trương Văn Định","shift":"Day"}
+{"_id":{"$oid":"6629c37050f582e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0221","name":"Lê Thị Bích Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f583e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0216","name":"Nguyễn Thị Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f584e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0215","name":"Võ Hồng Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f585e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0213","name":"Nguyễn Thị Kim Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f586e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0210","name":"Nguyễn Tấn Tài","shift":"Day"}
+{"_id":{"$oid":"6629c37050f587e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0208","name":"Lê Thị Xuân Nương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f588e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0207","name":"Nguyễn Thị Kim","shift":"Day"}
+{"_id":{"$oid":"6629c37050f589e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0206","name":"Lê Thị Nhân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0204","name":"Nguyễn Thị Thân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0203","name":"Phan Thị Thu Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0199","name":"Trần Thị Thu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0198","name":"Đỗ Thị Ngọc Tuyết","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0197","name":"Nguyễn Thị Triều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f58fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0196","name":"Nguyễn Thị Mỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f590e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0195","name":"Nguyễn Thị Triển","shift":"Day"}
+{"_id":{"$oid":"6629c37050f591e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0191","name":"Trịnh Quý Linh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f592e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0185","name":"Đỗ Thị Hồng Vấn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f593e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0184","name":"Lâm Thị Bích Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f594e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0183","name":"Đặng Thị Thuận","shift":"Day"}
+{"_id":{"$oid":"6629c37050f595e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0180","name":"Lê Thị Thu Mỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f596e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0178","name":"Trần Thị Thu Quyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f597e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0176","name":"Đỗ Thị Thanh Nhàn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f598e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0175","name":"Nguyễn Thị Kim Yến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f599e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0173","name":"Nguyễn Thị Hiền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59ae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0172","name":"Bùi Thị Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59be8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0169","name":"Đào Thị Thu Bình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59ce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0168","name":"Đỗ Thị Rơi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59de8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0167","name":"Võ Thị Xuân Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59ee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0165","name":"Phạm Thị Thiện","shift":"Day"}
+{"_id":{"$oid":"6629c37050f59fe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0164","name":"Đoàn Minh Vương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0163","name":"Nguyễn Thị Bé Hồng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0162","name":"Nguyễn Thị Minh Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0160","name":"Nguyễn Thị Thanh Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0158","name":"Trần Anh Thư","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0157","name":"Phan Khắc Mẫn","shift":"Shift 2"}
+{"_id":{"$oid":"6629c37050f5a5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0156","name":"Lê Thị Việt Nga","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0155","name":"Lê Thị Xuân Hồng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0154","name":"Lê Thị Hoàng Lê","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0151","name":"Hồ Thị Kim Liên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5a9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0150","name":"Lê Thị Nhung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5aae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0148","name":"Nguyễn Thái Sơn","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5abe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0147","name":"Nguyễn Thị Bé","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5ace8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0145","name":"Trần Thị Phương Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5ade8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0143","name":"Ngô Xuân Quỳnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5aee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0141","name":"Nguyễn Thị Kim Tuyến","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5afe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0140","name":"Trương Thị An","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0139","name":"Nguyễn Thị Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0137","name":"Nguyễn Thị Thu Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0136","name":"Lê Thị Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0135","name":"Phạm Thị Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0133","name":"Nguyễn Thị Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0128","name":"Nguyễn Thị Anh Thư","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0124","name":"Kimitaka Araya","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0120","name":"Võ Thị Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0108","name":"Hồ Thị Trầm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5b9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0106","name":"Đặng Thị Tha","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0100","name":"Lê Thị Kim Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0097","name":"Võ Thị Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0094","name":"Nguyễn Thị Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0093","name":"Dương Thị Kim Anh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0091","name":"Võ Thị Kiều","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5bfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0090","name":"Trần Thị Bích Mơ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0089","name":"Đặng Thị Kim Thùy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0084","name":"Nguyễn Thị Bích Thảo","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0083","name":"Phạm Thị Ái My My","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0082","name":"Phạm Thị Mai","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0081","name":"Thới Thị Thật","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0079","name":"Võ Thị Kim Chung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0071","name":"Nguyễn Thị Phượng Hằng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0068","name":"Phù Thị Thúy Toa","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0067","name":"Nguyễn Thị Tình","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5c9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0066","name":"Nguyễn Thị Kim Cúc","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0063","name":"Nguyễn Thị Thu Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0061","name":"Nguyễn Thị Thu Hà","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0057","name":"Nguyễn Công Biên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0056","name":"Nguyễn Thị Thuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0055","name":"Huỳnh Thị Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5cfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0054","name":"Võ Thị Hồng Trang","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0050","name":"Nguyễn Dự","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0047","name":"Lê Ngọc Vỹ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0045","name":"Nguyễn Đình Ngân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0044","name":"Nguyễn Thị Yến Ni","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0042","name":"Trần Thị Kim Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0040","name":"Đoàn Thị Kim Loan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0039","name":"Nguyễn Hoàng Thảo Ni","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0038","name":"Phạm Thị Tâm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0037","name":"Trương Trần Phương Dung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5d9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0036","name":"Nguyễn Thị Mỹ Nhi","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0035","name":"Võ Thị Bích Duyên","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dbe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0034","name":"Nguyễn Thị Tuyền","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dce8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0033","name":"Đào Thị Kim Huệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dde8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0031","name":"Nguyễn Thị Lệ","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0027","name":"Trần Thị Thanh Đào","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5dfe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0024","name":"Trần Thị Hiếu","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e0e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0023","name":"Lương Thị Cẩm Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e1e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0022","name":"Lê Thị Hương Lan","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e2e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0020","name":"Nguyễn Thị Kim Oanh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e3e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0019","name":"Cao Thị Cẩm","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e4e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0017","name":"Đặng Thị Hồng Phương","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e5e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0015","name":"Lê Thị Quýt","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e6e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0013","name":"Nguyễn Thị Vân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e7e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0010","name":"Cao Thị Thủy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e8e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0009","name":"Cao Thị Nhung","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5e9e8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0008","name":"Phạm Văn An","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5eae8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0007","name":"Phùng Tấn Trạng","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5ebe8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0006","name":"Trần Văn Ân","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5ece8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0005","name":"Trần Thị Mỹ Hạnh","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5ede8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0003","name":"Cao Thị Hồng Thúy","shift":"Day"}
+{"_id":{"$oid":"6629c37050f5eee8be000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0002","name":"Lê Thanh Phong","shift":"Day"}
