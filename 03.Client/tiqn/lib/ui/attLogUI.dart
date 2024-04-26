@@ -748,11 +748,11 @@ class _AttLogUIState extends State<AttLogUI>
           ],
           tooltipBehavior: TooltipBehavior(enable: true),
           legend: const Legend(
-            position: LegendPosition.bottom,
-            // height: '50%',
-            overflowMode: LegendItemOverflowMode.wrap,
-            isVisible: true,
-          ),
+              position: LegendPosition.bottom,
+              // height: '50%',
+              overflowMode: LegendItemOverflowMode.wrap,
+              isVisible: true,
+              textStyle: TextStyle(fontSize: 15)),
           series: <CircularSeries<ChartPresent, String>>[
             DoughnutSeries<ChartPresent, String>(
               dataLabelSettings: const DataLabelSettings(isVisible: true),

@@ -28,7 +28,8 @@ class gValue {
   static List<OtRegister> otRegisters = <OtRegister>[];
   static bool allowAllOt = false;
   static bool defaultOt2H = true;
-  static bool miniInfoEmployee = true;
+  static bool miniInfoEmployee = true, disableEditEmp = true;
+
   // static List<AttReport> attReports = <AttReport>[];
   static List<Employee> employees = <Employee>[];
   static List<String> employeeIdNames = [];

@@ -5,13 +5,14 @@ import sys
 import numpy as np
 
 # Connect to MongoDB
-connection_string = "mongodb://192.168.1.11:27017/"
+connection_string = "mongodb://localhost:27017/"
 database_name = "tiqn"
 client = MongoClient(connection_string)
 db = client[database_name]
 collectionEmployee = db["Employee"]
 # Excel file path (replace with your actual path)
 excel_file = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\Toray's employees information All in one.xlsx"
+excel_file = r"D:\Programming\01.AttendanceApp\02.Server\Toray's employees information All in one.xlsx"
 def excelAllInOneToMongoDb() -> int:
     # Read data from Excel using pandas
     data = pd.read_excel(excel_file, keep_default_na=False, na_values='', na_filter=False)
@@ -22,10 +23,15 @@ def excelAllInOneToMongoDb() -> int:
     count = 0
     for row in data_dict:
         count += 1
-        # print(row)
         # Update document in MongoDB collection based on a unique identifier (replace with your logic)
-        if row["STT"] == '' or row["STT"] == 0 or row['_id'] == 0 or row['_id'] == '':
-            print(f'BYPASS ROW : {row}')
+        if row["Emp Code"] == '' or row["Emp Code"] == 0 or row["Fullname"] == '' or row["Fullname"] == 0 or row['_id'] == 0 or row['_id'] == '':
+            print(f'BYPASS ROW - Empty Emp Code or Fullname or _id: {row}')
+            continue
+        if row["Working/Resigned"] == 0 or row["Working/Resigned"] == '':
+            print(f'BYPASS ROW - Resigned: {row}')
+            continue
+        if row["Fullname"] == 'Shoji Izumi':
+            print(f'BYPASS ROW - Shoji Izumi: {row}')
             continue
         filter = {"_id": row["_id"]}  # Assuming "_id" is a unique identifier in your data
         update = {"$set": row}  # Update all fields in the document
@@ -43,6 +49,7 @@ def excelAllInOneToMongoDb() -> int:
         fieldCollected.update({'directIndirect': '' if row['Direct/ Indirect'] == '' else row['Direct/ Indirect']})
         fieldCollected.update({'sewingNonSewing': '' if row['Sewing/Non sewing'] == '' else row['Sewing/Non sewing']})
         fieldCollected.update({'supporting': '' if row['Supporting'] == '' else row['Supporting']})
+        fieldCollected.update({'dob': row['DOB']})
         fieldCollected.update({'joiningDate': row['Joining date']})
         fieldCollected.update({'workStatus': 0 if row['Working/Resigned'] == '' else row['Working/Resigned']})
         fieldCollected.update({'maternity': 0 if row['Maternity'] == '' else row['Maternity']})

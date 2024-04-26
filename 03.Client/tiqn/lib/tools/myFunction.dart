@@ -432,7 +432,7 @@ class MyFuntion {
           firstIn = logsTime.reduce((a, b) => a.isBefore(b) ? a : b);
           lastOut = logsTime.reduce((a, b) => a.isAfter(b) ? a : b);
 
-          if (emp.workStatus == 'Working maternity') {
+          if (emp.workStatus == 1 && emp.maternity == 0) {
             shiftTimeEnd = shiftTimeEnd.subtract(Duration(hours: 1));
           }
           if (firstIn.isAtSameMomentAs(lastOut)) {

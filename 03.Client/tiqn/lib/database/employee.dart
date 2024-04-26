@@ -113,7 +113,7 @@ class Employee {
       group: map['group'] != null ? map['group'] as String : null,
       lineTeam: map['lineTeam'] != null ? map['lineTeam'] as String : null,
       gender: map['gender'] != null ? map['gender'] as String : null,
-      positionE: map['positionE'] != null ? map['positionE'] as String : null,
+      positionE: map['position'] != null ? map['position'] as String : null,
       level: map['level'] != null ? map['level'] as String : null,
       directIndirect: map['directIndirect'] != null
           ? map['directIndirect'] as String
@@ -123,7 +123,8 @@ class Employee {
           : null,
       supporting:
           map['supporting'] != null ? map['supporting'] as String : null,
-      dob: map['dob'] != null ? map['dob'] : null,
+      // dob: map['dob'] != null ? map['dob'] : null,
+      dob: DateTime.utc(1900),
       joiningDate: map['joiningDate'] != null ? map['joiningDate'] : null,
       workStatus: map['workStatus'] != null ? map['workStatus'] as int : null,
       maternity: map['maternity'] != null ? map['maternity'] as int : null,

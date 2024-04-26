@@ -52,11 +52,11 @@ class _EmployeeUIState extends State<EmployeeUI>
                 gValue.enrolled++;
                 gValue.employeeIdNames
                     .add('${element.empId!}   ${element.name!}');
-                if (element.workStatus == 'Maternity leave') {
+                if (element.workStatus == 1 && element.maternity == 1) {
                   gValue.maternityLeave++;
                 } else {
                   gValue.workingNormal++;
-                  if (element.workStatus == 'Working maternity') {
+                  if (element.workStatus == 1 && element.maternity == 0) {
                     gValue.workingMaternity++;
                   }
                 }
@@ -119,37 +119,37 @@ class _EmployeeUIState extends State<EmployeeUI>
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                children: [
-                  const Text("Import / Export"),
-                  popupMenuImportExport(),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text("Edit mode"),
-                  Switch(
-                    value: enableEdit,
-                    onChanged: (value) {
-                      setState(() {
-                        setState(() {
-                          enableEdit = !enableEdit;
-                          // changeGridMode();
-                        });
-                      });
-                    },
-                  ),
-                ],
-              ),
-              // chartWorkingMaternity(),
-            ],
-          ),
-          const VerticalDivider(),
-          // StreamBuilder<RealmResultsChanges<EmployeeBasic>>(
+          !gValue.disableEditEmp
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        const Text("Import / Export"),
+                        popupMenuImportExport(),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("Edit mode"),
+                        Switch(
+                          value: enableEdit,
+                          onChanged: (value) {
+                            setState(() {
+                              setState(() {
+                                enableEdit = !enableEdit;
+                                // changeGridMode();
+                              });
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    // chartWorkingMaternity(),
+                  ],
+                )
+              : popupMenuImportExport(),
           Expanded(
             child: PlutoGrid(
               mode: plutoGridMode,
@@ -196,11 +196,11 @@ class _EmployeeUIState extends State<EmployeeUI>
                     'Resigned') {
                   return Colors.black12;
                 } else if (rowColorContext.row.cells.entries
-                        .elementAt(14)
+                        .elementAt(15)
                         .value
                         .value ==
-                    'Maternity leave') {
-                  return const Color.fromARGB(255, 246, 212, 224);
+                    'Leave') {
+                  return const Color.fromARGB(255, 249, 231, 237);
                 }
 
                 return Colors.white;
@@ -349,8 +349,8 @@ class _EmployeeUIState extends State<EmployeeUI>
           type: PlutoColumnType.select(
               defaultValue: 'Female', ['Male', 'Female'])),
       PlutoColumn(
-        title: 'Position E',
-        field: 'positionE',
+        title: 'Position',
+        field: 'position',
         type: PlutoColumnType.text(),
       ),
       PlutoColumn(
@@ -389,15 +389,14 @@ class _EmployeeUIState extends State<EmployeeUI>
       PlutoColumn(
         title: 'Work Status',
         field: 'workStatus',
-        width: 200,
-        type: PlutoColumnType.number(defaultValue: 1),
+        width: 110,
+        type: PlutoColumnType.text(),
       ),
       PlutoColumn(
-        hide: gValue.miniInfoEmployee,
         title: 'Maternity',
         field: 'maternity',
-        width: 120,
-        type: PlutoColumnType.number(defaultValue: 0),
+        width: 110,
+        type: PlutoColumnType.text(),
       ),
       PlutoColumn(
         hide: gValue.miniInfoEmployee,
@@ -448,16 +447,17 @@ class _EmployeeUIState extends State<EmployeeUI>
             'group': PlutoCell(value: employee.group),
             'lineTeam': PlutoCell(value: employee.lineTeam),
             'gender': PlutoCell(value: employee.gender),
-            'positionE': PlutoCell(value: employee.positionE),
+            'position': PlutoCell(value: employee.positionE),
             'level': PlutoCell(value: employee.level),
             'directIndirect': PlutoCell(value: employee.directIndirect),
             'sewingNonSewing': PlutoCell(value: employee.sewingNonSewing),
             'supporting': PlutoCell(value: employee.supporting),
             'dob': PlutoCell(value: employee.dob),
             'workStatus': PlutoCell(
-              value: employee.workStatus,
+              value: employee.workStatus == 0 ? "Resigned" : 'Working',
             ),
-            'maternity': PlutoCell(value: employee.maternity),
+            'maternity':
+                PlutoCell(value: employee.maternity == 1 ? "Leave" : ""),
             'joiningDate': PlutoCell(value: employee.joiningDate),
             // 'resignDate': PlutoCell(value: employee.resignDate),
           },
@@ -605,38 +605,34 @@ class _EmployeeUIState extends State<EmployeeUI>
           case 'Working':
             MyFile.createExcelEmployee(
                 gValue.employees
-                    .where((element) => (element.workStatus != 'Resigned' &&
-                        element.workStatus != 'Maternity leave'))
+                    .where((element) => (element.workStatus == 1))
                     .toList(),
                 false,
                 "Working Employees");
             break;
-          case 'Maternity':
+          case 'Maternity leave':
             MyFile.createExcelEmployee(
                 gValue.employees
-                    .where(
-                        (element) => (element.workStatus == 'Maternity leave'))
+                    .where((element) =>
+                        (element.workStatus == 1 && element.maternity == 1))
                     .toList(),
                 false,
                 "Maternity Employees");
+            break;
+          case 'Maternity working':
+            MyFile.createExcelEmployee(
+                gValue.employees
+                    .where((element) =>
+                        (element.workStatus == 1 && element.maternity == 0))
+                    .toList(),
+                false,
+                "Maternity working");
             break;
           default:
         }
       },
       itemBuilder: (BuildContext bc) {
-        return const [
-          PopupMenuItem(
-            value: 'Import',
-            child: Row(
-              children: [
-                Icon(
-                  Icons.upload,
-                  color: Colors.green,
-                ),
-                Text("Import from excel"),
-              ],
-            ),
-          ),
+        return [
           PopupMenuItem(
             value: 'All',
             child: Row(
@@ -645,7 +641,7 @@ class _EmployeeUIState extends State<EmployeeUI>
                   Icons.download,
                   color: Colors.blue,
                 ),
-                Text("Export all to excel"),
+                Text("Export all"),
               ],
             ),
           ),
@@ -657,31 +653,49 @@ class _EmployeeUIState extends State<EmployeeUI>
                   Icons.download,
                   color: Colors.teal,
                 ),
-                Text("Export working employee to excel"),
+                Text("Export working"),
               ],
             ),
           ),
           PopupMenuItem(
-            value: 'Maternity',
+            value: 'Maternity leave',
             child: Row(
               children: [
                 Icon(
                   Icons.download,
-                  color: Colors.pink,
+                  color: Colors.pinkAccent,
                 ),
-                Text("Export maternity employee to excel"),
+                Text("Export maternity leave"),
               ],
             ),
-          )
+          ),
+          !gValue.disableEditEmp
+              ? PopupMenuItem(
+                  value: 'Import',
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.upload,
+                        color: Colors.green,
+                      ),
+                      Text("Import from excel"),
+                    ],
+                  ),
+                )
+              : PopupMenuItem(
+                  value: 'Maternity woking',
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.download,
+                        color: Colors.purple,
+                      ),
+                      Text("Export maternity woking"),
+                    ],
+                  ),
+                )
         ];
       },
     );
   }
-}
-
-class DonutChartEmployee {
-  DonutChartEmployee(this.x, this.y, [this.color]);
-  final String x;
-  final double y;
-  final Color? color;
 }

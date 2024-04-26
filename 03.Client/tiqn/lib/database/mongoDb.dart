@@ -16,7 +16,7 @@ class MongoDb {
     var db = Db("mongodb://$ipServer:27017/tiqn");
     await db.open();
     // colEmployee = db.collection('Employee');
-    colEmployee = db.collection('data');
+    colEmployee = db.collection('Employee');
     colAttLog = db.collection('AttLog');
     colShift = db.collection('Shift');
     colShiftRegister = db.collection('ShiftRegister');
@@ -138,7 +138,7 @@ class MongoDb {
 
   Future<List<OtRegister>> getOTRegisterByRangeDate(
       DateTime timneBegin, DateTime timeEnd) async {
-    print('getOTRegister : form $timneBegin   to $timeEnd');
+    // print('getOTRegister : form $timneBegin   to $timeEnd');
     List<OtRegister> result = [], temp = [];
     DateTime date = timneBegin;
     if (timneBegin.day != timeEnd.day) {
