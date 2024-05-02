@@ -16,6 +16,7 @@ import 'package:intl/intl.dart';
 import 'package:tiqn/main.dart';
 import 'package:tiqn/tools/myFunction.dart';
 import 'package:tiqn/tools/myfile.dart';
+import 'package:toastification/toastification.dart';
 
 class AttLogUI extends StatefulWidget {
   const AttLogUI({super.key});
@@ -33,7 +34,7 @@ class _AttLogUIState extends State<AttLogUI>
   late DateTime dateAddRecord;
   var listOfEmpIdPresent = [];
   late final PlutoGridStateManager stateManager;
-  bool firstBuild = true;
+  bool firstBuild = true, isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -57,8 +58,9 @@ class _AttLogUIState extends State<AttLogUI>
     if (gValue.attLogs.length != newList.length) {
       gValue.attLogs = newList;
       print('Data changed => ${newList.length}');
-      setState(() {
-        if (!firstBuild) {
+
+      if (!firstBuild) {
+        setState(() {
           var temp = gValue.attLogs.map((e) => e.empId).toList();
           List<ShiftRegister> shift2 = gValue.shiftRegisters
               .where((element) => element.shift == 'Shift 2')
@@ -72,8 +74,9 @@ class _AttLogUIState extends State<AttLogUI>
           rows = getRows(gValue.attLogs);
           stateManager.removeRows(stateManager.rows);
           stateManager.appendRows(rows);
-        }
-      });
+        });
+        isLoading = false;
+      }
     }
   }
 
@@ -95,6 +98,7 @@ class _AttLogUIState extends State<AttLogUI>
 
   @override
   Widget build(BuildContext context) {
+    print('timeBegin : $timeBegin       timeEnd: $timeEnd');
     return SafeArea(
         child: Scaffold(
             body: Row(
@@ -135,17 +139,35 @@ class _AttLogUIState extends State<AttLogUI>
             Row(children: [
               TextButton.icon(
                 onPressed: () {
-                  gValue.employeeAbsents.clear();
-                  for (var emp in gValue.employees) {
-                    if (emp.workStatus != 'Resigned' &&
-                        emp.workStatus != 'Maternity leave' &&
-                        !listOfEmpIdPresent.contains(emp.empId)) {
-                      gValue.employeeAbsents.add(emp);
+                  if (isLoading) {
+                    toastification.show(
+                      backgroundColor: Colors.orange,
+                      alignment: Alignment.center,
+                      context: context,
+                      title: Text('Data not yet loaded, try again!'),
+                      autoCloseDuration: const Duration(seconds: 3),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color(0x07000000),
+                          blurRadius: 16,
+                          offset: Offset(0, 16),
+                          spreadRadius: 0,
+                        )
+                      ],
+                    );
+                  } else {
+                    gValue.employeeAbsents.clear();
+                    for (var emp in gValue.employees) {
+                      if (emp.workStatus != 'Resigned' &&
+                          emp.workStatus != 'Maternity leave' &&
+                          !listOfEmpIdPresent.contains(emp.empId)) {
+                        gValue.employeeAbsents.add(emp);
+                      }
                     }
-                  }
 
-                  MyFile.createExcelEmployee(
-                      gValue.employeeAbsents, true, "Absents");
+                    MyFile.createExcelEmployee(
+                        gValue.employeeAbsents, true, "Absents");
+                  }
                 },
                 icon: const Icon(
                   Icons.supervised_user_circle,
@@ -157,16 +179,34 @@ class _AttLogUIState extends State<AttLogUI>
                 onPressed: () async {
                   List<OtRegister> otRegisterAll =
                       await gValue.mongoDb.getOTRegisterAll();
-                  final data = MyFuntion.createTimeSheets(
-                      gValue.employees,
-                      gValue.shifts,
-                      gValue.shiftRegisters,
-                      otRegisterAll,
-                      gValue.attLogs,
-                      timeBegin,
-                      timeEnd);
-                  MyFile.createExcelTimeSheet(data,
-                      'Timsheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
+                  if (isLoading) {
+                    toastification.show(
+                      backgroundColor: Colors.orange,
+                      alignment: Alignment.center,
+                      context: context,
+                      title: Text('Data not yet loaded, try again!'),
+                      autoCloseDuration: const Duration(seconds: 3),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color(0x07000000),
+                          blurRadius: 16,
+                          offset: Offset(0, 16),
+                          spreadRadius: 0,
+                        )
+                      ],
+                    );
+                  } else {
+                    MyFile.createExcelTimeSheet(
+                        MyFuntion.createTimeSheets(
+                            gValue.employees,
+                            gValue.shifts,
+                            gValue.shiftRegisters,
+                            otRegisterAll,
+                            gValue.attLogs,
+                            timeBegin,
+                            timeEnd),
+                        'Timsheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
+                  }
                 },
                 icon: const Icon(
                   Icons.timelapse,
@@ -657,7 +697,7 @@ class _AttLogUIState extends State<AttLogUI>
         title: 'objectId',
         field: 'objectId',
         type: PlutoColumnType.text(),
-        hide: kDebugMode ? false : true,
+        hide: !gValue.showObjectId,
       )
     ];
     return columns;
@@ -686,6 +726,7 @@ class _AttLogUIState extends State<AttLogUI>
   /// The method for [DateRangePickerSelectionChanged] callback, which will be
   /// called whenever a selection changed on the date picker widget.
   void onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
+    isLoading = true;
     setState(() {
       if (args.value is PickerDateRange) {
         timeBegin = args.value.startDate;
@@ -703,7 +744,6 @@ class _AttLogUIState extends State<AttLogUI>
         minute: 59,
       ));
     });
-
     // print(
     //     'onSelectionChanged : timeBegin: $timeBegin       timeEnd: $timeEnd ');
   }

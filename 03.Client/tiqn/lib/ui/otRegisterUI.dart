@@ -267,7 +267,8 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                   setState(() {
                     newOrEdit = '';
                   });
-                  if (row['objectId'].toString().isEmpty) {
+                  if (row['objectId'].toString().isEmpty ||
+                      row['objectId'] == null) {
                     rendererContext.stateManager
                         .removeRows([rendererContext.row]);
                   } else {
@@ -421,7 +422,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
         title: 'objectId',
         field: 'objectId',
         type: PlutoColumnType.text(),
-        hide: kDebugMode ? false : true,
+        hide: !gValue.showObjectId,
       )
     ];
     return columns;

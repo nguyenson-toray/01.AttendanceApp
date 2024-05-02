@@ -250,6 +250,7 @@ class MyFuntion {
     List<TimeSheet> result = [];
     DateTime dateTemp = timeBegin;
     List<DateTime> dates = [];
+
     if (employees.isEmpty || attLogs.isEmpty) {
       return result;
     }
@@ -267,7 +268,7 @@ class MyFuntion {
       var listOfEmpIdPresent = temp.toSet().toList();
       List<String> empIdShift1 = [],
           empIdShift2 = [],
-          empIdCanteen = [],
+          // empIdCanteen = [],
           empIdOT = [];
       shiftRegisters.forEach((element) {
         if (element.fromDate.isBefore(date) && element.toDate.isAfter(date)) {
@@ -275,9 +276,10 @@ class MyFuntion {
             empIdShift1.add(element.empId);
           } else if (element.shift == 'Shift 2') {
             empIdShift2.add(element.empId);
-          } else if (element.shift == 'Canteen') {
-            empIdCanteen.add(element.empId);
           }
+          // else if (element.shift == 'Canteen') {
+          //   empIdCanteen.add(element.empId);
+          // }
         }
       });
 

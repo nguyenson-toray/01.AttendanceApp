@@ -123,9 +123,14 @@ class Employee {
           : null,
       supporting:
           map['supporting'] != null ? map['supporting'] as String : null,
-      // dob: map['dob'] != null ? map['dob'] : null,
-      dob: DateTime.utc(1900),
-      joiningDate: map['joiningDate'] != null ? map['joiningDate'] : null,
+      dob: map['dob'].runtimeType.toString().contains('DateTime')
+          ? map['dob']
+          : DateTime.utc(1900),
+      // dob: DateTime.utc(1900),
+      joiningDate:
+          map['joiningDate'].runtimeType.toString().contains('DateTime')
+              ? map['joiningDate']
+              : DateTime.utc(1900),
       workStatus: map['workStatus'] != null ? map['workStatus'] as int : null,
       maternity: map['maternity'] != null ? map['maternity'] as int : null,
     );

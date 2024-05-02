@@ -93,6 +93,13 @@ class _HRUIState extends State<HRUI>
                     ),
                     text: "OT Register",
                   ),
+                  // Tab(
+                  //   icon: Icon(
+                  //     Icons.qr_code,
+                  //     color: Colors.orangeAccent,
+                  //   ),
+                  //   text: "qr_code",
+                  // ),
                 ]),
           ),
           body: TabBarView(
@@ -100,8 +107,9 @@ class _HRUIState extends State<HRUI>
             children: const [
               EmployeeUI(),
               AttLogUI(),
-              ShiftRegisterUI(), OtRegisterUI()
-              // AttReportUI(),
+              ShiftRegisterUI(),
+              OtRegisterUI(),
+              // ScanQr()
             ],
           )),
     );

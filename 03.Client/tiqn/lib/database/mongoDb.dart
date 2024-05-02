@@ -5,22 +5,35 @@ import 'package:tiqn/database/otRegister.dart';
 import 'package:tiqn/database/shift.dart';
 import 'package:tiqn/database/shiftRegister.dart';
 import 'package:bson/bson.dart';
+import 'package:tiqn/gValue.dart';
 
 class MongoDb {
-  String ipServer =
-      // '192.168.1.11';
-      'localhost';
-  late var colEmployee, colAttLog, colShift, colShiftRegister, colOtRegister;
+  String ipServer = '192.168.1.11';
+  // 'localhost';
+  late var colEmployee,
+      colAttLog,
+      colShift,
+      colShiftRegister,
+      colOtRegister,
+      colConfig;
   late Db db;
   initDB() async {
     var db = Db("mongodb://$ipServer:27017/tiqn");
     await db.open();
-    // colEmployee = db.collection('Employee');
     colEmployee = db.collection('Employee');
     colAttLog = db.collection('AttLog');
     colShift = db.collection('Shift');
     colShiftRegister = db.collection('ShiftRegister');
     colOtRegister = db.collection('OtRegister');
+    colConfig = db.collection('Config');
+  }
+
+  getConfig() async {
+    List<Map<String, dynamic>> result;
+    result = await colConfig.find().toList();
+    gValue.allowAllOt = result.first['allowAllOt'];
+    gValue.defaultOt2H = result.first['defaultOt2H'];
+    gValue.showObjectId = bool.parse(result.first['showObjectId']);
   }
 
   Future<List<Shift>> getShifts() async {
@@ -77,8 +90,8 @@ class MongoDb {
             // .sortBy('timestamp', descending: true)
             )
         .forEach((log) => {result.add(AttLog.fromMap(log))});
-    // print(
-    //     'getAttLogs ${timneBegin}  to ${timeEnd} => ${result.length} records');
+    print(
+        'getAttLogs ${timneBegin}  to ${timeEnd} => ${result.length} records');
     return result;
   }
 
@@ -90,6 +103,7 @@ class MongoDb {
   }
 
   Future<void> insertAttLogs(List<AttLog> logs) async {
+    if (logs.isEmpty) return;
     List<Map<String, dynamic>> maps = [];
     for (var element in logs) {
       maps.add(element.toMap());

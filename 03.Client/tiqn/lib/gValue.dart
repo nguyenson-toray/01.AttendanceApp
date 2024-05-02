@@ -26,8 +26,7 @@ class gValue {
   static List<Shift> shifts = <Shift>[];
   static List<ShiftRegister> shiftRegisters = <ShiftRegister>[];
   static List<OtRegister> otRegisters = <OtRegister>[];
-  static bool allowAllOt = false;
-  static bool defaultOt2H = true;
+  static bool allowAllOt = false, defaultOt2H = true, showObjectId = false;
   static bool miniInfoEmployee = true, disableEditEmp = true;
 
   // static List<AttReport> attReports = <AttReport>[];

@@ -36,6 +36,7 @@ class _EmployeeUIState extends State<EmployeeUI>
   }
 
   Future<void> refreshData() async {
+    await gValue.mongoDb.getConfig();
     if (!pauseLoadData) {
       final newList = await gValue.mongoDb.getEmployees();
       if (checkDiff(gValue.employees, newList)) {

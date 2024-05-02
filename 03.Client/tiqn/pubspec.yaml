@@ -64,6 +64,7 @@ dependencies:
   path_provider: any
   intl: any
   slide_digital_clock: ^1.0.3
+  toastification: ^1.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

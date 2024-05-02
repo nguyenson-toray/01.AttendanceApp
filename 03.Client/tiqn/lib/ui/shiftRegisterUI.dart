@@ -278,7 +278,8 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                   setState(() {
                     newOrEdit = '';
                   });
-                  if (row['objectId'].toString().isEmpty) {
+                  if (row['objectId'].toString().isEmpty ||
+                      row['objectId'] == null) {
                     rendererContext.stateManager
                         .removeRows([rendererContext.row]);
                   } else {
@@ -409,15 +410,15 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
         width: 80,
         title: 'Shift',
         field: 'shift',
-        type: PlutoColumnType.select(['Day', 'Canteen', 'Shift 1', 'Shift 2'],
-            defaultValue: 'Day'),
+        type: PlutoColumnType.select(['Shift 1', 'Shift 2', 'Day', 'Canteen'],
+            defaultValue: 'Shift 1'),
       ),
       PlutoColumn(
         width: 350,
         title: 'objectId',
         field: 'objectId',
         type: PlutoColumnType.text(),
-        hide: kDebugMode ? false : true,
+        hide: !gValue.showObjectId,
       )
     ];
     return columns;
