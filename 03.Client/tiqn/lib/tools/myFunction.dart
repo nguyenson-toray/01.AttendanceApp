@@ -250,7 +250,6 @@ class MyFuntion {
     List<TimeSheet> result = [];
     DateTime dateTemp = timeBegin;
     List<DateTime> dates = [];
-
     if (employees.isEmpty || attLogs.isEmpty) {
       return result;
     }
@@ -293,7 +292,10 @@ class MyFuntion {
       });
       empIdOT = otRegistersPeriod.map((e) => e.empId).toList();
 
-      for (var emp in employees.where((element) => element.workStatus == 1)) {
+      for (var emp in employees.where((element) =>
+          (!element.workStatus.toString().contains('Resigned') ||
+              (element.workStatus.toString().contains('Resigned') &&
+                  date.isBefore(element.resignOn!))))) {
         List<DateTime>? logsTime;
         List<AttLog> logs =
             dayLogs.where((log) => (log.empId == emp.empId)).toList();
@@ -301,122 +303,41 @@ class MyFuntion {
         double normalHours = 8, ot = 0;
         String shift = 'Day';
         int restHour = 1;
-        bool isOt = false;
+        DateTime shiftTimeBegin =
+            DateTime.utc(date.year, date.month, date.day, 8);
+        DateTime shiftTimeEnd =
+            DateTime.utc(date.year, date.month, date.day, 17);
 
-        DateTime shiftTimeBegin = DateTime.utc(
-            date.year,
-            date.month,
-            date.day,
-            int.parse(shifts
-                .firstWhere((element) => element.shift == 'Day')
-                .begin
-                .split(':')[0]),
-            int.parse(shifts
-                .firstWhere((element) => element.shift == 'Day')
-                .begin
-                .split(':')[1]),
-            0);
-        DateTime shiftTimeEnd = DateTime.utc(
-            date.year,
-            date.month,
-            date.day,
-            int.parse(shifts
-                .firstWhere((element) => element.shift == 'Day')
-                .end
-                .split(':')[0]),
-            int.parse(shifts
-                .firstWhere((element) => element.shift == 'Day')
-                .end
-                .split(':')[1]),
-            0);
-
-        if (emp.group == 'Canteen') {
+        if (emp.section == 'Canteen') {
           shift = 'Canteen';
-          shiftTimeBegin = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Canteen')
-                  .begin
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Canteen')
-                  .begin
-                  .split(':')[1]),
-              0);
-          shiftTimeEnd = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Canteen')
-                  .end
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Canteen')
-                  .end
-                  .split(':')[1]),
-              0);
         } else if (empIdShift1.contains(emp.empId)) {
           shift = 'Shift 1';
-          restHour = 0;
-          shiftTimeBegin = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 1')
-                  .begin
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 1')
-                  .begin
-                  .split(':')[1]),
-              0);
-          shiftTimeEnd = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 1')
-                  .end
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 1')
-                  .end
-                  .split(':')[1]),
-              0);
         } else if (empIdShift2.contains(emp.empId)) {
           shift = 'Shift 2';
-          restHour = 0;
-          shiftTimeBegin = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 2')
-                  .begin
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 2')
-                  .begin
-                  .split(':')[1]),
-              0);
-          shiftTimeEnd = DateTime.utc(
-              date.year,
-              date.month,
-              date.day,
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 2')
-                  .end
-                  .split(':')[0]),
-              int.parse(shifts
-                  .firstWhere((element) => element.shift == 'Shift 2')
-                  .end
-                  .split(':')[1]),
-              0);
         }
+        restHour =
+            shifts.firstWhere((element) => element.shift == shift).restHour;
+        final hourBegin = int.parse(shifts
+            .firstWhere((element) => element.shift == shift)
+            .begin
+            .split(':')[0]);
+        final minuteBegin = int.parse(shifts
+            .firstWhere((element) => element.shift == shift)
+            .begin
+            .split(':')[1]);
+        final hourEnd = int.parse(shifts
+            .firstWhere((element) => element.shift == shift)
+            .end
+            .split(':')[0]);
+        final minuteEnd = int.parse(shifts
+            .firstWhere((element) => element.shift == shift)
+            .end
+            .split(':')[1]);
+
+        shiftTimeBegin = DateTime.utc(
+            date.year, date.month, date.day, hourBegin, minuteBegin);
+        shiftTimeEnd =
+            DateTime.utc(date.year, date.month, date.day, hourEnd, minuteEnd);
         DateTime firstIn = DateTime.utc(2000);
         DateTime lastOut = DateTime.utc(2000);
         DateTime restBegin = shiftTimeBegin.add(Duration(hours: 4));
@@ -434,7 +355,8 @@ class MyFuntion {
           firstIn = logsTime.reduce((a, b) => a.isBefore(b) ? a : b);
           lastOut = logsTime.reduce((a, b) => a.isAfter(b) ? a : b);
 
-          if (emp.workStatus == 1 && emp.maternity == 0) {
+          if (emp.workStatus.toString().contains('pregnant') ||
+              emp.workStatus.toString().contains('child')) {
             shiftTimeEnd = shiftTimeEnd.subtract(Duration(hours: 1));
           }
           if (firstIn.isAtSameMomentAs(lastOut)) {
@@ -491,10 +413,10 @@ class MyFuntion {
               if (!gValue.defaultOt2H) {
                 OtRegister otRegisterEmp = otRegistersPeriod
                     .firstWhere((otRecord) => otRecord.empId == emp.empId);
-                DateTime otBeginAllow = DateTime.utc(date.year, date.month,
-                    date.day, int.parse(otRegisterEmp.fromTime.split(':')[0]));
-                DateTime otEndAllow = DateTime.utc(date.year, date.month,
-                    date.day, int.parse(otRegisterEmp.toTime.split(':')[0]));
+                otBeginAllow = DateTime.utc(date.year, date.month, date.day,
+                    int.parse(otRegisterEmp.fromTime.split(':')[0]));
+                otEndAllow = DateTime.utc(date.year, date.month, date.day,
+                    int.parse(otRegisterEmp.toTime.split(':')[0]));
               }
 
               if (lastOut.isBefore(otEndAllow)) {
@@ -524,7 +446,6 @@ class MyFuntion {
             otHours: ot));
       }
     }
-
     return result;
   }
 }

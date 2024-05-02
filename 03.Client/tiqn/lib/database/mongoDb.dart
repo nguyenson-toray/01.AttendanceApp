@@ -8,8 +8,9 @@ import 'package:bson/bson.dart';
 import 'package:tiqn/gValue.dart';
 
 class MongoDb {
-  String ipServer = '192.168.1.11';
-  // 'localhost';
+  String ipServer =
+      // '192.168.1.11';
+      'localhost';
   late var colEmployee,
       colAttLog,
       colShift,

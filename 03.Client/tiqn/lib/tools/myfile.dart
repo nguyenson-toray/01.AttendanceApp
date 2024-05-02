@@ -122,9 +122,8 @@ class MyFile {
       sheet.getRangeByName('O1').setText('DOB');
       sheet.getRangeByName('P1').setText('Joining date');
       sheet.getRangeByName('Q1').setText('Work status');
-      sheet.getRangeByName('R1').setText('Maternity begin');
-      sheet.getRangeByName('S1').setText('Maternity end');
-      sheet.getRangeByName('A1:S1').cellStyle = styleHeader;
+      sheet.getRangeByName('R1').setText('Resign date');
+      sheet.getRangeByName('A1:R1').cellStyle = styleHeader;
     } else {
       sheet.getRangeByName('A1:H1').cellStyle = styleHeader;
     }
@@ -147,11 +146,16 @@ class MyFile {
         sheet.getRangeByName('L$row').setText('${emp.directIndirect}');
         sheet.getRangeByName('M$row').setText('${emp.sewingNonSewing}');
         sheet.getRangeByName('N$row').setText('${emp.supporting}');
-        sheet.getRangeByName('O$row').setDateTime(emp.dob);
-        sheet.getRangeByName('P$row').setDateTime(emp.joiningDate);
-        sheet.getRangeByName('Q$row').setNumber(emp.workStatus?.toDouble());
-        sheet.getRangeByName('R$row').setNumber(emp.maternity?.toDouble());
-        range = sheet.getRangeByName('A2:S2');
+        sheet
+            .getRangeByName('O$row')
+            .setDateTime(emp.dob?.year == 1900 ? null : emp.dob);
+        sheet.getRangeByName('P$row').setDateTime(
+            emp.joiningDate?.year == 1900 ? null : emp.joiningDate);
+        sheet.getRangeByName('Q$row').setText('${emp.workStatus}');
+        sheet
+            .getRangeByName('R$row')
+            .setDateTime(emp.resignOn?.year == 2099 ? null : emp.resignOn);
+        range = sheet.getRangeByName('A2:R2');
       } else {
         range = sheet.getRangeByName('A2:H2');
       }
@@ -160,6 +164,8 @@ class MyFile {
 
 // Auto-Fit column the range
     range.autoFitColumns();
+    sheet.autoFitColumn(1);
+    sheet.autoFitColumn(4);
 //Save and launch the excel.
     final List<int> bytes = workbook.saveSync();
 //Dispose the document.
@@ -222,6 +228,8 @@ class MyFile {
 
 // Auto-Fit column the range
     range.autoFitColumns();
+    sheet.autoFitColumn(1);
+    sheet.autoFitColumn(4);
 //Save and launch the excel.
     final List<int> bytes = workbook.saveSync();
 //Dispose the document.
@@ -587,7 +595,7 @@ class MyFile {
     workbook.worksheets[0];
     final Worksheet sheet = workbook.worksheets[0];
     sheet.name = 'Timesheets';
-    Range range = sheet.getRangeByName('A2:M2');
+    Range range = sheet.getRangeByName('A2:N2');
     //Creating a new style for header.
     final Style styleHeader = workbook.styles.add('styleHeader');
     styleHeader.bold = true;
@@ -597,6 +605,7 @@ class MyFile {
     // final Style styleOT = workbook.styles.add('styleOT');
     // styleHeader.backColorRgb = Colors.orange;
     // Set the text value FOR HEADER.
+    sheet.getRangeByName('A1:N1').merge();
     sheet.getRangeByName('A1:N2').cellStyle = styleHeader;
     sheet.getRangeByName('A1').setText(fileName);
     sheet.getRangeByName('A2').setText('No');
@@ -611,8 +620,8 @@ class MyFile {
     sheet.getRangeByName('J2').setText('Shift');
     sheet.getRangeByName('K2').setText('Fist In');
     sheet.getRangeByName('L2').setText('Last Out');
-    sheet.getRangeByName('M2').setText('Normal Working (hours)');
-    sheet.getRangeByName('N2').setText('Overtime (hours)');
+    sheet.getRangeByName('M2').setText('Working hours');
+    sheet.getRangeByName('N2').setText('OT hours');
 
     int row = 2;
     for (var timeSheet in timeSheets) {
@@ -649,7 +658,11 @@ class MyFile {
     }
 
     // Auto-Fit column the range
+
     range.autoFitColumns();
+    sheet.autoFitColumn(1);
+    sheet.autoFitColumn(2);
+    sheet.autoFitColumn(5);
 //Save and launch the excel.
     final List<int> bytes = workbook.saveSync();
 //Dispose the document.

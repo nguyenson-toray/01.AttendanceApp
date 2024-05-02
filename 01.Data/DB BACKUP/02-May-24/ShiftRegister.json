@@ -1,0 +1,6 @@
+{"_id":{"$oid":"6632fb15ee76dc0c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0517","name":"Đào Minh Hùng","shift":"Shift 2"}
+{"_id":{"$oid":"6632fb15ee76dd0c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0295","name":"Nguyễn Thị Thu","shift":"Shift 2"}
+{"_id":{"$oid":"6632fb15ee76de0c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0157","name":"Phan Khắc Mẫn","shift":"Shift 2"}
+{"_id":{"$oid":"6632fb15ee76df0c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-1004","name":"Trịnh Hữu Hiệu","shift":"Shift 1"}
+{"_id":{"$oid":"6632fb15ee76e00c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0890","name":"Lê Văn Tồn","shift":"Shift 1"}
+{"_id":{"$oid":"6632fb15ee76e10c5f000000"},"fromDate":{"$date":"2024-03-26T00:00:00Z"},"toDate":{"$date":"2050-01-01T00:00:00Z"},"empId":"TIQN-0291","name":"Nguyễn Duy Toàn","shift":"Shift 1"}

@@ -1,0 +1,4 @@
+{"_id":{"$oid":"662321ac8d9a05d426242d93"},"shift":"Day","begin":"08:00","end":"17:00","restHour":1}
+{"_id":{"$oid":"662321ac8d9a05d426242d94"},"shift":"Canteen","begin":"07:00","end":"16:00","restHour":1}
+{"_id":{"$oid":"662321ac8d9a05d426242d95"},"shift":"Shift 1","begin":"06:00","end":"14:00","restHour":0}
+{"_id":{"$oid":"662321ac8d9a05d426242d96"},"shift":"Shift 2","begin":"14:00","end":"22:00","restHour":0}

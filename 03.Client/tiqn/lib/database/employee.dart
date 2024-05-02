@@ -17,8 +17,8 @@ class Employee {
   String? supporting = '';
   DateTime? dob;
   DateTime? joiningDate;
-  int? workStatus = 1;
-  int? maternity = 0;
+  String? workStatus = 'Working';
+  DateTime? resignOn;
   Employee({
     this.empId,
     this.attFingerId,
@@ -36,7 +36,7 @@ class Employee {
     this.dob,
     this.joiningDate,
     this.workStatus,
-    this.maternity,
+    this.resignOn,
   });
 
   Employee copyWith({
@@ -55,8 +55,8 @@ class Employee {
     String? supporting,
     DateTime? dob,
     DateTime? joiningDate,
-    int? workStatus,
-    int? maternity,
+    String? workStatus,
+    DateTime? resignOn,
   }) {
     return Employee(
       empId: empId ?? this.empId,
@@ -75,7 +75,7 @@ class Employee {
       dob: dob ?? this.dob,
       joiningDate: joiningDate ?? this.joiningDate,
       workStatus: workStatus ?? this.workStatus,
-      maternity: maternity ?? this.maternity,
+      resignOn: resignOn ?? this.resignOn,
     );
   }
 
@@ -94,10 +94,10 @@ class Employee {
       'directIndirect': directIndirect,
       'sewingNonSewing': sewingNonSewing,
       'supporting': supporting,
-      'dob': dob?.millisecondsSinceEpoch,
-      'joiningDate': joiningDate?.millisecondsSinceEpoch,
+      'dob': dob,
+      'joiningDate': joiningDate,
       'workStatus': workStatus,
-      'maternity': maternity,
+      'resignOn': resignOn,
     };
   }
 
@@ -123,16 +123,11 @@ class Employee {
           : null,
       supporting:
           map['supporting'] != null ? map['supporting'] as String : null,
-      dob: map['dob'].runtimeType.toString().contains('DateTime')
-          ? map['dob']
-          : DateTime.utc(1900),
-      // dob: DateTime.utc(1900),
-      joiningDate:
-          map['joiningDate'].runtimeType.toString().contains('DateTime')
-              ? map['joiningDate']
-              : DateTime.utc(1900),
-      workStatus: map['workStatus'] != null ? map['workStatus'] as int : null,
-      maternity: map['maternity'] != null ? map['maternity'] as int : null,
+      dob: map['dob'],
+      joiningDate: map['joiningDate'],
+      workStatus:
+          map['workStatus'] != null ? map['workStatus'] as String : null,
+      resignOn: map['resignOn'],
     );
   }
 
@@ -140,11 +135,6 @@ class Employee {
 
   factory Employee.fromJson(String source) =>
       Employee.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() {
-    return 'Employee(empId: $empId, attFingerId: $attFingerId, name: $name, department: $department, section: $section, group: $group, lineTeam: $lineTeam, gender: $gender, positionE: $positionE, level: $level, directIndirect: $directIndirect, sewingNonSewing: $sewingNonSewing, supporting: $supporting, dob: $dob, joiningDate: $joiningDate, workStatus: $workStatus, maternity: $maternity)';
-  }
 
   @override
   bool operator ==(covariant Employee other) {
@@ -166,7 +156,7 @@ class Employee {
         other.dob == dob &&
         other.joiningDate == joiningDate &&
         other.workStatus == workStatus &&
-        other.maternity == maternity;
+        other.resignOn == resignOn;
   }
 
   @override
@@ -187,6 +177,6 @@ class Employee {
         dob.hashCode ^
         joiningDate.hashCode ^
         workStatus.hashCode ^
-        maternity.hashCode;
+        resignOn.hashCode;
   }
 }

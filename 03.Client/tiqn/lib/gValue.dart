@@ -14,7 +14,7 @@ class gValue {
   static String appName = '';
   static int enrolled = 0;
   static int workingNormal = 0;
-  static int workingMaternity = 0;
+  static int workingPregnantYoungchild = 0;
   static int maternityLeave = 0;
   static int present = 0;
   static int absent = 0;

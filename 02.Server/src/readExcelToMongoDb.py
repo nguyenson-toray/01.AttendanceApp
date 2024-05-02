@@ -1,5 +1,7 @@
 import pandas as pd
 from pymongo import MongoClient
+import schedule
+import time
 from datetime import datetime
 import sys
 import numpy as np
@@ -12,7 +14,7 @@ db = client[database_name]
 collectionEmployee = db["Employee"]
 # Excel file path (replace with your actual path)
 excel_file = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\Toray's employees information All in one.xlsx"
-excel_file = r"D:\Programming\01.AttendanceApp\02.Server\Toray's employees information All in one.xlsx"
+# excel_file = r"D:\Programming\01.AttendanceApp\02.Server\Toray's employees information All in one.xlsx"
 def excelAllInOneToMongoDb() -> int:
     # Read data from Excel using pandas
     data = pd.read_excel(excel_file, keep_default_na=False, na_values='', na_filter=False)
@@ -59,6 +61,7 @@ def excelAllInOneToMongoDb() -> int:
     return count
 
 if __name__ == "__main__":
+    # print(f"Data updated in MongoDB collection : {excelAllInOneToMongoDb()} records")
     print(f"Data updated in MongoDB collection : {excelAllInOneToMongoDb()} records")
     # Close the connection
     client.close()

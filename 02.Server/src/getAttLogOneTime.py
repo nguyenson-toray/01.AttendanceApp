@@ -7,7 +7,7 @@ from datetime import datetime
 sys.path.insert(1, os.path.abspath("./pyzk"))
 from zk import ZK, const
 
-client = pymongo.MongoClient("mongodb://192.168.1.11:27017/")
+client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["tiqn"]  # Replace "mydatabase" with your database name
 collectionEmployee = db["Employee"]
 collectionAttLogMachine = db["AttLogMachine"]
@@ -39,7 +39,7 @@ def get_att_log(machine: ZK, machineNo: int) -> int:
         for attendance in attendances:
             if (attendance.timestamp > lastTime):
                 mydict = {"machineNo": machineNo, "uid": attendance.uid, "attFingerId": int(attendance.user_id),
-                          "empId": 'TIQN-XXXX', "name": 'No name',
+                          "empId": 'No Emp Id', "name": 'No name',
                           "timestamp": attendance.timestamp}
                 for emp in collectionEmployee.find():
                     if (int(emp['attFingerId']) == int(attendance.user_id)):

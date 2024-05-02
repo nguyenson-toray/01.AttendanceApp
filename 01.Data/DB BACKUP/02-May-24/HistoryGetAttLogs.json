@@ -1,0 +1,4 @@
+{"_id":{"$oid":"661f37736a06d74902c5a8c1"},"machine":1,"lastTimeGetAttLogs":{"$date":"2024-05-02T21:27:50.072Z"},"lastCount":8412}
+{"_id":{"$oid":"661f37736a06d74902c5a8c2"},"machine":2,"lastTimeGetAttLogs":{"$date":"2024-05-02T22:05:05.044Z"},"lastCount":1}
+{"_id":{"$oid":"661f37736a06d74902c5a8c3"},"machine":3,"lastTimeGetAttLogs":{"$date":"2024-05-02T22:04:55.35Z"},"lastCount":1}
+{"_id":{"$oid":"661f37736a06d74902c5a8c4"},"machine":4,"lastTimeGetAttLogs":{"$date":"2024-05-02T21:28:12.711Z"},"lastCount":10941}
