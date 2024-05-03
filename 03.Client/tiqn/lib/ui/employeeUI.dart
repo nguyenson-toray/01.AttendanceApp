@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/gValue.dart';
 import 'package:pluto_grid/pluto_grid.dart';
+import 'package:tiqn/tools/myFunction.dart';
 import 'package:tiqn/tools/myfile.dart';
 
 class EmployeeUI extends StatefulWidget {
@@ -43,32 +44,10 @@ class _EmployeeUIState extends State<EmployeeUI>
         setState(() {
           if (!firstBuild) {
             gValue.employees = newList;
-            gValue.enrolled = 0;
-            gValue.workingNormal = 0;
-            gValue.workingPregnantYoungchild = 0;
-            print('Data changed');
-            gValue.employeeIdNames.clear();
-            for (var element in gValue.employees) {
-              if (element.workStatus != 'Resigned') {
-                gValue.enrolled++;
-                gValue.employeeIdNames
-                    .add('${element.empId!}   ${element.name!}');
-                if (element.workStatus.toString().contains('leave')) {
-                  gValue.maternityLeave++;
-                } else {
-                  gValue.workingNormal++;
-                  if (element.workStatus.toString().contains('pregnant') ||
-                      element.workStatus.toString().contains('young')) {
-                    gValue.workingPregnantYoungchild++;
-                  }
-                }
-              }
-            }
-
             stateManager.removeRows(stateManager.rows);
             rows = getRows(gValue.employees);
             stateManager.appendRows(rows);
-            print('maternityLeave : ${gValue.maternityLeave}');
+            MyFuntion.calculateEmployeeStatus();
           }
         });
       }
@@ -78,13 +57,13 @@ class _EmployeeUIState extends State<EmployeeUI>
   bool checkDiff(List<Employee> oldList, List<Employee> newList) {
     bool diff = false;
     if (oldList.length != newList.length) {
-      print('checkDiff : TRUE : Diff length');
+      print('checkDiff Employees: TRUE : Diff length');
       diff = true;
     } else {
       for (int i = 0; i < oldList.length; i++) {
         if (oldList[i] != newList[i]) {
           diff = true;
-          print('checkDiff : TRUE : Diff element');
+          print('checkDiff Employees : TRUE : Diff element');
           break;
         }
       }
@@ -629,24 +608,17 @@ class _EmployeeUIState extends State<EmployeeUI>
                 false,
                 "Maternity Employees");
             break;
-          case 'pregnant':
+          case 'pregnantYoungChild':
             MyFile.createExcelEmployee(
                 gValue.employees
                     .where((element) =>
-                        (element.workStatus.toString().contains('pregnant')))
+                        (element.workStatus.toString().contains('pregnant') ||
+                            element.workStatus.toString().contains('child')))
                     .toList(),
                 false,
-                "Pregnant");
+                "Pregnant - young child");
             break;
-          case 'young child':
-            MyFile.createExcelEmployee(
-                gValue.employees
-                    .where((element) =>
-                        (element.workStatus.toString().contains('child')))
-                    .toList(),
-                false,
-                "Young Child");
-            break;
+
           default:
         }
       },
@@ -689,29 +661,17 @@ class _EmployeeUIState extends State<EmployeeUI>
             ),
           ),
           PopupMenuItem(
-            value: 'pregnant',
+            value: 'pregnantYoungChild',
             child: Row(
               children: [
                 Icon(
                   Icons.download,
                   color: Colors.purple,
                 ),
-                Text("Export pregnant"),
+                Text("Export pregnant, young child"),
               ],
             ),
           ),
-          PopupMenuItem(
-            value: 'young child',
-            child: Row(
-              children: [
-                Icon(
-                  Icons.download,
-                  color: Colors.purple,
-                ),
-                Text("Export young child"),
-              ],
-            ),
-          )
         ];
       },
     );

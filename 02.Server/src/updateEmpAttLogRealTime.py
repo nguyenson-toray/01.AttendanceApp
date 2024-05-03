@@ -25,7 +25,7 @@ collectionLastModifiedExcelData = db["LastModifiedExcelData"]
 
 def floor(datetimeObj):
    return datetimeObj.replace()
-def excelAllInOneToMongoDb():
+def excelAllInOneToMongoDb()-> bool:
     # Read data from Excel using pandas
     excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\Toray's employees information All in one.xlsx"
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
@@ -33,7 +33,7 @@ def excelAllInOneToMongoDb():
     needUpdate = True if lastModifiedFile > lastModifiedDb else False
     if not needUpdate:
         print(f"{excelFile} => No change from {lastModifiedDb} => pass")
-        return
+        return needUpdate
     print(f"{excelFile} => Changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"aio": lastModifiedFile}}
@@ -50,10 +50,6 @@ def excelAllInOneToMongoDb():
         if row["Emp Code"] == '' or row["Emp Code"] == 0 or row["Fullname"] == '' or row["Fullname"] == 0 or row[
             '_id'] == 0 or row['_id'] == '':
             # print(f'BYPASS ROW - Empty Emp Code or Fullname or _id: {row}')
-            continue
-        if row["Working/Resigned"] == '':
-            #row["Working/Resigned"] == 0 or
-            # print(f'BYPASS ROW - Resigned: {row}')
             continue
         if row["Fullname"] == 'Shoji Izumi':
             # print(f'BYPASS ROW - Shoji Izumi: {row}')
@@ -90,18 +86,19 @@ def excelAllInOneToMongoDb():
         # print(f"collection.update_one: {update}")
         collectionEmployee.update_one(filter, update, upsert=True)  # Upsert inserts if no document matches the filter
     print(f" excelAllInOneToMongoDb - {datetime.now()} : {count} records")
+    return needUpdate
 
 
-def excelMaternityToMongoDb():
+def excelMaternityToMongoDb(forceUpdate: bool):
     excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\05.Nurse\Maternity leave\Danh sách nhân viên nữ mang thai. 1.xlsx"
     # check if file changed
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
     lastModifiedDb = collectionLastModifiedExcelData.find_one()['maternity'].replace(microsecond=0)
-    needUpdateMaternity = True if lastModifiedFile > lastModifiedDb else False
+    needUpdateMaternity = forceUpdate if forceUpdate else True if lastModifiedFile > lastModifiedDb else False
     if not needUpdateMaternity:
-        print(f"{excelFile} => No change from {lastModifiedDb} => pass")
+        print(f"{excelFile} =>No need update or no change from {lastModifiedDb} => pass")
         return
-    print(f"{excelFile} => Changed at {lastModifiedFile} => Need update")
+    print(f"{excelFile} =>Need to update, changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"maternity": lastModifiedFile}}
     collectionLastModifiedExcelData.update_one(query, newValue)
@@ -151,16 +148,16 @@ def excelMaternityToMongoDb():
             collectionEmployee.update_one(query, update)
 
 
-def excelResignToMongoDb():
+def excelResignToMongoDb(forceUpdate: bool):
     excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\7 Resigned list\Resigned report.xlsx"
     # check if file changed
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
     lastModifiedDb = collectionLastModifiedExcelData.find_one()['resign'].replace(microsecond=0)
-    needUpdateResign = True if lastModifiedFile > lastModifiedDb else False
+    needUpdateResign =forceUpdate if forceUpdate else True if lastModifiedFile > lastModifiedDb else False
     if not needUpdateResign:
-        print(f"{excelFile} => No change from {lastModifiedDb} => pass")
-        return
-    print(f"{excelFile} => Changed at {lastModifiedFile} => Need update")
+        print(f"{excelFile} =>No need update or No change from {lastModifiedDb} => pass")
+        return forceUpdate
+    print(f"{excelFile} =>Need to update, Changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"resign": lastModifiedFile}}
     collectionLastModifiedExcelData.update_one(query, newValue)
@@ -180,6 +177,7 @@ def excelResignToMongoDb():
             update = {"$set": {'workStatus': 'Resigned', 'resignOn': resignDate}}
             print(f"update {empIdResigned} to resigned on {resignDate}")
             collectionEmployee.update_one(query, update)
+    return forceUpdate
 def live_capture_attendance(machine: ZK, machineNo) -> None:
     conn = None
     try:
@@ -211,6 +209,10 @@ def live_capture_attendance(machine: ZK, machineNo) -> None:
         if conn:
             conn.disconnect()
 
+def updateExceltoMongoDb():
+    needUpdate= excelAllInOneToMongoDb()
+    excelMaternityToMongoDb(needUpdate)
+    excelResignToMongoDb(needUpdate)
 
 if __name__ == "__main__":  # confirms that the code is under main function
 
@@ -219,15 +221,16 @@ if __name__ == "__main__":  # confirms that the code is under main function
     machine3 = ZK('192.168.1.33', port=4370, timeout=5, password=0, force_udp=False, ommit_ping=False)
     machine4 = ZK('192.168.1.34', port=4370, timeout=5, password=0, force_udp=False, ommit_ping=False)
     attMachines = [machine1, machine2, machine3, machine4]
-    # Create a new process
-    # for machine in attMachines:
+
+    # Read excel
+    updateExceltoMongoDb()
+    # Read Att log, excel
     machineNo = 0
     for machine in attMachines:
         machineNo += 1
         Process(target=live_capture_attendance, args=(machine, machineNo)).start()
-    schedule.every().minute.do(excelAllInOneToMongoDb)
-    schedule.every().minute.do(excelMaternityToMongoDb)
-    schedule.every().minute.do(excelResignToMongoDb)
+        # Create a new process
+    schedule.every().minute.do(updateExceltoMongoDb)
     while True:
         schedule.run_pending()
         time.sleep(1)

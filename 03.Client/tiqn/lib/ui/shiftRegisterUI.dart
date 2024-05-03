@@ -235,13 +235,13 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                         .value
                         .value ==
                     'Shift 1') {
-                  return Color.fromARGB(255, 197, 207, 238);
+                  return Color.fromARGB(255, 199, 200, 247);
                 } else if (rowColorContext.row.cells.entries
                         .elementAt(4)
                         .value
                         .value ==
                     'Shift 2') {
-                  return Color.fromARGB(255, 168, 184, 231);
+                  return Color.fromARGB(255, 201, 214, 251);
                 }
 
                 return Colors.white;

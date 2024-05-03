@@ -102,15 +102,18 @@ class _HRUIState extends State<HRUI>
                   // ),
                 ]),
           ),
-          body: TabBarView(
-            controller: tabController,
-            children: const [
-              EmployeeUI(),
-              AttLogUI(),
-              ShiftRegisterUI(),
-              OtRegisterUI(),
-              // ScanQr()
-            ],
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TabBarView(
+              controller: tabController,
+              children: const [
+                EmployeeUI(),
+                AttLogUI(),
+                ShiftRegisterUI(),
+                OtRegisterUI(),
+                // ScanQr()
+              ],
+            ),
           )),
     );
   }

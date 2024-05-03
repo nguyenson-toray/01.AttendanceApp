@@ -61,7 +61,6 @@ def excelAllInOneToMongoDb() -> int:
     return count
 
 if __name__ == "__main__":
-    # print(f"Data updated in MongoDB collection : {excelAllInOneToMongoDb()} records")
     print(f"Data updated in MongoDB collection : {excelAllInOneToMongoDb()} records")
     # Close the connection
     client.close()

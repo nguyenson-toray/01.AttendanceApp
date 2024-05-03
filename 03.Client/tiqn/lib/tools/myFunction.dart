@@ -215,28 +215,51 @@ class MyFuntion {
     return report;
   }
 */
-  static List<Employee> getListEmployeeAbsent(
-      List<Employee> emps, List<AttLog> logs) {
-    List<Employee> absents = [];
-    List<String> idPresent = [];
-    List<String> idAllEmps = [];
+  static void calculateAttendanceStatus() {
+    gValue.employeeIdPresents.clear();
+    gValue.employeeIdAbsents.clear();
+    var temp = gValue.attLogs.map((e) => e.empId).toList();
+    List<ShiftRegister> shift2 = gValue.shiftRegisters
+        .where((element) => element.shift == 'Shift 2')
+        .toList();
 
-    for (var element in logs) {
-      idPresent.add(element.empId ?? 'TIQN-9999');
-    }
-    for (var element in emps) {
-      if (element.workStatus == 'Working') {
-        idAllEmps.add(element.empId ?? 'TIQN-9999');
+    gValue.employeeIdPresents = temp.toSet().toList();
+    gValue.employeeIdPresents
+        .addAll(shift2.map((e) => e.empId).toSet().toList());
+    gValue.employeeIdPresents.removeWhere((element) => element == 'No Emp Id');
+    gValue.employeeIdAbsents = gValue.employeeIdWorkings
+        .toSet()
+        .difference(gValue.employeeIdPresents.toSet())
+        .toList();
+
+    print(
+        'calculateAttendanceStatus :employeeIdPresents.length: ${gValue.employeeIdPresents.length}     employeeIdAbsents.length: ${gValue.employeeIdAbsents.length}');
+  }
+
+  static void calculateEmployeeStatus() {
+    gValue.enrolled = 0;
+    gValue.employeeIdNames.clear();
+    gValue.employeeIdMaternityLeaves.clear();
+    gValue.employeeIdPregnantYoungchilds.clear();
+    gValue.employeeIdWorkings.clear();
+    for (var element in gValue.employees) {
+      if (element.workStatus != 'Resigned') {
+        gValue.enrolled++;
+
+        gValue.employeeIdNames.add('${element.empId!}   ${element.name!}');
+        if (element.workStatus == 'Maternity leave') {
+          gValue.employeeIdMaternityLeaves.add(element.empId!);
+        } else {
+          gValue.employeeIdWorkings.add(element.empId!);
+          if (element.workStatus.toString().contains('pregnant') ||
+              element.workStatus.toString().contains('young')) {
+            gValue.employeeIdPregnantYoungchilds.add(element.empId!);
+          }
+        }
       }
     }
-    idPresent.toSet().toList();
-    idAllEmps.toSet().toList();
-    idAllEmps.removeWhere((element) => idPresent.contains(element));
-    for (var id in idAllEmps) {
-      absents.add(emps.firstWhere((emp) => emp.empId == id));
-    }
-    print("getListEmployeeAbsent => ${absents.length}");
-    return absents;
+    print(
+        'calculateEmployeeStatus : employeeIdNames.length: ${gValue.employeeIdNames.length}     employeeIdWorkings.length: ${gValue.employeeIdWorkings.length} employeeIdMaternityLeaves.length: ${gValue.employeeIdMaternityLeaves.length}  employeeIdPregnantYoungchilds.length: ${gValue.employeeIdPregnantYoungchilds.length}');
   }
 
   static List<TimeSheet> createTimeSheets(

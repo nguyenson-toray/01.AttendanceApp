@@ -13,11 +13,6 @@ class gValue {
   static List<String> mainFuntions = [];
   static String appName = '';
   static int enrolled = 0;
-  static int workingNormal = 0;
-  static int workingPregnantYoungchild = 0;
-  static int maternityLeave = 0;
-  static int present = 0;
-  static int absent = 0;
   static int inLate = 0;
   static int outEarly = 0;
   static MongoDb mongoDb = MongoDb();
@@ -32,7 +27,11 @@ class gValue {
   // static List<AttReport> attReports = <AttReport>[];
   static List<Employee> employees = <Employee>[];
   static List<String> employeeIdNames = [];
-  static List<Employee> employeeAbsents = <Employee>[];
+  static List<String> employeeIdAbsents = [];
+  static List<String> employeeIdPresents = [];
+  static List<String> employeeIdWorkings = [];
+  static List<String> employeeIdMaternityLeaves = [];
+  static List<String> employeeIdPregnantYoungchilds = [];
   static String urlUpdateApp = '';
   static String latestVersion = '';
   static String updateBinaryUrl = '';

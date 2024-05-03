@@ -9,6 +9,7 @@ import 'package:pluto_grid/pluto_grid.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:tiqn/database/attLog.dart';
+import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/database/otRegister.dart';
 import 'package:tiqn/database/shiftRegister.dart';
 import 'package:tiqn/gValue.dart';
@@ -56,24 +57,15 @@ class _AttLogUIState extends State<AttLogUI>
   Future<void> refreshData(DateTime timeBegin, DateTime timeEnd) async {
     List<AttLog> newList = await gValue.mongoDb.getAttLogs(timeBegin, timeEnd);
     if (gValue.attLogs.length != newList.length) {
-      gValue.attLogs = newList;
-      print('Data changed => ${newList.length}');
+      print('refreshData AttLog => changed => ${newList.length}');
 
       if (!firstBuild) {
         setState(() {
-          var temp = gValue.attLogs.map((e) => e.empId).toList();
-          List<ShiftRegister> shift2 = gValue.shiftRegisters
-              .where((element) => element.shift == 'Shift 2')
-              .toList();
-
-          listOfEmpIdPresent = temp.toSet().toList();
-          listOfEmpIdPresent
-              .addAll(shift2.map((e) => e.empId).toSet().toList());
-          gValue.present = listOfEmpIdPresent.length;
-          gValue.absent = gValue.workingNormal - gValue.present;
+          gValue.attLogs = newList;
           rows = getRows(gValue.attLogs);
           stateManager.removeRows(stateManager.rows);
           stateManager.appendRows(rows);
+          MyFuntion.calculateAttendanceStatus();
         });
         isLoading = false;
       }
@@ -98,7 +90,6 @@ class _AttLogUIState extends State<AttLogUI>
 
   @override
   Widget build(BuildContext context) {
-    print('timeBegin : $timeBegin       timeEnd: $timeEnd');
     return SafeArea(
         child: Scaffold(
             body: Row(
@@ -156,17 +147,12 @@ class _AttLogUIState extends State<AttLogUI>
                       ],
                     );
                   } else {
-                    gValue.employeeAbsents.clear();
-                    for (var emp in gValue.employees) {
-                      if (emp.workStatus != 'Resigned' &&
-                          emp.workStatus != 'Maternity leave' &&
-                          !listOfEmpIdPresent.contains(emp.empId)) {
-                        gValue.employeeAbsents.add(emp);
-                      }
+                    List<Employee> absents = [];
+                    for (var empId in gValue.employeeIdAbsents) {
+                      absents.add(gValue.employees
+                          .firstWhere((element) => element.empId == empId));
                     }
-
-                    MyFile.createExcelEmployee(
-                        gValue.employeeAbsents, true, "Absents");
+                    MyFile.createExcelEmployee(absents, true, "Absents");
                   }
                 },
                 icon: const Icon(
@@ -477,8 +463,11 @@ class _AttLogUIState extends State<AttLogUI>
             //     'Total Enrolled : ${gValue.enrolled}  -  Total Working Normal : ${gValue.workingNormal}\nMaternity leave : ${gValue.maternityLeave}\nPresent : ${gValue.present}\nAbsent : ${gValue.absent}'),
 
             timeBegin.day == timeEnd.day
-                ? chartPresent(gValue.workingNormal, gValue.maternityLeave,
-                    gValue.present, gValue.absent)
+                ? chartPresent(
+                    gValue.employeeIdPresents.length,
+                    gValue.employeeIdMaternityLeaves.length,
+                    gValue.employeeIdPresents.length,
+                    gValue.employeeIdAbsents.length)
                 : Container(),
           ],
         ),
@@ -682,9 +671,10 @@ class _AttLogUIState extends State<AttLogUI>
       PlutoColumn(
         title: 'Time',
         field: 'timeStamp',
-        type: PlutoColumnType.time(
-            defaultValue:
-                timeEnd.appliedFromTimeOfDay(TimeOfDay(hour: 8, minute: 0))),
+        type: PlutoColumnType.text(),
+        // type: PlutoColumnType.time(
+        //     defaultValue:
+        //         timeEnd.appliedFromTimeOfDay(TimeOfDay(hour: 8, minute: 0))),
       ),
       PlutoColumn(
         title: 'Machine',
@@ -712,7 +702,9 @@ class _AttLogUIState extends State<AttLogUI>
             'attFingerId': PlutoCell(value: log.attFingerId),
             'empId': PlutoCell(value: log.empId),
             'name': PlutoCell(value: log.name),
-            'timeStamp': PlutoCell(value: log.timestamp),
+            'timeStamp': PlutoCell(
+                value:
+                    DateFormat("dd-MMM-yyyy hh:mm:ss").format(log.timestamp)),
             'machineNo': PlutoCell(value: log.machineNo),
             'objectId': PlutoCell(value: log.objectId),
           },
@@ -770,10 +762,10 @@ class _AttLogUIState extends State<AttLogUI>
       // ChartPresent('Total enrolled', gValue.enrolled.toDouble(), Colors.blue),
       // ChartPresent('Total working normal', gValue.workingNormal.toDouble(),
       //     Colors.purple),
-      ChartPresent('Maternity leave', gValue.maternityLeave.toDouble(),
-          Colors.purpleAccent),
-      ChartPresent('Present', gValue.present.toDouble(), Colors.green[400]),
-      ChartPresent('Absent', gValue.absent.toDouble(), Colors.orange),
+      ChartPresent(
+          'Maternity leave', maternityLeave.toDouble(), Colors.purpleAccent),
+      ChartPresent('Present', present.toDouble(), Colors.green[400]),
+      ChartPresent('Absent', absent.toDouble(), Colors.orange),
     ];
     return SizedBox(
       width: 500,

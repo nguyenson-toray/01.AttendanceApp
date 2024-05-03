@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tiqn/gValue.dart';
+import 'package:tiqn/ui/hrUI.dart';
 import 'package:tiqn/ui/mainPage.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const MainPage(),
+      home: const HRUI(),
       debugShowCheckedModeBanner: false,
       // localizationsDelegates: GlobalMaterialLocalizations.delegates,
       // supportedLocales: const [
