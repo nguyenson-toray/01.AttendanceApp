@@ -56,9 +56,9 @@ class _EmployeeUIState extends State<EmployeeUI>
 
   bool checkDiff(List<Employee> oldList, List<Employee> newList) {
     bool diff = false;
-    if (newList.length == 0)
+    if (newList.isEmpty) {
       return false;
-    else if (oldList.length != newList.length) {
+    } else if (oldList.length != newList.length) {
       print('checkDiff Employees: TRUE : Diff length');
       diff = true;
     } else {
@@ -626,7 +626,7 @@ class _EmployeeUIState extends State<EmployeeUI>
       },
       itemBuilder: (BuildContext bc) {
         return [
-          PopupMenuItem(
+          const PopupMenuItem(
             value: 'all',
             child: Row(
               children: [
@@ -638,7 +638,7 @@ class _EmployeeUIState extends State<EmployeeUI>
               ],
             ),
           ),
-          PopupMenuItem(
+          const PopupMenuItem(
             value: 'working',
             child: Row(
               children: [
@@ -650,7 +650,7 @@ class _EmployeeUIState extends State<EmployeeUI>
               ],
             ),
           ),
-          PopupMenuItem(
+          const PopupMenuItem(
             value: 'maternity leave',
             child: Row(
               children: [
@@ -662,7 +662,7 @@ class _EmployeeUIState extends State<EmployeeUI>
               ],
             ),
           ),
-          PopupMenuItem(
+          const PopupMenuItem(
             value: 'pregnantYoungChild',
             child: Row(
               children: [

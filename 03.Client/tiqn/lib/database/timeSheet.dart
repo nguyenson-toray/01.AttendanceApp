@@ -54,7 +54,7 @@ class TimeSheet {
       section: section ?? this.section,
       group: group ?? this.group,
       lineTeam: lineTeam ?? this.lineTeam,
-      shift: shift ?? this.shift,
+      shift: shift ?? shift,
       firstIn: firstIn ?? this.firstIn,
       lastOut: lastOut ?? this.lastOut,
       normalHours: normalHours ?? this.normalHours,

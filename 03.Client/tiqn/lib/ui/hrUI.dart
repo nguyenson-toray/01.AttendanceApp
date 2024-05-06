@@ -24,7 +24,7 @@ class _HRUIState extends State<HRUI>
     // TODO: implement initState
     tabController = TabController(length: 4, vsync: this);
     final department = jsonDecode(gValue.departmentJson);
-    Future.delayed(Duration(milliseconds: 300)).then((value) => getHrData());
+    Future.delayed(const Duration(milliseconds: 300)).then((value) => getHrData());
     Timer.periodic(const Duration(seconds: 1), (_) => checkDbState());
     super.initState();
   }
@@ -122,13 +122,13 @@ class _HRUIState extends State<HRUI>
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: gValue.isConectedDb ? 0 : 1,
-                  child: LinearProgressIndicator(
+                  child: const LinearProgressIndicator(
                     color: Colors.redAccent,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height - 90,
                   width: double.maxFinite,
                   child: TabBarView(

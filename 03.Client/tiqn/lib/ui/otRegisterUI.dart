@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -49,9 +47,9 @@ class _OtRegisterUIState extends State<OtRegisterUI>
 
   bool checkDiff(List<OtRegister> oldList, List<OtRegister> newList) {
     bool diff = false;
-    if (newList.length == 0)
+    if (newList.isEmpty) {
       return false;
-    else if (oldList.length != newList.length) {
+    } else if (oldList.length != newList.length) {
       print('checkDiff OtRegister : TRUE : Diff length');
       diff = true;
     } else {
@@ -119,9 +117,9 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                     initialSelectedDate: DateTime.now(),
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 Text('OT employees: $countOt'),
-                Divider(),
+                const Divider(),
                 TextButton.icon(
                   onPressed: () {
                     setState(() {
@@ -131,11 +129,11 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                       stateManager.prependNewRows();
                     });
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add_box,
                     color: Colors.greenAccent,
                   ),
-                  label: Text('Add one record'),
+                  label: const Text('Add one record'),
                 ),
                 TextButton.icon(
                   onPressed: () async {
@@ -262,7 +260,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                 onPressed: () {
                   var row = rendererContext.row.toJson();
                   print(row);
-                  var style = TextStyle(
+                  var style = const TextStyle(
                       color: Colors.redAccent,
                       fontSize: 16,
                       fontWeight: FontWeight.bold);
@@ -318,12 +316,12 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                           'fromDate': DateFormat('dd-MMM-yyyy')
                               .parseUtc(stateManager
                                   .currentRow?.cells['fromDate']?.value)
-                              .add(Duration(
+                              .add(const Duration(
                                   hours: 23, minutes: 59, seconds: 59)),
                           'toDate': DateFormat('dd-MMM-yyyy')
                               .parseUtc(stateManager
                                   .currentRow?.cells['toDate']?.value)
-                              .add(Duration(
+                              .add(const Duration(
                                   hours: 23, minutes: 59, seconds: 59)),
                           'empId':
                               stateManager.currentRow?.cells['empId']?.value,
@@ -393,7 +391,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
         sort: PlutoColumnSort.descending,
         type: PlutoColumnType.date(
             format: "dd-MMM-yyyy",
-            defaultValue: DateTime.now().add(Duration(days: 31))),
+            defaultValue: DateTime.now().add(const Duration(days: 31))),
       ),
       PlutoColumn(
         title: 'Employee ID',
@@ -455,16 +453,16 @@ class _OtRegisterUIState extends State<OtRegisterUI>
   bool get wantKeepAlive => true;
 
   checkNewOtRegisterEditBeforeImport(Map<String, dynamic> newOtRegisterMap) {
-    gValue.otRegisters.forEach((currentOtRegister) {
+    for (var currentOtRegister in gValue.otRegisters) {
       if (currentOtRegister.toDate.isAfter(newOtRegisterMap['fromDate']) &&
           currentOtRegister.empId == newOtRegisterMap['empId']) {
         gValue.mongoDb.updateOneOtRegisterByObjectId(
             currentOtRegister.objectId.substring(10, 34),
             'toDate',
-            newOtRegisterMap['fromDate'].subtract(Duration(days: 1)));
+            newOtRegisterMap['fromDate'].subtract(const Duration(days: 1)));
       }
       gValue.mongoDb.addOneOtRegisterFromMap(newOtRegisterMap);
-    });
+    }
   }
 
   void onSelectionChangedDate(DateRangePickerSelectionChangedArgs args) {

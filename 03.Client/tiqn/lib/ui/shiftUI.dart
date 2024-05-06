@@ -28,9 +28,9 @@ class _ShiftUIState extends State<ShiftUI> with AutomaticKeepAliveClientMixin {
 
   Future<void> refreshData() async {
     List<Shift> newList = await gValue.mongoDb.getShifts();
-    if (newList.length == 0)
+    if (newList.isEmpty) {
       return;
-    else if (gValue.shifts.length != newList.length) {
+    } else if (gValue.shifts.length != newList.length) {
       gValue.shifts = newList;
       setState(() {
         if (!firstBuild) {

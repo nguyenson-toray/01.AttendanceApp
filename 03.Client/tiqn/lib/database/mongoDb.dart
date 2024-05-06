@@ -4,7 +4,6 @@ import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/database/otRegister.dart';
 import 'package:tiqn/database/shift.dart';
 import 'package:tiqn/database/shiftRegister.dart';
-import 'package:bson/bson.dart';
 import 'package:tiqn/gValue.dart';
 
 class MongoDb {
@@ -150,7 +149,7 @@ class MongoDb {
   }
 
   Future<void> deleteOneAttLog(String objectIdString) async {
-    if (!objectIdString.isEmpty) {
+    if (objectIdString.isNotEmpty) {
       try {
         if (!db.isConnected) {
           print('deleteOneAttLog DB not connected, try connect again');
@@ -167,7 +166,7 @@ class MongoDb {
   }
 
   Future<void> insertAttLogs(List<AttLog> logs) async {
-    if (!logs.isEmpty) {
+    if (logs.isNotEmpty) {
       try {
         if (!db.isConnected) {
           print('insertAttLogs DB not connected, try connect again');
@@ -202,7 +201,7 @@ class MongoDb {
   }
 
   Future<void> deleteOneShiftRegister(String objectIdString) async {
-    if (!objectIdString.isEmpty) {
+    if (objectIdString.isNotEmpty) {
       try {
         if (!db.isConnected) {
           print('deleteOneShiftRegister DB not connected, try connect again');
@@ -251,7 +250,7 @@ class MongoDb {
       }
       var myObjectId = ObjectId.parse(objectIdString);
       await colShiftRegister.updateOne(
-          where.eq('_id', myObjectId), modify.set('$key', value));
+          where.eq('_id', myObjectId), modify.set(key, value));
     } catch (e) {
       print(e);
     }
@@ -371,7 +370,7 @@ class MongoDb {
     if (!db.isConnected) return;
     var myObjectId = ObjectId.parse(objectIdString);
     await colOtRegister.updateOne(
-        where.eq('_id', myObjectId), modify.set('$key', value));
+        where.eq('_id', myObjectId), modify.set(key, value));
   }
 
   Future<void> insertOtRegisters(List<OtRegister> otRegisters) async {

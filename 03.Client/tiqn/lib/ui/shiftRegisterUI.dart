@@ -1,14 +1,11 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:tiqn/database/shift.dart';
 import 'package:tiqn/database/shiftRegister.dart';
 import 'package:tiqn/gValue.dart';
-import 'package:tiqn/tools/myFunction.dart';
 import 'package:tiqn/tools/myfile.dart';
 
 class ShiftRegisterUI extends StatefulWidget {
@@ -40,7 +37,7 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
 
   bool checkDiff(List<ShiftRegister> oldList, List<ShiftRegister> newList) {
     bool diff = false;
-    if (newList.length == 0) return false;
+    if (newList.isEmpty) return false;
     if (oldList.length != newList.length) {
       print('checkDiff ShiftRegister : TRUE : Diff length');
       diff = true;
@@ -93,8 +90,8 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                   itemBuilder: (context, index) {
                     return ListTile(
                         title: Text(
-                          '${gValue.shifts[index].shift}',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          gValue.shifts[index].shift,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
                             '${gValue.shifts[index].begin} - ${gValue.shifts[index].end}'));
@@ -114,11 +111,11 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                     stateManager.prependNewRows();
                   });
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.add_box,
                   color: Colors.greenAccent,
                 ),
-                label: Text('Add one record'),
+                label: const Text('Add one record'),
               ),
               TextButton.icon(
                 onPressed: () async {
@@ -230,19 +227,19 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                         .value
                         .value ==
                     'Canteen') {
-                  return Color.fromARGB(255, 218, 247, 223);
+                  return const Color.fromARGB(255, 218, 247, 223);
                 } else if (rowColorContext.row.cells.entries
                         .elementAt(4)
                         .value
                         .value ==
                     'Shift 1') {
-                  return Color.fromARGB(255, 199, 200, 247);
+                  return const Color.fromARGB(255, 199, 200, 247);
                 } else if (rowColorContext.row.cells.entries
                         .elementAt(4)
                         .value
                         .value ==
                     'Shift 2') {
-                  return Color.fromARGB(255, 201, 214, 251);
+                  return const Color.fromARGB(255, 201, 214, 251);
                 }
 
                 return Colors.white;
@@ -272,7 +269,7 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
                 onPressed: () {
                   var row = rendererContext.row.toJson();
                   print(row);
-                  var style = TextStyle(
+                  var style = const TextStyle(
                       color: Colors.redAccent,
                       fontSize: 16,
                       fontWeight: FontWeight.bold);
@@ -392,7 +389,7 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
         field: 'toDate',
         type: PlutoColumnType.date(
             format: "dd-MMM-yyyy",
-            defaultValue: DateTime.now().add(Duration(days: 31))),
+            defaultValue: DateTime.now().add(const Duration(days: 31))),
       ),
       PlutoColumn(
         width: 200,
@@ -484,17 +481,17 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
 
   checkNewShiftRegisterEditBeforeImport(
       Map<String, dynamic> newShiftRegisterMap) {
-    gValue.shiftRegisters.forEach((currentShiftRegister) {
+    for (var currentShiftRegister in gValue.shiftRegisters) {
       if (currentShiftRegister.toDate
               .isAfter(newShiftRegisterMap['fromDate']) &&
           currentShiftRegister.empId == newShiftRegisterMap['empId']) {
         gValue.mongoDb.updateOneShiftRegisterByObjectId(
             currentShiftRegister.objectId.substring(10, 34),
             'toDate',
-            newShiftRegisterMap['fromDate'].subtract(Duration(days: 1)));
+            newShiftRegisterMap['fromDate'].subtract(const Duration(days: 1)));
       }
       gValue.mongoDb.addOneShiftRegisterFromMap(newShiftRegisterMap);
-    });
+    }
   }
 
   @override

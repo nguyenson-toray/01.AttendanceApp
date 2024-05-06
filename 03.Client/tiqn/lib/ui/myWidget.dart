@@ -48,29 +48,29 @@ class MyWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('${DateFormat('dd-MMM-yy').format(DateTime.now())}',
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+          Text(DateFormat('dd-MMM-yy').format(DateTime.now()),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 14)),
           DigitalClock(
             digitAnimationStyle: Curves.fastEaseInToSlowEaseOut,
-            areaDecoration: BoxDecoration(color: Colors.transparent),
+            areaDecoration: const BoxDecoration(color: Colors.transparent),
             hourMinuteDigitTextStyle: Theme.of(context)
                 .textTheme
-                .headline4!
+                .headlineMedium!
                 .copyWith(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 14),
-            secondDigitTextStyle: Theme.of(context).textTheme.caption!.copyWith(
+            secondDigitTextStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: Colors.black12,
                   fontWeight: FontWeight.normal,
                   fontSize: 14,
                 ),
             colon: Text(
               ":",
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 14),

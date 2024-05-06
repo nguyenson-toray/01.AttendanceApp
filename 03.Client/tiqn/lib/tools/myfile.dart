@@ -215,13 +215,13 @@ class MyFile {
     for (var log in logs) {
       row++;
       sheet.getRangeByName('A$row').setNumber((row - 1));
-      sheet.getRangeByName('B$row').setNumber(log.attFingerId!.toDouble());
-      sheet.getRangeByName('C$row').setText('${log.empId!}');
-      sheet.getRangeByName('D$row').setText('${log.name}');
+      sheet.getRangeByName('B$row').setNumber(log.attFingerId.toDouble());
+      sheet.getRangeByName('C$row').setText(log.empId);
+      sheet.getRangeByName('D$row').setText(log.name);
       sheet.getRangeByName('E$row').numberFormat = 'dd-MMM-yyyy hh:mm';
       sheet.getRangeByName('E$row').setDateTime(log.timestamp);
       // sheet.getRangeByName('F$row').numberFormat = '0';
-      sheet.getRangeByName('F$row').setNumber(log.machineNo!.toDouble());
+      sheet.getRangeByName('F$row').setNumber(log.machineNo.toDouble());
     }
     // Assigning text to cells
     final Range range = sheet.getRangeByName('A2:F2');
@@ -629,15 +629,15 @@ class MyFile {
       sheet.getRangeByName('A$row').setNumber((row - 1));
       sheet.getRangeByName('B$row').numberFormat = 'dd-MMM-yyyy';
       sheet.getRangeByName('B$row').setDateTime(timeSheet.date);
-      sheet.getRangeByName('C$row').setText('${timeSheet.empId}');
+      sheet.getRangeByName('C$row').setText(timeSheet.empId);
       sheet.getRangeByName('D$row').setNumber(timeSheet.attFingerId.toDouble());
-      sheet.getRangeByName('E$row').setText('${timeSheet.name}');
-      sheet.getRangeByName('F$row').setText('${timeSheet.department}');
-      sheet.getRangeByName('G$row').setText('${timeSheet.section}');
-      sheet.getRangeByName('H$row').setText('${timeSheet.group}');
+      sheet.getRangeByName('E$row').setText(timeSheet.name);
+      sheet.getRangeByName('F$row').setText(timeSheet.department);
+      sheet.getRangeByName('G$row').setText(timeSheet.section);
+      sheet.getRangeByName('H$row').setText(timeSheet.group);
       sheet.getRangeByName('I$row').setText(
-          '${timeSheet.lineTeam.toString() != 'null' ? timeSheet.lineTeam : ''}');
-      sheet.getRangeByName('J$row').setText('${timeSheet.shift}');
+          timeSheet.lineTeam.toString() != 'null' ? timeSheet.lineTeam : '');
+      sheet.getRangeByName('J$row').setText(timeSheet.shift);
       sheet.getRangeByName('K$row').numberFormat = 'hh:mm';
       sheet.getRangeByName('K$row').setDateTime(
           timeSheet.firstIn?.year == 2000 ? null : timeSheet.firstIn);
@@ -715,9 +715,9 @@ class MyFile {
       sheet.getRangeByName('B$row').setDateTime(shiftRegister.fromDate);
       sheet.getRangeByName('C$row').numberFormat = 'dd-MMM-yyyy';
       sheet.getRangeByName('C$row').setDateTime(shiftRegister.toDate);
-      sheet.getRangeByName('D$row').setText('${shiftRegister.empId}');
-      sheet.getRangeByName('E$row').setText('${shiftRegister.name}');
-      sheet.getRangeByName('F$row').setText('${shiftRegister.shift}');
+      sheet.getRangeByName('D$row').setText(shiftRegister.empId);
+      sheet.getRangeByName('E$row').setText(shiftRegister.name);
+      sheet.getRangeByName('F$row').setText(shiftRegister.shift);
     }
 
     final Range range = sheet.getRangeByName('A2:F2');
@@ -821,10 +821,10 @@ class MyFile {
       sheet.getRangeByName('B$row').setDateTime(otRegister.fromDate);
       sheet.getRangeByName('C$row').numberFormat = 'dd-MMM-yyyy';
       sheet.getRangeByName('C$row').setDateTime(otRegister.toDate);
-      sheet.getRangeByName('D$row').setText('${otRegister.empId}');
-      sheet.getRangeByName('E$row').setText('${otRegister.name}');
-      sheet.getRangeByName('F$row').setText('${otRegister.fromTime}');
-      sheet.getRangeByName('G$row').setText('${otRegister.toTime}');
+      sheet.getRangeByName('D$row').setText(otRegister.empId);
+      sheet.getRangeByName('E$row').setText(otRegister.name);
+      sheet.getRangeByName('F$row').setText(otRegister.fromTime);
+      sheet.getRangeByName('G$row').setText(otRegister.toTime);
     }
 
     final Range range = sheet.getRangeByName('A2:G2');
@@ -885,7 +885,7 @@ class MyFile {
             objectId: '',
             fromDate: DateTime.parse(row[1].value.toString()),
             toDate: DateTime.parse(row[2].value.toString())
-                .add(Duration(hours: 23, minutes: 59, seconds: 59)),
+                .add(const Duration(hours: 23, minutes: 59, seconds: 59)),
             empId: row[3].value.toString(),
             name: row[4].value.toString(),
             fromTime: row[5].value.toString(),

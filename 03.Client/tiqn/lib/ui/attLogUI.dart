@@ -2,16 +2,13 @@ import 'dart:async';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:tiqn/database/attLog.dart';
 import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/database/otRegister.dart';
-import 'package:tiqn/database/shiftRegister.dart';
 import 'package:tiqn/gValue.dart';
 import 'package:intl/intl.dart';
 import 'package:tiqn/main.dart';
@@ -56,9 +53,9 @@ class _AttLogUIState extends State<AttLogUI>
 
   Future<void> refreshData(DateTime timeBegin, DateTime timeEnd) async {
     List<AttLog> newList = await gValue.mongoDb.getAttLogs(timeBegin, timeEnd);
-    if (newList.length == 0)
+    if (newList.isEmpty) {
       return;
-    else if (gValue.attLogs.length != newList.length) {
+    } else if (gValue.attLogs.length != newList.length) {
       print('refreshData AttLog => changed => ${newList.length}');
 
       if (!firstBuild) {
@@ -137,7 +134,7 @@ class _AttLogUIState extends State<AttLogUI>
                       backgroundColor: Colors.orange,
                       alignment: Alignment.center,
                       context: context,
-                      title: Text('Data not yet loaded, try again!'),
+                      title: const Text('Data not yet loaded, try again!'),
                       autoCloseDuration: const Duration(seconds: 3),
                       boxShadow: const [
                         BoxShadow(
@@ -172,7 +169,7 @@ class _AttLogUIState extends State<AttLogUI>
                       backgroundColor: Colors.orange,
                       alignment: Alignment.center,
                       context: context,
-                      title: Text('Data not yet loaded, try again!'),
+                      title: const Text('Data not yet loaded, try again!'),
                       autoCloseDuration: const Duration(seconds: 3),
                       boxShadow: const [
                         BoxShadow(
@@ -604,7 +601,7 @@ class _AttLogUIState extends State<AttLogUI>
                   onPressed: () {
                     var row = rendererContext.row.toJson();
                     print(row);
-                    var style = TextStyle(
+                    var style = const TextStyle(
                         color: Colors.redAccent,
                         fontSize: 16,
                         fontWeight: FontWeight.bold);

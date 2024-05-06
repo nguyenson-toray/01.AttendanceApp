@@ -1,5 +1,4 @@
 // import 'package:realm/realm.dart';
-import 'package:flutter/material.dart';
 import 'package:tiqn/database/attLog.dart';
 import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/database/otRegister.dart';
@@ -7,7 +6,6 @@ import 'package:tiqn/database/shift.dart';
 import 'package:tiqn/database/shiftRegister.dart';
 import 'package:tiqn/database/timeSheet.dart';
 import 'package:tiqn/gValue.dart';
-import 'package:tiqn/main.dart';
 
 class MyFuntion {
   // static void calculateLastId(RealmResults<Employee> employees) {
@@ -272,13 +270,13 @@ class MyFuntion {
     }
     while (dateTemp.isBefore(timeEnd)) {
       dates.add(dateTemp);
-      dateTemp = dateTemp.add(Duration(days: 1));
+      dateTemp = dateTemp.add(const Duration(days: 1));
     }
     List<OtRegister> otRegistersPeriod = [];
     var beginCal = DateTime.now();
     for (var date in dates) {
       List<AttLog> dayLogs =
-          attLogs.where((log) => (log.timestamp?.day == date.day)).toList();
+          attLogs.where((log) => (log.timestamp.day == date.day)).toList();
       if (dayLogs.isEmpty) continue;
       var temp = attLogs.map((e) => e.empId).toList();
       var listOfEmpIdPresent = temp.toSet().toList();
@@ -286,7 +284,7 @@ class MyFuntion {
           empIdShift2 = [],
           // empIdCanteen = [],
           empIdOT = [];
-      shiftRegisters.forEach((element) {
+      for (var element in shiftRegisters) {
         if (element.fromDate.isBefore(date) && element.toDate.isAfter(date)) {
           if (element.shift == 'Shift 1') {
             empIdShift1.add(element.empId);
@@ -297,16 +295,16 @@ class MyFuntion {
           //   empIdCanteen.add(element.empId);
           // }
         }
-      });
+      }
 
-      otRegisters.forEach((element) {
+      for (var element in otRegisters) {
         if ((element.fromDate.isBefore(date) ||
                 element.fromDate.isAtSameMomentAs(date)) &&
             (element.toDate.isAfter(date) ||
                 element.toDate.isAtSameMomentAs(date))) {
           otRegistersPeriod.add(element);
         }
-      });
+      }
       empIdOT = otRegistersPeriod.map((e) => e.empId).toList();
 
       for (var emp in employees.where((element) =>
@@ -357,7 +355,7 @@ class MyFuntion {
             DateTime.utc(date.year, date.month, date.day, hourEnd, minuteEnd);
         DateTime firstIn = DateTime.utc(2000);
         DateTime lastOut = DateTime.utc(2000);
-        DateTime restBegin = shiftTimeBegin.add(Duration(hours: 4));
+        DateTime restBegin = shiftTimeBegin.add(const Duration(hours: 4));
         DateTime restEnd = restBegin.add(Duration(hours: restHour));
         if (logs.isEmpty) {
           {
@@ -365,7 +363,7 @@ class MyFuntion {
             ot = 0;
           }
         } else if (logs.length == 1) {
-          firstIn = logs.first.timestamp!;
+          firstIn = logs.first.timestamp;
           normalHours = 0;
           ot = 0;
         } else {
@@ -374,7 +372,7 @@ class MyFuntion {
 
           if (emp.workStatus.toString().contains('pregnant') ||
               emp.workStatus.toString().contains('child')) {
-            shiftTimeEnd = shiftTimeEnd.subtract(Duration(hours: 1));
+            shiftTimeEnd = shiftTimeEnd.subtract(const Duration(hours: 1));
           }
           if (firstIn.isAtSameMomentAs(lastOut)) {
             normalHours = 0;
@@ -414,7 +412,7 @@ class MyFuntion {
             if (gValue.allowAllOt) {
               // gia dinh cho phep toan bo ot
               DateTime otBeginAllow = shiftTimeEnd;
-              DateTime otEndAllow = shiftTimeEnd.add(Duration(hours: 2));
+              DateTime otEndAllow = shiftTimeEnd.add(const Duration(hours: 2));
               if (lastOut.isBefore(otEndAllow)) {
                 // OT ra som
                 ot = lastOut.difference(otBeginAllow).inMinutes / 60;
@@ -426,7 +424,7 @@ class MyFuntion {
             } else if (empIdOT.contains(emp.empId)) {
               // neu trong danh sach OT
               DateTime otBeginAllow = shiftTimeEnd;
-              DateTime otEndAllow = shiftTimeEnd.add(Duration(hours: 2));
+              DateTime otEndAllow = shiftTimeEnd.add(const Duration(hours: 2));
               if (!gValue.defaultOt2H) {
                 OtRegister otRegisterEmp = otRegistersPeriod
                     .firstWhere((otRecord) => otRecord.empId == emp.empId);
