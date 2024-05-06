@@ -56,7 +56,9 @@ class _EmployeeUIState extends State<EmployeeUI>
 
   bool checkDiff(List<Employee> oldList, List<Employee> newList) {
     bool diff = false;
-    if (oldList.length != newList.length) {
+    if (newList.length == 0)
+      return false;
+    else if (oldList.length != newList.length) {
       print('checkDiff Employees: TRUE : Diff length');
       diff = true;
     } else {

@@ -219,13 +219,7 @@ class MyFuntion {
     gValue.employeeIdPresents.clear();
     gValue.employeeIdAbsents.clear();
     var temp = gValue.attLogs.map((e) => e.empId).toList();
-    List<ShiftRegister> shift2 = gValue.shiftRegisters
-        .where((element) => element.shift == 'Shift 2')
-        .toList();
-
     gValue.employeeIdPresents = temp.toSet().toList();
-    gValue.employeeIdPresents
-        .addAll(shift2.map((e) => e.empId).toSet().toList());
     gValue.employeeIdPresents.removeWhere((element) => element == 'No Emp Id');
     gValue.employeeIdAbsents = gValue.employeeIdWorkings
         .toSet()
@@ -233,7 +227,7 @@ class MyFuntion {
         .toList();
 
     print(
-        'calculateAttendanceStatus :employeeIdPresents.length: ${gValue.employeeIdPresents.length}     employeeIdAbsents.length: ${gValue.employeeIdAbsents.length}');
+        'calculateAttendanceStatus :employeeIdPresents.length: ${gValue.employeeIdPresents.length}     \nemployeeIdAbsents.length: ${gValue.employeeIdAbsents.length}');
   }
 
   static void calculateEmployeeStatus() {

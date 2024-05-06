@@ -647,7 +647,9 @@ class MyFile {
       sheet.getRangeByName('M$row').numberFormat = '0.0';
       // if (timeSheet.normalHours == 0)
       // sheet.getRangeByName('M$row:M$row').cellStyle = styleZeroHour;
-      sheet.getRangeByName('M$row').setNumber(timeSheet.normalHours);
+      sheet
+          .getRangeByName('M$row')
+          .setNumber(roundDouble(timeSheet.normalHours, 1));
       sheet.getRangeByName('M$row').numberFormat = '0.0';
       // if (timeSheet.otHours > 0)
       // sheet.getRangeByName('M$row:M$row').cellStyle = styleOT;

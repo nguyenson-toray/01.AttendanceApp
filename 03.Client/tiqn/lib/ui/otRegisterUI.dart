@@ -49,7 +49,9 @@ class _OtRegisterUIState extends State<OtRegisterUI>
 
   bool checkDiff(List<OtRegister> oldList, List<OtRegister> newList) {
     bool diff = false;
-    if (oldList.length != newList.length) {
+    if (newList.length == 0)
+      return false;
+    else if (oldList.length != newList.length) {
       print('checkDiff OtRegister : TRUE : Diff length');
       diff = true;
     } else {
@@ -277,7 +279,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                             body: Column(
                               children: [
                                 Text(
-                                  'Delete ?\nFROM ${row['fromDate']} TO ${row['toDate']}\nEmployee ID: ${row['empId']}\nName: ${row['name']}\Time: ${row['fromTime']} to ${row['toTime']}',
+                                  'Delete ?\nFROM ${row['fromDate']} TO ${row['toDate']}\nEmployee ID: ${row['empId']}\nName: ${row['name']}\nTime: ${row['fromTime']} to ${row['toTime']}',
                                   style: style,
                                 ),
                               ],

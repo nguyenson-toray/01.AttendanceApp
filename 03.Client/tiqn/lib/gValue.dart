@@ -16,6 +16,7 @@ class gValue {
   static int inLate = 0;
   static int outEarly = 0;
   static MongoDb mongoDb = MongoDb();
+  static bool isConectedDb = false;
   static List<AttLog> attLogs = <AttLog>[];
   static List<TimeSheet> timeSheets = <TimeSheet>[];
   static List<Shift> shifts = <Shift>[];

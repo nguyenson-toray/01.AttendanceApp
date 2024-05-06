@@ -25,9 +25,24 @@ class _HRUIState extends State<HRUI>
     tabController = TabController(length: 4, vsync: this);
     final department = jsonDecode(gValue.departmentJson);
     Future.delayed(Duration(milliseconds: 300)).then((value) => getHrData());
+    Timer.periodic(const Duration(seconds: 1), (_) => checkDbState());
     super.initState();
   }
 
+  Future<void> checkDbState() async {
+    try {
+      setState(() {
+        gValue.isConectedDb = gValue.mongoDb.db.isConnected;
+      });
+      setState(() {
+        gValue.isConectedDb = gValue.mongoDb.db.isConnected;
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
   Future<void> getHrData() async {
     gValue.shifts = await gValue.mongoDb.getShifts();
     gValue.shiftRegisters = await gValue.mongoDb.getShiftRegister();
@@ -43,8 +58,9 @@ class _HRUIState extends State<HRUI>
   }
 
   @override
-  void dispose() {
+  Future<void> dispose() async {
     tabController.dispose();
+    await gValue.mongoDb.db.close();
     super.dispose();
   }
 
@@ -104,14 +120,28 @@ class _HRUIState extends State<HRUI>
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TabBarView(
-              controller: tabController,
-              children: const [
-                EmployeeUI(),
-                AttLogUI(),
-                ShiftRegisterUI(),
-                OtRegisterUI(),
-                // ScanQr()
+            child: Column(
+              children: [
+                Container(
+                  height: gValue.isConectedDb ? 0 : 1,
+                  child: LinearProgressIndicator(
+                    color: Colors.redAccent,
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height - 90,
+                  width: double.maxFinite,
+                  child: TabBarView(
+                    controller: tabController,
+                    children: const [
+                      EmployeeUI(),
+                      AttLogUI(),
+                      ShiftRegisterUI(),
+                      OtRegisterUI(),
+                      // ScanQr()
+                    ],
+                  ),
+                ),
               ],
             ),
           )),

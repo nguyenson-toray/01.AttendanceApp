@@ -40,6 +40,7 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
 
   bool checkDiff(List<ShiftRegister> oldList, List<ShiftRegister> newList) {
     bool diff = false;
+    if (newList.length == 0) return false;
     if (oldList.length != newList.length) {
       print('checkDiff ShiftRegister : TRUE : Diff length');
       diff = true;

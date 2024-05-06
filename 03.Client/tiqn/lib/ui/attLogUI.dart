@@ -56,7 +56,9 @@ class _AttLogUIState extends State<AttLogUI>
 
   Future<void> refreshData(DateTime timeBegin, DateTime timeEnd) async {
     List<AttLog> newList = await gValue.mongoDb.getAttLogs(timeBegin, timeEnd);
-    if (gValue.attLogs.length != newList.length) {
+    if (newList.length == 0)
+      return;
+    else if (gValue.attLogs.length != newList.length) {
       print('refreshData AttLog => changed => ${newList.length}');
 
       if (!firstBuild) {
@@ -704,7 +706,7 @@ class _AttLogUIState extends State<AttLogUI>
             'name': PlutoCell(value: log.name),
             'timeStamp': PlutoCell(
                 value:
-                    DateFormat("dd-MMM-yyyy hh:mm:ss").format(log.timestamp)),
+                    DateFormat("dd-MMM-yyyy HH:mm:ss").format(log.timestamp)),
             'machineNo': PlutoCell(value: log.machineNo),
             'objectId': PlutoCell(value: log.objectId),
           },
