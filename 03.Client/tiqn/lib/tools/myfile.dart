@@ -8,6 +8,7 @@ import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 import 'package:intl/intl.dart';
 import 'package:excel/excel.dart';
 import 'package:tiqn/database/employee.dart';
+import 'package:tiqn/database/employeeWO.dart';
 import 'package:tiqn/database/otRegister.dart';
 import 'package:tiqn/database/shiftRegister.dart';
 import 'package:tiqn/database/timeSheet.dart';
@@ -687,8 +688,9 @@ class MyFile {
     sheetSummary.getRangeByName('I1').setText('Total OT hours');
     final empIds = timeSheets.map((e) => e.empId).toSet().toList();
     row = 1;
+    List<EmployeeWO> employeeWOs = [];
     empIds.forEach((empId) {
-      row++;
+      EmployeeWO employeeWO = EmployeeWO();
       final empInfo =
           gValue.employees.firstWhere((element) => element.empId == empId);
       final double totalNormalHours = timeSheets
@@ -697,20 +699,33 @@ class MyFile {
       final double totalOtHours = timeSheets
           .where((element) => element.empId == empId)
           .fold(0, (sum, item) => sum + item.otHours);
-
+      employeeWO.empId = empInfo.empId;
+      employeeWO.name = empInfo.name;
+      employeeWO.department = empInfo.department;
+      employeeWO.section = empInfo.section;
+      employeeWO.group = empInfo.group;
+      employeeWO.lineTeam = empInfo.lineTeam;
+      employeeWO.totalW = totalNormalHours;
+      employeeWO.totalOt = totalOtHours;
+      employeeWOs.add(employeeWO);
+    });
+    employeeWOs
+        .sort((a, b) => b.totalOt.toString().compareTo(a.totalOt.toString()));
+    employeeWOs.forEach((element) {
+      row++;
       sheetSummary.getRangeByName('A$row').setNumber((row - 1));
-      sheetSummary.getRangeByName('B$row').setText(empInfo.empId);
-      sheetSummary.getRangeByName('C$row').setText(empInfo.name);
-      sheetSummary.getRangeByName('D$row').setText(empInfo.department);
-      sheetSummary.getRangeByName('E$row').setText(empInfo.section);
-      sheetSummary.getRangeByName('F$row').setText(empInfo.group);
-      sheetSummary.getRangeByName('G$row').setText(empInfo.lineTeam);
+      sheetSummary.getRangeByName('B$row').setText(element.empId);
+      sheetSummary.getRangeByName('C$row').setText(element.name);
+      sheetSummary.getRangeByName('D$row').setText(element.department);
+      sheetSummary.getRangeByName('E$row').setText(element.section);
+      sheetSummary.getRangeByName('F$row').setText(element.group);
+      sheetSummary.getRangeByName('G$row').setText(element.lineTeam);
       sheetSummary
           .getRangeByName('H$row')
-          .setNumber(roundDouble(totalNormalHours, 1));
+          .setNumber(roundDouble(element.totalW, 1));
       sheetSummary
           .getRangeByName('I$row')
-          .setNumber(roundDouble(totalOtHours, 1));
+          .setNumber(roundDouble(element.totalOt, 1));
     });
 
     sheetSummary.autoFitColumn(1);
