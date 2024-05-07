@@ -28,7 +28,8 @@ Xcopy /E /H /C /I /Y %srvDir% %localDir%
 goto :updateApp
 )
 :updateApp
-Xcopy /E /H /C /I /Y %srvDir% %localDir% 
+Xcopy /E /H /C /I /Y %srvDir% %localDir%   
+Xcopy /E /H /C /I /Y %localDir%/"TIQN Attendance.lnk" %userprofile%/desktop 
 :runApp 
 echo runApp
 @echo off
