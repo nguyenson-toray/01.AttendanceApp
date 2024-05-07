@@ -2,8 +2,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tiqn/gValue.dart';
 import 'package:tiqn/ui/hrUI.dart';
+import 'package:tiqn/ui/mainPage.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'dart:io';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,17 +20,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await gValue.realmService.initRealm();
   await gValue.mongoDb.initDB();
-
-  Process.run(
-    'start',
-    [
-      'C:\\Windows\\System32\\cmd.exe',
-      'D:\\Programming\\01.AttendanceApp\\uploadReleaseToSrv.cmd'
-    ],
-    runInShell: true,
-  ).then((ProcessResult results) {
-    print(results.exitCode);
-  });
   runApp(const MyApp());
 }
 
