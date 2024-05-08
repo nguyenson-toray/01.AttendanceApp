@@ -43,6 +43,7 @@ class MongoDb {
       gValue.allowAllOt = result.first['allowAllOt'];
       gValue.defaultOt2H = result.first['defaultOt2H'];
       gValue.showObjectId = bool.parse(result.first['showObjectId']);
+      gValue.minHourOt = double.parse(result.first['minHourOt']);
     } catch (e) {
       print(e);
     }

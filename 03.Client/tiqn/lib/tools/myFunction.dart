@@ -426,7 +426,7 @@ class MyFuntion {
                 // OT ra dung gio
                 ot = 2;
               }
-              ot = ot < 0.5 ? 0 : ot;
+              ot = ot < gValue.minHourOt ? 0 : ot;
             } else if (empIdOT.contains(emp.empId)) {
               // neu trong danh sach OT
               DateTime otBeginAllow = shiftTimeEnd;
