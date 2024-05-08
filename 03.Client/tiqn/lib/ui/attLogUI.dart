@@ -190,7 +190,7 @@ class _AttLogUIState extends State<AttLogUI>
                             gValue.attLogs,
                             timeBegin,
                             timeEnd),
-                        'Timsheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
+                        'Timesheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
                   }
                 },
                 icon: const Icon(

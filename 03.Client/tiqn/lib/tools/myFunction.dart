@@ -374,7 +374,13 @@ class MyFuntion {
               emp.workStatus.toString().contains('child')) {
             shiftTimeEnd = shiftTimeEnd.subtract(const Duration(hours: 1));
           }
-          if (firstIn.isAtSameMomentAs(lastOut)) {
+          if ((firstIn.isBefore(shiftTimeBegin) &&
+                  lastOut.isBefore(shiftTimeBegin)) ||
+              (firstIn.isAfter(shiftTimeEnd) &&
+                  lastOut.isAfter(shiftTimeEnd))) {
+            normalHours = 0;
+            ot = 0;
+          } else if (firstIn.isAtSameMomentAs(lastOut)) {
             normalHours = 0;
             ot = 0;
           } else {
@@ -420,7 +426,7 @@ class MyFuntion {
                 // OT ra dung gio
                 ot = 2;
               }
-              ot = ot < 0.33 ? 0 : ot;
+              ot = ot < 0.5 ? 0 : ot;
             } else if (empIdOT.contains(emp.empId)) {
               // neu trong danh sach OT
               DateTime otBeginAllow = shiftTimeEnd;

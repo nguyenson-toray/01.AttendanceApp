@@ -709,8 +709,7 @@ class MyFile {
       employeeWO.totalOt = totalOtHours;
       employeeWOs.add(employeeWO);
     });
-    employeeWOs
-        .sort((a, b) => b.totalOt.toString().compareTo(a.totalOt.toString()));
+    employeeWOs.sort((a, b) => b.totalOt.round().compareTo(a.totalOt.round()));
     employeeWOs.forEach((element) {
       row++;
       sheetSummary.getRangeByName('A$row').setNumber((row - 1));
