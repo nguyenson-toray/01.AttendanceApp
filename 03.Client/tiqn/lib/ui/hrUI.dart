@@ -24,7 +24,8 @@ class _HRUIState extends State<HRUI>
     // TODO: implement initState
     tabController = TabController(length: 4, vsync: this);
     final department = jsonDecode(gValue.departmentJson);
-    Future.delayed(const Duration(milliseconds: 300)).then((value) => getHrData());
+    Future.delayed(const Duration(milliseconds: 300))
+        .then((value) => getHrData());
     Timer.periodic(const Duration(seconds: 1), (_) => checkDbState());
     super.initState();
   }
@@ -74,10 +75,11 @@ class _HRUIState extends State<HRUI>
           appBar: AppBar(
             toolbarHeight: 70,
             flexibleSpace: TabBar(
+                labelColor: Colors.teal,
                 unselectedLabelColor: Colors.black,
-                dividerHeight: 1,
+                dividerHeight: 0,
                 controller: tabController,
-                indicatorColor: Colors.orange,
+                indicatorColor: Colors.teal,
                 indicatorWeight: 5,
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs: const [
@@ -91,16 +93,9 @@ class _HRUIState extends State<HRUI>
                   Tab(
                     icon: Icon(
                       Icons.fingerprint,
-                      color: Colors.greenAccent,
+                      color: Colors.green,
                     ),
-                    text: "Attendance Logs",
-                  ),
-                  Tab(
-                    icon: Icon(
-                      Icons.timelapse,
-                      color: Colors.tealAccent,
-                    ),
-                    text: "Shift Register",
+                    text: "Attendance",
                   ),
                   Tab(
                     icon: Icon(
@@ -109,6 +104,14 @@ class _HRUIState extends State<HRUI>
                     ),
                     text: "OT Register",
                   ),
+                  Tab(
+                    icon: Icon(
+                      Icons.work_history,
+                      color: Colors.purpleAccent,
+                    ),
+                    text: "Shift",
+                  ),
+
                   // Tab(
                   //   icon: Icon(
                   //     Icons.qr_code,
@@ -135,9 +138,9 @@ class _HRUIState extends State<HRUI>
                     controller: tabController,
                     children: const [
                       EmployeeUI(),
-                      AttLogUI(),
+                      AttLogUI(), OtRegisterUI(),
                       ShiftRegisterUI(),
-                      OtRegisterUI(),
+
                       // ScanQr()
                     ],
                   ),

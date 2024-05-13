@@ -19,8 +19,9 @@ class MongoDb {
   late Db db;
   initDB() async {
     if (kReleaseMode) {
-      ipServer = 'localhost';
+      ipServer = '192.168.1.11';
     } else {
+      ipServer = 'localhost';
       ipServer = '192.168.1.11';
     }
     db = Db("mongodb://$ipServer:27017/tiqn");
@@ -281,7 +282,7 @@ class MongoDb {
   Future<List<OtRegister>> getOTRegisterByRangeDate(
       DateTime timeBegin, DateTime timeEnd) async {
     List<OtRegister> result = [];
-    ;
+
     try {
       if (!db.isConnected) {
         print('getOTRegisterByRangeDate DB not connected, try connect again');
@@ -297,6 +298,8 @@ class MongoDb {
     } catch (e) {
       print(e);
     }
+    // print('getOTRegisterByRangeDate: timeBegin: $timeBegin timeEnd:$timeEnd');
+    // print('====> ${result.length}');
     return result;
   }
 

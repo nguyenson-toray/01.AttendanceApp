@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto_grid/pluto_grid.dart';
@@ -31,11 +32,17 @@ class _AttLogUIState extends State<AttLogUI>
   late DateTime timeEnd;
   late DateTime dateAddRecord;
   var listOfEmpIdPresent = [];
+  String selectedMonth = '';
+  List<String> monthYears = [];
   late final PlutoGridStateManager stateManager;
   bool firstBuild = true, isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
+    monthYears = MyFuntion.getMonthYearList();
+    selectedMonth = monthYears.last;
+    print(monthYears);
+    MyFuntion.getMonthYearList();
     timeBegin = DateTime.now().appliedFromTimeOfDay(const TimeOfDay(
       hour: 0,
       minute: 0,
@@ -93,381 +100,489 @@ class _AttLogUIState extends State<AttLogUI>
         child: Scaffold(
             body: Row(
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 230,
-              width: 500,
-              child: SfDateRangePicker(
-                enableMultiView: true,
-                // monthViewSettings: DateRangePickerMonthViewSettings(
-                //     showWeekNumber: false, firstDayOfWeek: 1, weekendDays: [7]),
-                view: DateRangePickerView.month,
-                showTodayButton: true,
-                // minDate: DateTime.now().subtract(Duration(days: 31)),
-                maxDate: DateTime.now(),
-                backgroundColor: Colors.blue[100],
-                todayHighlightColor: Colors.green,
-                selectionColor: Colors.orangeAccent,
-                headerStyle: DateRangePickerHeaderStyle(
-                  backgroundColor: Colors.blue[200],
+        Container(
+          width: 500,
+          color: Colors.blue[50],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 230,
+                width: 500,
+                child: SfDateRangePicker(
+                  enableMultiView: true,
+                  // monthViewSettings: DateRangePickerMonthViewSettings(
+                  //     showWeekNumber: false, firstDayOfWeek: 1, weekendDays: [7]),
+                  view: DateRangePickerView.month,
+                  showTodayButton: true,
+                  // minDate: DateTime.now().subtract(Duration(days: 31)),
+                  maxDate: DateTime.now(),
+                  backgroundColor: Colors.blue[100],
+                  todayHighlightColor: Colors.green,
+                  selectionColor: Colors.orangeAccent,
+                  headerStyle: DateRangePickerHeaderStyle(
+                    backgroundColor: Colors.blue[200],
+                  ),
+                  onSelectionChanged: onSelectionChanged,
+                  selectionMode: DateRangePickerSelectionMode.range,
+                  initialSelectedRange: PickerDateRange(timeBegin, timeEnd),
                 ),
-                onSelectionChanged: onSelectionChanged,
-                selectionMode: DateRangePickerSelectionMode.range,
-                initialSelectedRange: PickerDateRange(timeBegin, timeEnd),
               ),
-            ),
-
-            // const Divider(
-            //   indent: 8.0,
-            //   endIndent: 8.0,
-            //   color: Colors.black12,
-            // ),
-            Row(children: [
-              TextButton.icon(
-                onPressed: () {
-                  if (isLoading) {
-                    toastification.show(
-                      backgroundColor: Colors.orange,
-                      alignment: Alignment.center,
-                      context: context,
-                      title: const Text('Data not yet loaded, try again!'),
-                      autoCloseDuration: const Duration(seconds: 3),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x07000000),
-                          blurRadius: 16,
-                          offset: Offset(0, 16),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    );
-                  } else {
-                    List<Employee> absents = [];
-                    for (var empId in gValue.employeeIdAbsents) {
-                      absents.add(gValue.employees
-                          .firstWhere((element) => element.empId == empId));
+              const Divider(),
+              Row(children: [
+                TextButton.icon(
+                  onPressed: () {
+                    if (isLoading) {
+                      toastification.show(
+                        backgroundColor: Colors.orange,
+                        alignment: Alignment.center,
+                        context: context,
+                        title: const Text('Data not yet loaded, try again!'),
+                        autoCloseDuration: const Duration(seconds: 3),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x07000000),
+                            blurRadius: 16,
+                            offset: Offset(0, 16),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      );
+                    } else {
+                      List<Employee> absents = [];
+                      for (var empId in gValue.employeeIdAbsents) {
+                        absents.add(gValue.employees
+                            .firstWhere((element) => element.empId == empId));
+                      }
+                      MyFile.createExcelEmployee(absents, true, "Absents");
                     }
-                    MyFile.createExcelEmployee(absents, true, "Absents");
-                  }
-                },
-                icon: const Icon(
-                  Icons.supervised_user_circle,
-                  color: Colors.orangeAccent,
+                  },
+                  icon: const Icon(
+                    Icons.supervised_user_circle,
+                    color: Colors.orangeAccent,
+                  ),
+                  label: const Text('Export absent list'),
                 ),
-                label: const Text('Export absent list'),
-              ),
-              TextButton.icon(
-                onPressed: () async {
-                  List<OtRegister> otRegister = await gValue.mongoDb
-                      .getOTRegisterByRangeDate(timeBegin, timeEnd);
-                  if (isLoading) {
-                    toastification.show(
-                      backgroundColor: Colors.orange,
-                      alignment: Alignment.center,
-                      context: context,
-                      title: const Text('Data not yet loaded, try again!'),
-                      autoCloseDuration: const Duration(seconds: 3),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x07000000),
-                          blurRadius: 16,
-                          offset: Offset(0, 16),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    );
-                  } else {
-                    MyFile.createExcelTimeSheet(
-                        MyFuntion.createTimeSheets(
-                            gValue.employees,
-                            gValue.shifts,
-                            gValue.shiftRegisters,
-                            otRegister,
-                            gValue.attLogs,
-                            timeBegin,
-                            timeEnd),
-                        'Timesheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
-                  }
-                },
-                icon: const Icon(
-                  Icons.timelapse,
-                  color: Colors.blueAccent,
-                ),
-                label: const Text('Export timesheets'),
-              ),
-            ]),
+                TextButton.icon(
+                  onPressed: () async {
+                    List<OtRegister> otRegister = await gValue.mongoDb
+                        .getOTRegisterByRangeDate(timeBegin, timeEnd);
 
-            const Divider(
-              indent: 8.0,
-              endIndent: 8.0,
-              color: Colors.black12,
-            ),
-            Row(children: [
-              TextButton.icon(
-                onPressed: () {
-                  late SingleValueDropDownController dropDownController =
-                      SingleValueDropDownController();
-                  List<String> empIds = [];
-                  for (var emp in gValue.employees) {
-                    if (emp.workStatus == 'Working') {
-                      empIds.add(emp.empId ?? "TIQN-9999");
+                    if (isLoading) {
+                      toastification.show(
+                        backgroundColor: Colors.orange,
+                        alignment: Alignment.center,
+                        context: context,
+                        title: const Text('Data not yet loaded, try again!'),
+                        autoCloseDuration: const Duration(seconds: 3),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x07000000),
+                            blurRadius: 16,
+                            offset: Offset(0, 16),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      );
+                    } else {
+                      MyFile.createExcelTimeSheet(
+                          MyFuntion.createTimeSheets(
+                              gValue.employees,
+                              gValue.shifts,
+                              gValue.shiftRegisters,
+                              otRegister,
+                              gValue.attLogs,
+                              timeBegin,
+                              timeEnd),
+                          'Timesheets from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)} ${DateFormat('hhmmss').format(DateTime.now())}');
                     }
-                  }
-                  empIds.toSet().toList();
-                  List<DropDownValueModel> dropDownValueModels = [];
-                  List<DropDownValueModel> dropDownValueModelsHour = [];
-                  List<DropDownValueModel> dropDownValueModelsMinute = [];
-                  for (var element in gValue.employees) {
-                    dropDownValueModels.add(DropDownValueModel(
-                        value: '${element.empId}',
-                        name: '${element.empId} ${element.name}'));
-                  }
-                  List<int> hours = [for (var i = 0; i <= 23; i++) i];
-                  var minutes = [0, 10, 20, 30, 40, 50];
-                  String empId = '', empName = '';
-                  for (var element in hours) {
-                    dropDownValueModelsHour.add(DropDownValueModel(
-                        name: element < 10
-                            ? '0$element'
-                            : element < 10
-                                ? '0$element'
-                                : '$element',
-                        value: element));
-                  }
-                  for (var element in minutes) {
-                    dropDownValueModelsMinute.add(DropDownValueModel(
-                        name: element < 10
-                            ? '0$element'
-                            : element < 10
-                                ? '0$element'
-                                : '$element',
-                        value: element));
-                  }
-                  int hour = 8, minute = 0;
-                  AwesomeDialog(
-                          padding: const EdgeInsets.all(10),
-                          context: context,
-                          body: SizedBox(
-                            width: 500,
-                            height: 450,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    const Text(
-                                      "Employee : ",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      width: 300,
-                                      child: DropDownTextField(
-                                        dropdownColor: Colors.white,
-                                        listTextStyle: const TextStyle(
-                                            fontSize: 14, color: Colors.black),
-                                        readOnly: false,
-                                        controller: dropDownController,
-                                        clearOption: true,
-                                        keyboardType: TextInputType.number,
-                                        autovalidateMode:
-                                            AutovalidateMode.always,
-                                        clearIconProperty: IconProperty(
-                                            color: Colors.redAccent),
-                                        searchDecoration: const InputDecoration(
-                                            hintText:
-                                                "Enter employee ID or name"),
-                                        dropDownList: dropDownValueModels,
-                                        onChanged: (val) {
-                                          empId = val.value;
-                                          empName = val.name
-                                              .toString()
-                                              .replaceAll('$empId ', '');
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SfDateRangePicker(
-                                  showTodayButton: true,
-                                  minDate: DateTime.now()
-                                      .subtract(const Duration(days: 31)),
-                                  maxDate: DateTime.now(),
-                                  backgroundColor: Colors.blue[100],
-                                  todayHighlightColor: Colors.green,
-                                  selectionColor: Colors.orangeAccent,
-                                  headerStyle: DateRangePickerHeaderStyle(
-                                    backgroundColor: Colors.blue[200],
-                                  ),
-                                  onSelectionChanged:
-                                      onSelectionChangedAddRecord,
-                                  selectionMode:
-                                      DateRangePickerSelectionMode.single,
-                                  initialSelectedDate: DateTime.now(),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    const Text(
-                                      "Time",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text('Hour : '),
-                                    SizedBox(
-                                      width: 100,
-                                      child: DropDownTextField(
-                                        initialValue: '08',
-                                        dropdownColor: Colors.white,
-                                        listTextStyle: const TextStyle(
-                                            fontSize: 14, color: Colors.black),
-                                        readOnly: false,
-                                        clearOption: true,
-                                        keyboardType: TextInputType.number,
-                                        autovalidateMode:
-                                            AutovalidateMode.always,
-                                        clearIconProperty: IconProperty(
-                                            color: Colors.redAccent),
-                                        searchDecoration: const InputDecoration(
-                                            hintText: "Hour"),
-                                        dropDownList: dropDownValueModelsHour,
-                                        onChanged: (val) {
-                                          hour = val.value;
-                                        },
-                                      ),
-                                    ),
-                                    const Text("Minute :"),
-                                    SizedBox(
-                                      width: 130,
-                                      child: DropDownTextField(
-                                        initialValue: '00',
-                                        dropdownColor: Colors.white,
-                                        listTextStyle: const TextStyle(
-                                            fontSize: 14, color: Colors.black),
-                                        readOnly: false,
-                                        clearOption: true,
-                                        keyboardType: TextInputType.number,
-                                        autovalidateMode:
-                                            AutovalidateMode.always,
-                                        clearIconProperty: IconProperty(
-                                            color: Colors.redAccent),
-                                        searchDecoration: const InputDecoration(
-                                            hintText: "Minute"),
-                                        dropDownList: dropDownValueModelsMinute,
-                                        onChanged: (val) {
-                                          minute = val.value;
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
+                  },
+                  icon: const Icon(
+                    Icons.timelapse,
+                    color: Colors.blueAccent,
+                  ),
+                  label: const Text('Export timesheets - days'),
+                ),
+              ]),
+              const Divider(),
+
+              Row(
+                children: [
+                  DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                          isExpanded: true,
+                          hint: Text(
+                            'Select Item',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Theme.of(context).hintColor,
                             ),
                           ),
-                          width: 500,
-                          dialogType: DialogType.info,
-                          animType: AnimType.rightSlide,
-                          title: 'Add attendance record ?',
-                          enableEnterKey: true,
-                          showCloseIcon: true,
-                          btnOkOnPress: () {
-                            if (empName.isNotEmpty) {
-                              var time = dateAddRecord.appliedFromTimeOfDay(
-                                  TimeOfDay(hour: hour, minute: minute));
-                              int finger = gValue.employees
-                                  .where((element) =>
-                                      element.empId == empId.trim())
-                                  .first
-                                  .attFingerId!;
-                              AttLog attLog = AttLog(
-                                  objectId: '',
-                                  attFingerId: finger,
-                                  empId: empId,
-                                  name: empName,
-                                  machineNo: 1,
-                                  timestamp: time);
-                              gValue.mongoDb.insertAttLogs([attLog]);
-                            }
+                          items: monthYears.reversed
+                              .map((String item) => DropdownMenuItem<String>(
+                                    value: item,
+                                    child: Text(
+                                      item,
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ))
+                              .toList(),
+                          value: selectedMonth,
+                          onChanged: (String? value) {
+                            setState(() {
+                              print(value);
+                              selectedMonth = value!;
+                            });
                           },
-                          closeIcon: const Icon(Icons.close))
-                      .show();
-                },
-                icon: const Icon(
-                  Icons.add_box,
-                  color: Colors.greenAccent,
-                ),
-                label: const Text('Add record'),
+                          buttonStyleData: const ButtonStyleData(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            height: 40,
+                            width: 140,
+                          ),
+                          menuItemStyleData: const MenuItemStyleData(
+                            height: 40,
+                          ))),
+                  TextButton.icon(
+                      onPressed: () async {
+                        // var today = DateTime.now();
+                        var yearEnd =
+                            DateFormat.yMMMM().parse(selectedMonth).year;
+                        var monthEnd =
+                            DateFormat.yMMMM().parse(selectedMonth).month;
+                        var dateEnd = 26;
+                        var dateBegin = 26;
+                        var monBegin, yearBegin;
+                        var end = DateTime.utc(yearEnd, monthEnd, dateEnd);
+                        if (monthEnd == 1) {
+                          yearBegin = yearEnd - 1;
+                          monBegin = 12;
+                        } else {
+                          yearBegin = yearEnd;
+                          monBegin = monthEnd - 1;
+                        }
+                        var begin =
+                            DateTime.utc(yearBegin, monBegin, dateBegin);
+                        toastification.show(
+                          backgroundColor: Colors.greenAccent,
+                          alignment: Alignment.center,
+                          context: context,
+                          title: const Text('Data is loading...'),
+                          autoCloseDuration: const Duration(seconds: 2),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromARGB(6, 93, 250, 87),
+                              blurRadius: 16,
+                              offset: Offset(0, 16),
+                              spreadRadius: 0,
+                            )
+                          ],
+                        );
+                        List<OtRegister> otRegister1 = await gValue.mongoDb
+                            .getOTRegisterByRangeDate(begin, end);
+
+                        List<AttLog> attLogs1 =
+                            await gValue.mongoDb.getAttLogs(begin, end);
+                        print('${otRegister1.length}');
+                        print('${attLogs1.length}');
+                        MyFile.createExcelTimeSheet(
+                            MyFuntion.createTimeSheets(
+                                gValue.employees,
+                                gValue.shifts,
+                                gValue.shiftRegisters,
+                                otRegister1,
+                                attLogs1,
+                                begin,
+                                end),
+                            'Timesheets from ${DateFormat('dd-MMM-yyyy').format(begin)} to ${DateFormat('dd-MMM-yyyy').format(end)} ${DateFormat('hhmmss').format(DateTime.now())}');
+                      },
+                      icon: const Icon(
+                        Icons.timelapse_sharp,
+                        color: Colors.greenAccent,
+                      ),
+                      label: Text('Export timesheets - month'))
+                ],
               ),
-              TextButton.icon(
-                onPressed: () {
-                  print('(gValue.attLogs : ${gValue.attLogs.length}');
-                  MyFile.createExcelAttLog(gValue.attLogs,
-                      'Attendance logs from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)}');
-                },
-                icon: const Icon(
-                  Icons.download,
-                  color: Colors.blueAccent,
-                ),
-                label: const Text('Export records'),
-              ),
-              TextButton.icon(
-                onPressed: () async {
-                  List<Text> logs = [];
-                  gValue.mongoDb.insertAttLogs(await MyFile.readExcelAttLog());
-                  for (var log in gValue.logs) {
-                    logs.add(Text(
-                      log,
-                      style: TextStyle(
-                          color: log.contains("ERROR")
-                              ? Colors.red
-                              : Colors.black),
-                    ));
-                  }
-                  if (gValue.logs.isNotEmpty) {
+              const Divider(),
+              Row(children: [
+                TextButton.icon(
+                  onPressed: () {
+                    late SingleValueDropDownController dropDownController =
+                        SingleValueDropDownController();
+                    List<String> empIds = [];
+                    for (var emp in gValue.employees) {
+                      if (emp.workStatus == 'Working') {
+                        empIds.add(emp.empId ?? "TIQN-9999");
+                      }
+                    }
+                    empIds.toSet().toList();
+                    List<DropDownValueModel> dropDownValueModels = [];
+                    List<DropDownValueModel> dropDownValueModelsHour = [];
+                    List<DropDownValueModel> dropDownValueModelsMinute = [];
+                    for (var element in gValue.employees) {
+                      dropDownValueModels.add(DropDownValueModel(
+                          value: '${element.empId}',
+                          name: '${element.empId} ${element.name}'));
+                    }
+                    List<int> hours = [for (var i = 0; i <= 23; i++) i];
+                    var minutes = [0, 10, 20, 30, 40, 50];
+                    String empId = '', empName = '';
+                    for (var element in hours) {
+                      dropDownValueModelsHour.add(DropDownValueModel(
+                          name: element < 10
+                              ? '0$element'
+                              : element < 10
+                                  ? '0$element'
+                                  : '$element',
+                          value: element));
+                    }
+                    for (var element in minutes) {
+                      dropDownValueModelsMinute.add(DropDownValueModel(
+                          name: element < 10
+                              ? '0$element'
+                              : element < 10
+                                  ? '0$element'
+                                  : '$element',
+                          value: element));
+                    }
+                    int hour = 8, minute = 0;
                     AwesomeDialog(
+                            padding: const EdgeInsets.all(10),
                             context: context,
-                            body: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: logs,
+                            body: SizedBox(
+                              width: 500,
+                              height: 450,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        "Employee : ",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        width: 300,
+                                        child: DropDownTextField(
+                                          dropdownColor: Colors.white,
+                                          listTextStyle: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black),
+                                          readOnly: false,
+                                          controller: dropDownController,
+                                          clearOption: true,
+                                          keyboardType: TextInputType.number,
+                                          autovalidateMode:
+                                              AutovalidateMode.always,
+                                          clearIconProperty: IconProperty(
+                                              color: Colors.redAccent),
+                                          searchDecoration: const InputDecoration(
+                                              hintText:
+                                                  "Enter employee ID or name"),
+                                          dropDownList: dropDownValueModels,
+                                          onChanged: (val) {
+                                            empId = val.value;
+                                            empName = val.name
+                                                .toString()
+                                                .replaceAll('$empId ', '');
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SfDateRangePicker(
+                                    showTodayButton: true,
+                                    minDate: DateTime.now()
+                                        .subtract(const Duration(days: 31)),
+                                    maxDate: DateTime.now(),
+                                    backgroundColor: Colors.blue[100],
+                                    todayHighlightColor: Colors.green,
+                                    selectionColor: Colors.orangeAccent,
+                                    headerStyle: DateRangePickerHeaderStyle(
+                                      backgroundColor: Colors.blue[200],
+                                    ),
+                                    onSelectionChanged:
+                                        onSelectionChangedAddRecord,
+                                    selectionMode:
+                                        DateRangePickerSelectionMode.single,
+                                    initialSelectedDate: DateTime.now(),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        "Time",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const Text('Hour : '),
+                                      SizedBox(
+                                        width: 100,
+                                        child: DropDownTextField(
+                                          initialValue: '08',
+                                          dropdownColor: Colors.white,
+                                          listTextStyle: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black),
+                                          readOnly: false,
+                                          clearOption: true,
+                                          keyboardType: TextInputType.number,
+                                          autovalidateMode:
+                                              AutovalidateMode.always,
+                                          clearIconProperty: IconProperty(
+                                              color: Colors.redAccent),
+                                          searchDecoration:
+                                              const InputDecoration(
+                                                  hintText: "Hour"),
+                                          dropDownList: dropDownValueModelsHour,
+                                          onChanged: (val) {
+                                            hour = val.value;
+                                          },
+                                        ),
+                                      ),
+                                      const Text("Minute :"),
+                                      SizedBox(
+                                        width: 130,
+                                        child: DropDownTextField(
+                                          initialValue: '00',
+                                          dropdownColor: Colors.white,
+                                          listTextStyle: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black),
+                                          readOnly: false,
+                                          clearOption: true,
+                                          keyboardType: TextInputType.number,
+                                          autovalidateMode:
+                                              AutovalidateMode.always,
+                                          clearIconProperty: IconProperty(
+                                              color: Colors.redAccent),
+                                          searchDecoration:
+                                              const InputDecoration(
+                                                  hintText: "Minute"),
+                                          dropDownList:
+                                              dropDownValueModelsMinute,
+                                          onChanged: (val) {
+                                            minute = val.value;
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
-                            width: 800,
-                            dialogType: gValue.logs.toString().contains("ERROR")
-                                ? DialogType.warning
-                                : DialogType.info,
+                            width: 500,
+                            dialogType: DialogType.info,
                             animType: AnimType.rightSlide,
-                            title: 'Import attendance record result',
-                            desc: gValue.logs.toString(),
+                            title: 'Add attendance record ?',
                             enableEnterKey: true,
                             showCloseIcon: true,
+                            btnOkOnPress: () {
+                              if (empName.isNotEmpty) {
+                                var time = dateAddRecord.appliedFromTimeOfDay(
+                                    TimeOfDay(hour: hour, minute: minute));
+                                int finger = gValue.employees
+                                    .where((element) =>
+                                        element.empId == empId.trim())
+                                    .first
+                                    .attFingerId!;
+                                AttLog attLog = AttLog(
+                                    objectId: '',
+                                    attFingerId: finger,
+                                    empId: empId,
+                                    name: empName,
+                                    machineNo: 1,
+                                    timestamp: time);
+                                gValue.mongoDb.insertAttLogs([attLog]);
+                              }
+                            },
                             closeIcon: const Icon(Icons.close))
                         .show();
-                  }
-                },
-                icon: const Icon(
-                  Icons.upload,
-                  color: Colors.orangeAccent,
+                  },
+                  icon: const Icon(
+                    Icons.add_box,
+                    color: Colors.greenAccent,
+                  ),
+                  label: const Text('Add record'),
                 ),
-                label: const Text('Import records'),
-              ),
-            ]),
+                TextButton.icon(
+                  onPressed: () {
+                    print('(gValue.attLogs : ${gValue.attLogs.length}');
+                    MyFile.createExcelAttLog(gValue.attLogs,
+                        'Attendance logs from ${DateFormat('dd-MMM-yyyy').format(timeBegin)} to ${DateFormat('dd-MMM-yyyy').format(timeEnd)}');
+                  },
+                  icon: const Icon(
+                    Icons.download,
+                    color: Colors.blueAccent,
+                  ),
+                  label: const Text('Export records'),
+                ),
+                TextButton.icon(
+                  onPressed: () async {
+                    List<Text> logs = [];
+                    gValue.mongoDb
+                        .insertAttLogs(await MyFile.readExcelAttLog());
+                    for (var log in gValue.logs) {
+                      logs.add(Text(
+                        log,
+                        style: TextStyle(
+                            color: log.contains("ERROR")
+                                ? Colors.red
+                                : Colors.black),
+                      ));
+                    }
+                    if (gValue.logs.isNotEmpty) {
+                      AwesomeDialog(
+                              context: context,
+                              body: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: logs,
+                              ),
+                              width: 800,
+                              dialogType:
+                                  gValue.logs.toString().contains("ERROR")
+                                      ? DialogType.warning
+                                      : DialogType.info,
+                              animType: AnimType.rightSlide,
+                              title: 'Import attendance record result',
+                              desc: gValue.logs.toString(),
+                              enableEnterKey: true,
+                              showCloseIcon: true,
+                              closeIcon: const Icon(Icons.close))
+                          .show();
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.upload,
+                    color: Colors.orangeAccent,
+                  ),
+                  label: const Text('Import records'),
+                ),
+              ]),
 
-            // Text(
-            //     'Total Enrolled : ${gValue.enrolled}  -  Total Working Normal : ${gValue.workingNormal}\nMaternity leave : ${gValue.maternityLeave}\nPresent : ${gValue.present}\nAbsent : ${gValue.absent}'),
-
-            timeBegin.day == timeEnd.day
-                ? chartPresent(
-                    gValue.employeeIdPresents.length,
-                    gValue.employeeIdMaternityLeaves.length,
-                    gValue.employeeIdPresents.length,
-                    gValue.employeeIdAbsents.length)
-                : Container(),
-          ],
+              // Text(
+              //     'Total Enrolled : ${gValue.enrolled}  -  Total Working Normal : ${gValue.workingNormal}\nMaternity leave : ${gValue.maternityLeave}\nPresent : ${gValue.present}\nAbsent : ${gValue.absent}'),
+              const Divider(),
+              timeBegin.day == timeEnd.day
+                  ? chartPresent(
+                      gValue.employeeIdPresents.length,
+                      gValue.employeeIdMaternityLeaves.length,
+                      gValue.employeeIdPresents.length,
+                      gValue.employeeIdAbsents.length)
+                  : Container(),
+            ],
+          ),
+        ),
+        const VerticalDivider(
+          width: 8,
+          color: Colors.transparent,
         ),
         Expanded(
             child: PlutoGrid(

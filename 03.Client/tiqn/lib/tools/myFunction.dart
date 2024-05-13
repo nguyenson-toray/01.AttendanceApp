@@ -214,6 +214,20 @@ class MyFuntion {
     return report;
   }
 */
+  static List<String> getMonthYearList() {
+    DateTime startDate = DateTime.utc(2024, 3, 26);
+    DateTime endDate = DateTime.now();
+    List<String> list = [];
+    var date = startDate;
+    do {
+      list.add('${DateFormat('yMMMM').format(date)}');
+      date = date.add(Duration(days: 30));
+    } while (date.isBefore(endDate.add(Duration(days: 1))));
+    list.add('${DateFormat('yMMMM').format(DateTime.now())}');
+
+    return list;
+  }
+
   static void calculateAttendanceStatus() {
     gValue.employeeIdPresents.clear();
     gValue.employeeIdAbsents.clear();
@@ -297,7 +311,11 @@ class MyFuntion {
         }
       }
 
-      empIdOT = otRegisters.map((e) => e.empId).toList();
+      empIdOT = otRegisters
+          .where((ot) => ot.otDate.isAtSameMomentAs(date))
+          .toList()
+          .map((e) => e.empId)
+          .toList();
       for (var emp in employees.where((element) =>
           (!element.workStatus.toString().contains('Resigned') ||
               (element.workStatus.toString().contains('Resigned') &&

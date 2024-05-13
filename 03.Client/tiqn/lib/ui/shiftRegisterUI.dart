@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:tiqn/database/shift.dart';
@@ -78,99 +79,104 @@ class _ShiftRegisterUIState extends State<ShiftRegisterUI>
     return Scaffold(
       body: Row(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 200,
-                height: 300,
-                child: ListView.builder(
-                  itemCount: gValue.shifts.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                        title: Text(
-                          gValue.shifts[index].shift,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                            '${gValue.shifts[index].begin} - ${gValue.shifts[index].end}'));
+          Container(
+            color: Colors.blue[50],
+            width: 200,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 200,
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: gValue.shifts.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                          title: Text(
+                            gValue.shifts[index].shift,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text(
+                              '${gValue.shifts[index].begin} - ${gValue.shifts[index].end}'));
+                    },
+                  ),
+                ),
+                const Divider(),
+                TextButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      newOrEdit = 'new';
+                      rowIdChanged = 0;
+                      stateManager.scroll.vertical?.resetScroll();
+                      stateManager.prependNewRows();
+                    });
                   },
+                  icon: const Icon(
+                    Icons.add_box,
+                    color: Colors.greenAccent,
+                  ),
+                  label: const Text('Add one record'),
                 ),
-              ),
-              const Divider(
-                thickness: 3,
-                color: Colors.black,
-              ),
-              TextButton.icon(
-                onPressed: () {
-                  setState(() {
-                    newOrEdit = 'new';
-                    rowIdChanged = 0;
-                    stateManager.scroll.vertical?.resetScroll();
-                    stateManager.prependNewRows();
-                  });
-                },
-                icon: const Icon(
-                  Icons.add_box,
-                  color: Colors.greenAccent,
+                TextButton.icon(
+                  onPressed: () async {
+                    gValue.mongoDb.insertShiftRegisters(
+                        await MyFile.readExcelShiftRegister());
+                    List<Text> logs = [];
+                    for (var log in gValue.logs) {
+                      logs.add(Text(
+                        log,
+                        style: TextStyle(
+                            color: log.contains("ERROR")
+                                ? Colors.red
+                                : Colors.black),
+                      ));
+                    }
+                    if (gValue.logs.isNotEmpty) {
+                      AwesomeDialog(
+                              context: context,
+                              body: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: logs,
+                              ),
+                              width: 800,
+                              dialogType:
+                                  gValue.logs.toString().contains("ERROR")
+                                      ? DialogType.warning
+                                      : DialogType.info,
+                              animType: AnimType.rightSlide,
+                              title: 'Import Shifts Result',
+                              desc: gValue.logs.toString(),
+                              enableEnterKey: true,
+                              showCloseIcon: true,
+                              closeIcon: const Icon(Icons.close))
+                          .show();
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.upload,
+                    color: Colors.orangeAccent,
+                  ),
+                  label: const Text('Import from excel'),
                 ),
-                label: const Text('Add one record'),
-              ),
-              TextButton.icon(
-                onPressed: () async {
-                  gValue.mongoDb.insertShiftRegisters(
-                      await MyFile.readExcelShiftRegister());
-                  List<Text> logs = [];
-                  for (var log in gValue.logs) {
-                    logs.add(Text(
-                      log,
-                      style: TextStyle(
-                          color: log.contains("ERROR")
-                              ? Colors.red
-                              : Colors.black),
-                    ));
-                  }
-                  if (gValue.logs.isNotEmpty) {
-                    AwesomeDialog(
-                            context: context,
-                            body: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: logs,
-                            ),
-                            width: 800,
-                            dialogType: gValue.logs.toString().contains("ERROR")
-                                ? DialogType.warning
-                                : DialogType.info,
-                            animType: AnimType.rightSlide,
-                            title: 'Import Shifts Result',
-                            desc: gValue.logs.toString(),
-                            enableEnterKey: true,
-                            showCloseIcon: true,
-                            closeIcon: const Icon(Icons.close))
-                        .show();
-                  }
-                },
-                icon: const Icon(
-                  Icons.upload,
-                  color: Colors.orangeAccent,
+                TextButton.icon(
+                  onPressed: () {
+                    MyFile.createExcelShiftRegisters(gValue.shiftRegisters,
+                        'Shift Registers ${DateFormat('dd-MMM-yyyy hhmmss').format(DateTime.now())}');
+                  },
+                  icon: const Icon(
+                    Icons.download,
+                    color: Colors.blueAccent,
+                  ),
+                  label: const Text('Export all to excel'),
                 ),
-                label: const Text('Import from excel'),
-              ),
-              TextButton.icon(
-                onPressed: () {
-                  MyFile.createExcelShiftRegisters(gValue.shiftRegisters,
-                      'Shift Registers ${DateFormat('dd-MMM-yyyy hhmmss').format(DateTime.now())}');
-                },
-                icon: const Icon(
-                  Icons.download,
-                  color: Colors.blueAccent,
-                ),
-                label: const Text('Export all to excel'),
-              ),
-            ],
+              ],
+            ),
           ),
-          const VerticalDivider(),
+          const VerticalDivider(
+            width: 8,
+            color: Colors.transparent,
+          ),
           Expanded(
             child: PlutoGrid(
               mode: PlutoGridMode.normal,

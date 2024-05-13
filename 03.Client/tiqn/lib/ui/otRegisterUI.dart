@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -118,9 +119,11 @@ class _OtRegisterUIState extends State<OtRegisterUI>
     return Scaffold(
       body: Row(
         children: [
-          SizedBox(
+          Container(
+            color: Colors.blue[50],
             width: 500,
-            height: 600,
+            // height: 600,
+
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,7 +225,10 @@ class _OtRegisterUIState extends State<OtRegisterUI>
               ],
             ),
           ),
-          const VerticalDivider(),
+          const VerticalDivider(
+            color: Colors.transparent,
+            width: 8,
+          ),
           Expanded(
             child: PlutoGrid(
               mode: PlutoGridMode.normal,

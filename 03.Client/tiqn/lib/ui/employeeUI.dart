@@ -10,7 +10,6 @@ import 'package:tiqn/tools/myfile.dart';
 
 class EmployeeUI extends StatefulWidget {
   const EmployeeUI({super.key});
-
   @override
   State<EmployeeUI> createState() => _EmployeeUIState();
 }
@@ -27,6 +26,8 @@ class _EmployeeUIState extends State<EmployeeUI>
   PlutoGridMode plutoGridMode = PlutoGridMode.normal;
   late PlutoGridStateManager stateManager;
   bool pauseLoadData = false;
+  bool showResigned = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -45,7 +46,7 @@ class _EmployeeUIState extends State<EmployeeUI>
           if (!firstBuild) {
             gValue.employees = newList;
             stateManager.removeRows(stateManager.rows);
-            rows = getRows(gValue.employees);
+            rows = getRows(gValue.employees, showResigned);
             stateManager.appendRows(rows);
             MyFuntion.calculateEmployeeStatus();
           }
@@ -398,7 +399,7 @@ class _EmployeeUIState extends State<EmployeeUI>
     return columns;
   }
 
-  List<PlutoRow> getRows(List<Employee> data) {
+  List<PlutoRow> getRows(List<Employee> data, bool showResigned) {
     List<PlutoRow> rows = [];
     int all = 0;
     total = 0;
@@ -407,6 +408,9 @@ class _EmployeeUIState extends State<EmployeeUI>
     resigned = 0;
     gValue.lastFingerId = 0;
     gValue.lastEmpId = 0;
+    if (!showResigned) {
+      data = data.where((element) => element.workStatus != 'Resigned').toList();
+    }
     for (var employee in data) {
       final finger = employee.attFingerId;
       // final id = int.tryParse(employee.empId.toString().split('TIQN-')[1])!;
@@ -555,6 +559,16 @@ class _EmployeeUIState extends State<EmployeeUI>
     return PopupMenuButton(
       onSelected: (value) async {
         switch (value) {
+          case 'showResigned':
+            {
+              showResigned = !showResigned;
+              setState(() {
+                stateManager.removeRows(stateManager.rows);
+                rows = getRows(gValue.employees, showResigned);
+                stateManager.appendRows(rows);
+              });
+            }
+            break;
           case 'Import':
             // gValue.mongoDb
             //     .insertManyEmployees(await MyFile.readExcelEmployee());
@@ -626,6 +640,19 @@ class _EmployeeUIState extends State<EmployeeUI>
       },
       itemBuilder: (BuildContext bc) {
         return [
+          PopupMenuItem(
+              value: 'showResigned',
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.person,
+                    color: showResigned ? Colors.red : Colors.green,
+                  ),
+                  Text(showResigned
+                      ? 'HIDE resigned employees'
+                      : 'SHOW resigned employees'),
+                ],
+              )),
           const PopupMenuItem(
             value: 'all',
             child: Row(
