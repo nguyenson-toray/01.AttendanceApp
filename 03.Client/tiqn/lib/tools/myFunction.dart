@@ -306,7 +306,7 @@ class MyFuntion {
         List<AttLog> logs =
             dayLogs.where((log) => (log.empId == emp.empId)).toList();
         logsTime = logs.map((e) => e.timestamp).cast<DateTime>().toList();
-        double normalHours = 8, ot = 0;
+        double normalHours = 8, otActual = 0, otApproved = 0;
         String shift = 'Day';
         int restHour = 1;
         DateTime shiftTimeBegin =
@@ -351,12 +351,14 @@ class MyFuntion {
         if (logs.isEmpty) {
           {
             normalHours = 0;
-            ot = 0;
+            otApproved = 0;
+            otActual = 0;
           }
         } else if (logs.length == 1) {
           firstIn = logs.first.timestamp;
           normalHours = 0;
-          ot = 0;
+          otApproved = 0;
+          otActual = 0;
         } else {
           firstIn = logsTime.reduce((a, b) => a.isBefore(b) ? a : b);
           lastOut = logsTime.reduce((a, b) => a.isAfter(b) ? a : b);
@@ -369,10 +371,12 @@ class MyFuntion {
               (firstIn.isAfter(shiftTimeEnd) &&
                   lastOut.isAfter(shiftTimeEnd))) {
             normalHours = 0;
-            ot = 0;
+            otApproved = 0;
+            otActual = 0;
           } else if (firstIn.isAtSameMomentAs(lastOut)) {
             normalHours = 0;
-            ot = 0;
+            otApproved = 0;
+            otActual = 0;
           } else {
             normalHours = 8;
             // NORMAL
@@ -407,20 +411,20 @@ class MyFuntion {
             // DateTime otBeginAllow = shiftTimeEnd;
             DateTime otEndAllow =
                 shiftTimeEnd.add(const Duration(hours: 2)); // default 2 hours
-            if (gValue.allowAllOt) {
-              // gia dinh cho phep toan bo ot
-              if (!gValue.defaultOt2H) {
-                otEndAllow = shiftTimeEnd.add(const Duration(hours: 6));
-              }
-              if (lastOut.isBefore(otEndAllow)) {
-                // OT ra som
-                ot = lastOut.difference(shiftTimeEnd).inMinutes / 60;
-              } else {
-                // OT ra dung gio
-                ot = 2;
-              }
-              ot = ot < gValue.minHourOt ? 0 : ot;
-            } else if (empIdOT.contains(emp.empId)) {
+
+            // gia dinh cho phep toan bo ot
+            if (!gValue.defaultOt2H) {
+              otEndAllow = shiftTimeEnd.add(const Duration(hours: 6));
+            }
+            if (lastOut.isBefore(otEndAllow)) {
+              // OT ra som
+              otActual = lastOut.difference(shiftTimeEnd).inMinutes / 60;
+            } else {
+              // OT ra dung gio
+              otActual = 2;
+            }
+            otActual = otActual < gValue.minHourOt ? 0 : otActual;
+            if (empIdOT.contains(emp.empId)) {
               // neu trong danh sach OT
               OtRegister otRegisterEmp = otRegistersOnDate
                   .firstWhere((otRecord) => otRecord.empId == emp.empId);
@@ -438,12 +442,12 @@ class MyFuntion {
                   .add(Duration(hours: endTime.difference(beginTime).inHours));
               if (lastOut.isBefore(otEndAllow)) {
                 // OT ra som
-                ot = lastOut.difference(shiftTimeEnd).inMinutes / 60;
+                otApproved = lastOut.difference(shiftTimeEnd).inMinutes / 60;
               } else {
                 // OT ra dung gio
-                ot = otEndAllow.difference(shiftTimeEnd).inMinutes / 60;
+                otApproved = otEndAllow.difference(shiftTimeEnd).inMinutes / 60;
               }
-              ot = ot < gValue.minHourOt ? 0 : ot;
+              otApproved = otApproved < gValue.minHourOt ? 0 : otApproved;
             }
           }
         }
@@ -460,7 +464,8 @@ class MyFuntion {
             firstIn: firstIn.year == 2000 ? null : firstIn,
             lastOut: lastOut.year == 2000 ? null : lastOut,
             normalHours: normalHours,
-            otHours: ot));
+            otHours: otActual,
+            otHoursApproved: otApproved));
       }
     }
     return result;

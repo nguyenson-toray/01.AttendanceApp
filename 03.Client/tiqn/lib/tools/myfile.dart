@@ -599,15 +599,21 @@ class MyFile {
     final Worksheet sheetSummary = workbook.worksheets[1];
     sheetDetail.name = 'Detail';
     sheetSummary.name = 'Summary';
-    Range range = sheetDetail.getRangeByName('A2:N2');
+    // Range range = sheetDetail.getRangeByName('A2:N2');
     //Creating a new style for header.
     final Style styleHeader = workbook.styles.add('styleHeader');
+    final Style styleHeaderOtApproved =
+        workbook.styles.add('styleHeaderOtApproved');
     styleHeader.bold = true;
     styleHeader.backColorRgb = const Color.fromARGB(255, 174, 210, 239);
+    styleHeaderOtApproved.bold = true;
+    styleHeaderOtApproved.backColorRgb = const Color.fromARGB(255, 73, 183, 77);
     sheetDetail.getRangeByName('A1:N1').cellStyle = styleHeader;
+    sheetDetail.getRangeByName('O1:O1').cellStyle = styleHeaderOtApproved;
     sheetDetail.getRangeByName('M1').columnWidth = 15;
     sheetDetail.getRangeByName('N1').columnWidth = 10;
-    sheetDetail.getRangeByName('A1:N1').cellStyle.wrapText = true;
+    sheetDetail.getRangeByName('O1').columnWidth = 15;
+    sheetDetail.getRangeByName('A1:O1').cellStyle.wrapText = true;
     sheetDetail.getRangeByName('A1').setText('No');
     sheetDetail.getRangeByName('B1').setText('Date');
     sheetDetail.getRangeByName('C1').setText('Employee ID');
@@ -622,6 +628,7 @@ class MyFile {
     sheetDetail.getRangeByName('L1').setText('Last Out');
     sheetDetail.getRangeByName('M1').setText('Working hours');
     sheetDetail.getRangeByName('N1').setText('OT hours');
+    sheetDetail.getRangeByName('O1').setText('OT hours (approved)');
 
     int row = 1;
     for (var timeSheet in timeSheets) {
@@ -659,6 +666,9 @@ class MyFile {
       sheetDetail
           .getRangeByName('N$row')
           .setNumber(roundDouble(timeSheet.otHours, 1));
+      sheetDetail
+          .getRangeByName('O$row')
+          .setNumber(roundDouble(timeSheet.otHoursApproved, 1));
     }
 
     // Auto-Fit column the range
@@ -666,16 +676,18 @@ class MyFile {
     sheetDetail.autoFitColumn(2);
     sheetDetail.autoFitColumn(5);
     final ExcelTable tableDetail = sheetDetail.tableCollection
-        .create('tableDetail', sheetDetail.getRangeByName('A1:N$row'));
+        .create('tableDetail', sheetDetail.getRangeByName('A1:O$row'));
     tableDetail.builtInTableStyle = ExcelTableBuiltInStyle.tableStyleLight1;
 
     //------------Summary
     // sheetSummary.getRangeByName('A1:J1').merge();
     //  sheetSummary.getRangeByName('A1').setText('Summary');
     sheetSummary.getRangeByName('A1:I1').cellStyle = styleHeader;
+    sheetSummary.getRangeByName('J1:J1').cellStyle = styleHeaderOtApproved;
     sheetSummary.getRangeByName('H1').columnWidth = 15;
     sheetSummary.getRangeByName('I1').columnWidth = 10;
-    sheetSummary.getRangeByName('A1:I1').cellStyle.wrapText = true;
+    sheetSummary.getRangeByName('J1').columnWidth = 15;
+    sheetSummary.getRangeByName('A1:J1').cellStyle.wrapText = true;
     sheetSummary.getRangeByName('A1').setText('No');
     sheetSummary.getRangeByName('B1').setText('Employee ID');
     sheetSummary.getRangeByName('C1').setText('Full name');
@@ -685,6 +697,7 @@ class MyFile {
     sheetSummary.getRangeByName('G1').setText('Line/Team');
     sheetSummary.getRangeByName('H1').setText('Total Working hours');
     sheetSummary.getRangeByName('I1').setText('Total OT hours');
+    sheetSummary.getRangeByName('J1').setText('Total OT hours (approved)');
     final empIds = timeSheets.map((e) => e.empId).toSet().toList();
     row = 1;
     List<EmployeeWO> employeeWOs = [];
@@ -698,6 +711,9 @@ class MyFile {
       final double totalOtHours = timeSheets
           .where((element) => element.empId == empId)
           .fold(0, (sum, item) => sum + item.otHours);
+      final double totalOtHoursApproved = timeSheets
+          .where((element) => element.empId == empId)
+          .fold(0, (sum, item) => sum + item.otHoursApproved);
       employeeWO.empId = empInfo.empId;
       employeeWO.name = empInfo.name;
       employeeWO.department = empInfo.department;
@@ -706,6 +722,7 @@ class MyFile {
       employeeWO.lineTeam = empInfo.lineTeam;
       employeeWO.totalW = totalNormalHours;
       employeeWO.totalOt = totalOtHours;
+      employeeWO.totalOtApproved = totalOtHoursApproved;
       employeeWOs.add(employeeWO);
     }
     employeeWOs.sort((a, b) => b.totalOt.round().compareTo(a.totalOt.round()));
@@ -724,13 +741,17 @@ class MyFile {
       sheetSummary
           .getRangeByName('I$row')
           .setNumber(roundDouble(element.totalOt, 1));
+      sheetSummary
+          .getRangeByName('J$row')
+          .setNumber(roundDouble(element.totalOtApproved, 1));
     }
 
     sheetSummary.autoFitColumn(1);
     sheetSummary.autoFitColumn(2);
     sheetSummary.autoFitColumn(3);
+    sheetSummary.autoFitColumn(4);
     final ExcelTable tableSummary = sheetSummary.tableCollection
-        .create('tableSummary', sheetSummary.getRangeByName('A1:I$row'));
+        .create('tableSummary', sheetSummary.getRangeByName('A1:J$row'));
     tableSummary.builtInTableStyle = ExcelTableBuiltInStyle.tableStyleLight1;
 
 //Save and launch the excel.

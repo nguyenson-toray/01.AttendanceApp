@@ -15,6 +15,7 @@ class TimeSheet {
   DateTime? lastOut;
   double normalHours;
   double otHours;
+  double otHoursApproved;
   TimeSheet({
     required this.date,
     required this.empId,
@@ -29,6 +30,7 @@ class TimeSheet {
     this.lastOut,
     required this.normalHours,
     required this.otHours,
+    required this.otHoursApproved,
   });
 
   TimeSheet copyWith({
@@ -44,6 +46,7 @@ class TimeSheet {
     DateTime? lastOut,
     double? normalHours,
     double? otHours,
+    double? otHoursApproved,
   }) {
     return TimeSheet(
       date: date ?? this.date,
@@ -59,6 +62,7 @@ class TimeSheet {
       lastOut: lastOut ?? this.lastOut,
       normalHours: normalHours ?? this.normalHours,
       otHours: otHours ?? this.otHours,
+      otHoursApproved: otHours ?? this.otHoursApproved,
     );
   }
 
@@ -77,6 +81,7 @@ class TimeSheet {
       'lastOut': lastOut,
       'normalHours': normalHours,
       'otHours': otHours,
+      'otHoursApproved': otHoursApproved,
     };
   }
 
@@ -95,6 +100,7 @@ class TimeSheet {
       lastOut: map['lastOut'] != null ? DateTime.parse(map['lastOut']) : null,
       normalHours: map['normalHours'] as double,
       otHours: map['otHours'] as double,
+      otHoursApproved: map['otHoursApproved'] as double,
     );
   }
 
@@ -105,7 +111,7 @@ class TimeSheet {
 
   @override
   String toString() {
-    return 'TimeSheet(date: $date, empId: $empId, attFingerId: $attFingerId, name: $name, department: $department, section: $section, group: $group, lineTeam: $lineTeam,  shift: $shift, firstIn: $firstIn, lastOut: $lastOut, normalHours: $normalHours, otHours: $otHours)';
+    return 'TimeSheet(date: $date, empId: $empId, attFingerId: $attFingerId, name: $name, department: $department, section: $section, group: $group, lineTeam: $lineTeam,  shift: $shift, firstIn: $firstIn, lastOut: $lastOut, normalHours: $normalHours, otHours: $otHours,  otHoursApproved: $otHoursApproved)';
   }
 
   @override
@@ -124,7 +130,8 @@ class TimeSheet {
         other.firstIn == firstIn &&
         other.lastOut == lastOut &&
         other.normalHours == normalHours &&
-        other.otHours == otHours;
+        other.otHours == otHours &&
+        other.otHoursApproved == otHoursApproved;
   }
 
   @override
@@ -140,6 +147,7 @@ class TimeSheet {
         firstIn.hashCode ^
         lastOut.hashCode ^
         normalHours.hashCode ^
-        otHours.hashCode;
+        otHours.hashCode ^
+        otHoursApproved.hashCode;
   }
 }

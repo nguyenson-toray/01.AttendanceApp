@@ -7,6 +7,7 @@ import 'package:tiqn/database/otRegister.dart';
 import 'package:tiqn/gValue.dart';
 import 'package:tiqn/main.dart';
 import 'package:tiqn/tools/myfile.dart';
+import 'package:toastification/toastification.dart';
 
 class OtRegisterUI extends StatefulWidget {
   const OtRegisterUI({super.key});
@@ -27,35 +28,58 @@ class _OtRegisterUIState extends State<OtRegisterUI>
   Map<String, dynamic> rowChangedJson = {};
   late DateTime timeBegin;
   late DateTime timeEnd;
+  bool isDataChanged = false;
   @override
   void initState() {
     // TODO: implement initState
     columns = getColumns();
     rows = getRows(gValue.otRegisters);
-    Timer.periodic(const Duration(seconds: 2), (_) => refreshData());
+    Timer.periodic(const Duration(seconds: 1), (_) => refreshData());
     timeBegin = DateTime.now()
         .subtract(const Duration(days: 7))
         .appliedFromTimeOfDay(const TimeOfDay(
           hour: 0,
           minute: 0,
         ));
-    timeEnd = DateTime.now().appliedFromTimeOfDay(const TimeOfDay(
-      hour: 23,
-      minute: 59,
-    ));
+    timeEnd = timeBegin
+        .add(const Duration(days: 31))
+        .appliedFromTimeOfDay(const TimeOfDay(
+          hour: 23,
+          minute: 59,
+        ));
     super.initState();
   }
 
   bool checkDiff(List<OtRegister> oldList, List<OtRegister> newList) {
     bool diff = false;
     if (newList.isEmpty) {
+      if (isDataChanged)
+        toastification.show(
+          backgroundColor: Colors.orange,
+          alignment: Alignment.center,
+          context: context,
+          title: Text(
+              'No data from ${DateFormat("dd-MMM-yyyy").format(timeBegin)} to  ${DateFormat("dd-MMM-yyyy").format(timeEnd)} !!!'),
+          autoCloseDuration: const Duration(seconds: 2),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x07000000),
+              blurRadius: 16,
+              offset: Offset(0, 16),
+              spreadRadius: 0,
+            )
+          ],
+        );
+      isDataChanged = false;
       return false;
     } else if (oldList.length != newList.length) {
       print('checkDiff OtRegister : TRUE : Diff length');
       diff = true;
+      isDataChanged = true;
     } else {
       for (int i = 0; i < oldList.length; i++) {
         if (oldList[i] != newList[i]) {
+          isDataChanged = true;
           diff = true;
           print('checkDiff OtRegister: TRUE : Diff element');
           break;
@@ -111,7 +135,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                     view: DateRangePickerView.month,
                     showTodayButton: true,
                     // minDate: DateTime.now().subtract(Duration(days: 31)),
-                    maxDate: DateTime.now(),
+                    maxDate: DateTime.now().add(Duration(days: 31)),
                     backgroundColor: Colors.blue[100],
                     todayHighlightColor: Colors.green,
                     selectionColor: Colors.orangeAccent,
@@ -462,12 +486,14 @@ class _OtRegisterUIState extends State<OtRegisterUI>
         enableEditingMode: false,
         title: 'Requets number',
         field: 'requestNo',
+        width: 140,
         type: PlutoColumnType.text(),
       ),
       PlutoColumn(
         enableEditingMode: false,
         title: 'Date',
         field: 'otDate',
+        width: 120,
         type: PlutoColumnType.date(
           format: "dd-MMM-yyyy",
         ),
@@ -490,6 +516,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
         enableEditingMode: false,
         title: 'Employee ID',
         field: 'empId',
+        width: 130,
         type: PlutoColumnType.text(),
       ),
       PlutoColumn(
@@ -556,6 +583,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
         hour: 23,
         minute: 59,
       ));
+      isDataChanged = true;
     });
   }
 }
