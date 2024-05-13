@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"f8c44431c2c24ddc88ded18468955f1b","collectionName":"MaternityTracking","type":"collection"}

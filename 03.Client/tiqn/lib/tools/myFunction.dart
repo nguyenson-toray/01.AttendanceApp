@@ -1,4 +1,5 @@
 // import 'package:realm/realm.dart';
+import 'package:intl/intl.dart';
 import 'package:tiqn/database/attLog.dart';
 import 'package:tiqn/database/employee.dart';
 import 'package:tiqn/database/otRegister.dart';
@@ -272,14 +273,11 @@ class MyFuntion {
       dates.add(dateTemp);
       dateTemp = dateTemp.add(const Duration(days: 1));
     }
-    List<OtRegister> otRegistersPeriod = [];
-    var beginCal = DateTime.now();
+    List<OtRegister> otRegistersOnDate = [];
     for (var date in dates) {
       List<AttLog> dayLogs =
           attLogs.where((log) => (log.timestamp.day == date.day)).toList();
       if (dayLogs.isEmpty) continue;
-      var temp = attLogs.map((e) => e.empId).toList();
-      var listOfEmpIdPresent = temp.toSet().toList();
       List<String> empIdShift1 = [],
           empIdShift2 = [],
           // empIdCanteen = [],
@@ -291,22 +289,15 @@ class MyFuntion {
           } else if (element.shift == 'Shift 2') {
             empIdShift2.add(element.empId);
           }
-          // else if (element.shift == 'Canteen') {
-          //   empIdCanteen.add(element.empId);
-          // }
         }
       }
-
       for (var element in otRegisters) {
-        if ((element.fromDate.isBefore(date) ||
-                element.fromDate.isAtSameMomentAs(date)) &&
-            (element.toDate.isAfter(date) ||
-                element.toDate.isAtSameMomentAs(date))) {
-          otRegistersPeriod.add(element);
+        if (element.otDate.isAtSameMomentAs(date)) {
+          otRegistersOnDate.add(element);
         }
       }
-      empIdOT = otRegistersPeriod.map((e) => e.empId).toList();
 
+      empIdOT = otRegisters.map((e) => e.empId).toList();
       for (var emp in employees.where((element) =>
           (!element.workStatus.toString().contains('Resigned') ||
               (element.workStatus.toString().contains('Resigned') &&
@@ -369,7 +360,6 @@ class MyFuntion {
         } else {
           firstIn = logsTime.reduce((a, b) => a.isBefore(b) ? a : b);
           lastOut = logsTime.reduce((a, b) => a.isAfter(b) ? a : b);
-
           if (emp.workStatus.toString().contains('pregnant') ||
               emp.workStatus.toString().contains('child')) {
             shiftTimeEnd = shiftTimeEnd.subtract(const Duration(hours: 1));
@@ -414,14 +404,17 @@ class MyFuntion {
                 normalHours -= shiftTimeEnd.difference(lastOut).inMinutes / 60;
               }
             }
-
+            // DateTime otBeginAllow = shiftTimeEnd;
+            DateTime otEndAllow =
+                shiftTimeEnd.add(const Duration(hours: 2)); // default 2 hours
             if (gValue.allowAllOt) {
               // gia dinh cho phep toan bo ot
-              DateTime otBeginAllow = shiftTimeEnd;
-              DateTime otEndAllow = shiftTimeEnd.add(const Duration(hours: 2));
+              if (!gValue.defaultOt2H) {
+                otEndAllow = shiftTimeEnd.add(const Duration(hours: 6));
+              }
               if (lastOut.isBefore(otEndAllow)) {
                 // OT ra som
-                ot = lastOut.difference(otBeginAllow).inMinutes / 60;
+                ot = lastOut.difference(shiftTimeEnd).inMinutes / 60;
               } else {
                 // OT ra dung gio
                 ot = 2;
@@ -429,25 +422,28 @@ class MyFuntion {
               ot = ot < gValue.minHourOt ? 0 : ot;
             } else if (empIdOT.contains(emp.empId)) {
               // neu trong danh sach OT
-              DateTime otBeginAllow = shiftTimeEnd;
-              DateTime otEndAllow = shiftTimeEnd.add(const Duration(hours: 2));
-              if (!gValue.defaultOt2H) {
-                OtRegister otRegisterEmp = otRegistersPeriod
-                    .firstWhere((otRecord) => otRecord.empId == emp.empId);
-                otBeginAllow = DateTime.utc(date.year, date.month, date.day,
-                    int.parse(otRegisterEmp.fromTime.split(':')[0]));
-                otEndAllow = DateTime.utc(date.year, date.month, date.day,
-                    int.parse(otRegisterEmp.toTime.split(':')[0]));
-              }
+              OtRegister otRegisterEmp = otRegistersOnDate
+                  .firstWhere((otRecord) => otRecord.empId == emp.empId);
 
+              final beginH = otRegisterEmp.otTimeBegin.split(':')[0];
+              final beginM = otRegisterEmp.otTimeBegin.split(':')[1];
+              final endH = otRegisterEmp.otTimeEnd.split(':')[0];
+              final endM = otRegisterEmp.otTimeEnd.split(':')[1];
+
+              DateTime beginTime = DateFormat("dd-MM-yyyy hh:mm:ss")
+                  .parse('01-01-2000 $beginH:$beginM:00');
+              DateTime endTime = DateFormat("dd-MM-yyyy hh:mm:ss")
+                  .parse('01-01-2000 $endH:$endM:00');
+              DateTime otEndAllow = shiftTimeEnd
+                  .add(Duration(hours: endTime.difference(beginTime).inHours));
               if (lastOut.isBefore(otEndAllow)) {
                 // OT ra som
-                ot = lastOut.difference(otBeginAllow).inMinutes / 60;
+                ot = lastOut.difference(shiftTimeEnd).inMinutes / 60;
               } else {
                 // OT ra dung gio
-                ot = otEndAllow.difference(otBeginAllow).inMinutes / 60;
+                ot = otEndAllow.difference(shiftTimeEnd).inMinutes / 60;
               }
-              ot = ot < 0.33 ? 0 : ot;
+              ot = ot < gValue.minHourOt ? 0 : ot;
             }
           }
         }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:tiqn/database/attLog.dart';
 import 'package:tiqn/database/employee.dart';
@@ -8,7 +9,7 @@ import 'package:tiqn/gValue.dart';
 
 class MongoDb {
   String ipServer = '192.168.1.11';
-  // 'localhost';
+
   late var colEmployee,
       colAttLog,
       colShift,
@@ -17,10 +18,14 @@ class MongoDb {
       colConfig;
   late Db db;
   initDB() async {
+    if (kReleaseMode) {
+      ipServer = 'localhost';
+    } else {
+      ipServer = '192.168.1.11';
+    }
     db = Db("mongodb://$ipServer:27017/tiqn");
     try {
       await db.open();
-
       colEmployee = db.collection('Employee');
       colAttLog = db.collection('AttLog');
       colShift = db.collection('Shift');
@@ -42,8 +47,8 @@ class MongoDb {
       result = await colConfig.find().toList();
       gValue.allowAllOt = result.first['allowAllOt'];
       gValue.defaultOt2H = result.first['defaultOt2H'];
-      gValue.showObjectId = bool.parse(result.first['showObjectId']);
-      gValue.minHourOt = double.parse(result.first['minHourOt']);
+      gValue.showObjectId = result.first['showObjectId'];
+      gValue.minHourOt = result.first['minHourOt'];
     } catch (e) {
       print(e);
     }
@@ -274,31 +279,21 @@ class MongoDb {
   }
 
   Future<List<OtRegister>> getOTRegisterByRangeDate(
-      DateTime timneBegin, DateTime timeEnd) async {
-    // print('getOTRegister : form $timneBegin   to $timeEnd');
-    List<OtRegister> result = [], temp = [];
-    DateTime date = timneBegin;
+      DateTime timeBegin, DateTime timeEnd) async {
+    List<OtRegister> result = [];
+    ;
     try {
       if (!db.isConnected) {
         print('getOTRegisterByRangeDate DB not connected, try connect again');
         await initDB();
       }
-      if (timneBegin.day != timeEnd.day) {
-        await colOtRegister
-            .find(
-                where.lt('fromDate', timneBegin).or(where.gt('toDate', timeEnd))
-                // .sortBy('timestamp', descending: true)
-                )
-            .forEach((ot) => {result.add(OtRegister.fromMap(ot))});
-      } else {
-        await colOtRegister
-            .find(where
-                    .lt('fromDate', timneBegin)
-                    .and(where.gt('toDate', timeEnd))
-                // .sortBy('timestamp', descending: true)
-                )
-            .forEach((ot) => {result.add(OtRegister.fromMap(ot))});
-      }
+
+      await colOtRegister
+          .find(where
+              .gte('otDate', timeBegin)
+              .and(where.lte('otDate', timeEnd))
+              .sortBy('otDate', descending: true))
+          .forEach((ot) => {result.add(OtRegister.fromMap(ot))});
     } catch (e) {
       print(e);
     }
@@ -306,6 +301,7 @@ class MongoDb {
   }
 
   Future<List<OtRegister>> getOTRegisterAll() async {
+    print('getOTRegisterAll');
     List<OtRegister> result = [];
     try {
       if (!db.isConnected) {
@@ -313,9 +309,7 @@ class MongoDb {
         await initDB();
       }
       await colOtRegister
-          .find(
-              // .sortBy('timestamp', descending: true)
-              )
+          .find(where.sortBy('requetsNo', descending: true))
           .forEach((ot) => {result.add(OtRegister.fromMap(ot))});
     } catch (e) {
       print(e);

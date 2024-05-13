@@ -116,8 +116,7 @@ class _AttLogUIState extends State<AttLogUI>
                 ),
                 onSelectionChanged: onSelectionChanged,
                 selectionMode: DateRangePickerSelectionMode.range,
-                initialSelectedRange:
-                    PickerDateRange(DateTime.now(), DateTime.now()),
+                initialSelectedRange: PickerDateRange(timeBegin, timeEnd),
               ),
             ),
 
@@ -162,8 +161,8 @@ class _AttLogUIState extends State<AttLogUI>
               ),
               TextButton.icon(
                 onPressed: () async {
-                  List<OtRegister> otRegisterAll =
-                      await gValue.mongoDb.getOTRegisterAll();
+                  List<OtRegister> otRegister = await gValue.mongoDb
+                      .getOTRegisterByRangeDate(timeBegin, timeEnd);
                   if (isLoading) {
                     toastification.show(
                       backgroundColor: Colors.orange,
@@ -186,7 +185,7 @@ class _AttLogUIState extends State<AttLogUI>
                             gValue.employees,
                             gValue.shifts,
                             gValue.shiftRegisters,
-                            otRegisterAll,
+                            otRegister,
                             gValue.attLogs,
                             timeBegin,
                             timeEnd),
@@ -728,7 +727,7 @@ class _AttLogUIState extends State<AttLogUI>
       }
       timeBegin = timeBegin.appliedFromTimeOfDay(const TimeOfDay(
         hour: 0,
-        minute: 1,
+        minute: 0,
       ));
       timeEnd = timeEnd.appliedFromTimeOfDay(const TimeOfDay(
         hour: 23,

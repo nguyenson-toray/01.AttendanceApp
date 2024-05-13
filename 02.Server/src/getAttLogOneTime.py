@@ -18,7 +18,7 @@ allEmployee = collectionEmployee.find()
 historyGetAttLogs = collectionHistoryGetAttLogs.find()
 
 
-def get_att_log(machine: ZK, machineNo: int) -> int:
+def get_att_log_one_time(machine: ZK, machineNo: int) -> int:
     conn = None
     count = 0
     timeBeginGetLogs = datetime.now()
@@ -71,4 +71,4 @@ if __name__ == "__main__":  # confirms that the code is under main function
     machineNo = 0
     for machine in attMachines:
         machineNo += 1
-        Process(target=get_att_log, args=(machine, machineNo)).start()
+        Process(target=get_att_log_one_time, args=(machine, machineNo)).start()

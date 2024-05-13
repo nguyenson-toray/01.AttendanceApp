@@ -1,0 +1,8 @@
+{
+    "files": [
+        "AttMachine.py",
+        "gValue.py",
+        "mainWindow.py",
+        "mainWindow.ui"
+    ]
+}

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 import sys
 import time
 from multiprocessing import Process
@@ -8,28 +7,36 @@ import schedule
 from zk import ZK
 import pymongo
 from datetime import datetime
-from datetime import timedelta
 import pandas as pd
+import cv2
+from pyzbar.pyzbar import decode
+from pdf2image import convert_from_path
+from openpyxl import load_workbook
 
 CWD = os.path.dirname(os.path.realpath(__file__))
 ROOT_DIR = os.path.dirname(CWD)
 sys.path.append(ROOT_DIR)
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["tiqn"]  # Replace "mydatabase" with your database name
+db = client["tiqn"]
 collectionEmployee = db["Employee"]
 collectionAttLog = db["AttLog"]
 collectionMaternityTracking = db["MaternityTracking"]
 collectionHistoryGetAttLogs = db["HistoryGetAttLogs"]
-collectionLastModifiedExcelData = db["LastModifiedExcelData"]
+collectionLastModifiedDataHR = db["LastModifiedDataHR"]
+collectionOtRegister = db["OtRegister"]
+emp_id_name = {}
+
 
 def floor(datetimeObj):
-   return datetimeObj.replace()
-def excelAllInOneToMongoDb()-> bool:
+    return datetimeObj.replace()
+
+
+def excelAllInOneToMongoDb() -> bool:
     # Read data from Excel using pandas
     excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\Toray's employees information All in one.xlsx"
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
-    lastModifiedDb = collectionLastModifiedExcelData.find_one()['aio'].replace(microsecond=0)
+    lastModifiedDb = collectionLastModifiedDataHR.find_one()['aio'].replace(microsecond=0)
     needUpdate = True if lastModifiedFile > lastModifiedDb else False
     if not needUpdate:
         print(f"{excelFile} => No change from {lastModifiedDb} => pass")
@@ -37,7 +44,7 @@ def excelAllInOneToMongoDb()-> bool:
     print(f"{excelFile} => Changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"aio": lastModifiedFile}}
-    collectionLastModifiedExcelData.update_one(query, newValue)
+    collectionLastModifiedDataHR.update_one(query, newValue)
     data = pd.read_excel(excelFile, keep_default_na=False, na_values='', na_filter=False)
     data.fillna("", inplace=True)
     # Convert pandas dataframe to dictionary (adjust based on your data structure)
@@ -90,10 +97,10 @@ def excelAllInOneToMongoDb()-> bool:
 
 
 def excelMaternityToMongoDb(forceUpdate: bool):
-    excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\05.Nurse\Maternity leave\Danh sách nhân viên nữ mang thai. 1.xlsx"
+    excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\05.Nurse\5. Maternity leave\Danh sách nhân viên nữ mang thai. 1.xlsx"
     # check if file changed
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
-    lastModifiedDb = collectionLastModifiedExcelData.find_one()['maternity'].replace(microsecond=0)
+    lastModifiedDb = collectionLastModifiedDataHR.find_one()['maternity'].replace(microsecond=0)
     needUpdateMaternity = forceUpdate if forceUpdate else True if lastModifiedFile > lastModifiedDb else False
     if not needUpdateMaternity:
         print(f"{excelFile} =>No need update or no change from {lastModifiedDb} => pass")
@@ -101,7 +108,7 @@ def excelMaternityToMongoDb(forceUpdate: bool):
     print(f"{excelFile} =>Need to update, changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"maternity": lastModifiedFile}}
-    collectionLastModifiedExcelData.update_one(query, newValue)
+    collectionLastModifiedDataHR.update_one(query, newValue)
     # Read -thai san
     data = pd.read_excel(excelFile, sheet_name='Thai sản', keep_default_na=False, na_values='',
                          na_filter=False, skiprows=3)
@@ -152,15 +159,15 @@ def excelResignToMongoDb(forceUpdate: bool):
     excelFile = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\7 Resigned list\Resigned report.xlsx"
     # check if file changed
     lastModifiedFile = datetime.fromtimestamp(os.path.getmtime(excelFile)).replace(microsecond=0)
-    lastModifiedDb = collectionLastModifiedExcelData.find_one()['resign'].replace(microsecond=0)
-    needUpdateResign =forceUpdate if forceUpdate else True if lastModifiedFile > lastModifiedDb else False
+    lastModifiedDb = collectionLastModifiedDataHR.find_one()['resign'].replace(microsecond=0)
+    needUpdateResign = forceUpdate if forceUpdate else True if lastModifiedFile > lastModifiedDb else False
     if not needUpdateResign:
         print(f"{excelFile} =>No need update or No change from {lastModifiedDb} => pass")
         return forceUpdate
     print(f"{excelFile} =>Need to update, Changed at {lastModifiedFile} => Need update")
     query = {'_id': 1}
     newValue = {"$set": {"resign": lastModifiedFile}}
-    collectionLastModifiedExcelData.update_one(query, newValue)
+    collectionLastModifiedDataHR.update_one(query, newValue)
     data = pd.read_excel(excelFile, sheet_name='QD', keep_default_na=False, na_values='',
                          na_filter=False)
     data.fillna("", inplace=True)
@@ -178,6 +185,49 @@ def excelResignToMongoDb(forceUpdate: bool):
             print(f"update {empIdResigned} to resigned on {resignDate}")
             collectionEmployee.update_one(query, update)
     return forceUpdate
+def get_att_log_one_time(machine: ZK, machineNo: int) -> int:
+    conn = None
+    count = 0
+    timeBeginGetLogs = datetime.now()
+    try:
+
+        history = {}
+        for his in collectionHistoryGetAttLogs.find():
+            if (int(his['machine']) == machineNo):
+                history = his
+        lastTime = history['lastTimeGetAttLogs']
+        conn = machine.connect()
+        print(f"Connecting machine : {machine.get_network_params()['ip']}")
+        # disable device, this method ensures no activity on the device while the process is run
+        conn.disable_device()
+        # another commands will be here!
+        # Get attendances (will return list of Attendance object)
+        attendances = conn.get_attendance()
+        for attendance in attendances:
+            if (attendance.timestamp > lastTime):
+                mydict = {"machineNo": machineNo, "uid": attendance.uid, "attFingerId": int(attendance.user_id),
+                          "empId": 'No Emp Id', "name": 'No name',
+                          "timestamp": attendance.timestamp}
+                for emp in collectionEmployee.find():
+                    if (int(emp['attFingerId']) == int(attendance.user_id)):
+                        mydict = {"machineNo": machineNo, "uid": attendance.uid, "attFingerId": int(attendance.user_id),
+                                  "empId": emp['empId'], "name": emp['name'],
+                                  "timestamp": attendance.timestamp}
+                        break
+                collectionAttLog.insert_one(mydict)
+                count += 1
+        myquery = {"machine": machineNo}
+        newvalue = {"$set": {"lastTimeGetAttLogs": datetime.now(), "lastCount": count}}
+        collectionHistoryGetAttLogs.update_one(myquery, newvalue)
+        conn.enable_device()
+    except:
+        print('except')
+    finally:
+        if conn:
+            conn.disconnect()
+        print(f"Machine {machineNo} => {count} records. Total time: {datetime.now() - timeBeginGetLogs}")
+
+
 def live_capture_attendance(machine: ZK, machineNo) -> None:
     conn = None
     try:
@@ -209,10 +259,170 @@ def live_capture_attendance(machine: ZK, machineNo) -> None:
         if conn:
             conn.disconnect()
 
-def updateExceltoMongoDb():
-    needUpdate= excelAllInOneToMongoDb()
+
+def update_excel_to_mongoDb():
+    needUpdate = excelAllInOneToMongoDb()
     excelMaternityToMongoDb(needUpdate)
     excelResignToMongoDb(needUpdate)
+
+
+def get_emp_id_name():
+    emp_id_name.clear()
+    for emp in collectionEmployee.find():
+        emp_id_name[emp['empId']] = emp['name']
+
+
+def ot_register_append_excel(folder_path: str, file_name):
+    filename = os.path.join(folder_path, file_name)
+    # if open(filename, 'r'):
+    #     print(f'ot_register_append_excel : file can not OPEN or ERROR: {filename}')
+    #     return
+    ot_last_request_id_db = collectionLastModifiedDataHR.find_one()['otRequestId']
+    if ot_last_request_id_db == 0:
+        return
+    print(F'Append OT data from db to ecl')
+    # Open the existing workbook
+    wb = load_workbook(filename=filename)
+    sheet_name = "data"  # Replace with your sheet name
+    # Select the sheet you want to append data to (adjust sheet name)
+    ws = wb[sheet_name]
+
+    if ws.max_row == 1:
+        ot_last_request_id_excel = 0
+        last_row = 1
+    else:
+        last_row = ws.max_row
+        ot_last_request_id_excel = int(ws.cell(last_row, 1).value)
+    if ot_last_request_id_db > ot_last_request_id_excel:
+        query = {"_id": {"$gt": ot_last_request_id_excel}}
+        docs = collectionOtRegister.find(query)
+        for doc in docs:
+            print(f"  =>  Append row {last_row} : value: {doc}")
+            last_row += 1
+            ws.cell(row=last_row, column=1).value = doc['_id']
+            ws.cell(row=last_row, column=2).value = doc['requestNo']
+            ws.cell(row=last_row, column=3).value = doc['requestDate']
+            ws.cell(row=last_row, column=4).value = doc['otDate']
+            ws.cell(row=last_row, column=5).value = doc['otTimeBegin']
+            ws.cell(row=last_row, column=6).value = doc['otTimeEnd']
+            ws.cell(row=last_row, column=7).value = doc['empId']
+            ws.cell(row=last_row, column=8).value = doc['name']
+        # Apply date formatting to the entire column
+        date_format = "DD-MM-YYYY"
+        for row in ws.iter_rows(min_row=2):  # Skip the first row (headers)
+            cell = row[2]  # Access cell by column index (0-based)
+            if isinstance(cell.value, datetime):  # Check if value is a date object
+                cell.number_format = date_format
+            else:
+                pass
+            cell = row[3]  # Access cell by column index (0-based)
+            if isinstance(cell.value, datetime):  # Check if value is a date object
+                cell.number_format = date_format
+            else:
+                pass
+        # Save the modified workbook
+        wb.save(filename=filename)
+        wb.close()
+        print(f"  => ot_register_append_excel : Data appended to: {filename}")
+
+
+def qr_code_ot_register_to_db(ot_last_request_id_db: int, ot_request_no: str,date_request: str, list_date_time: list,
+                              list_emp_id: list) -> int:
+    print(f'qr_code_ot_register_to_db: ot_request_no :{ot_request_no}')
+    for date_and_time in list_date_time:
+        if not len(date_and_time) == 20 or date_and_time.find('19000100') >= 0:
+            print(f'{date_and_time}: is wrong => pass')
+            continue
+        date_ot_str = date_and_time.strip().split(' ')[0]
+        ot_time_begin_str = date_and_time.strip().split(' ')[1]
+        ot_time_end_str = date_and_time.strip().split(' ')[2]
+        ot_date = datetime.strptime(date_ot_str[0:8], '%Y%m%d')
+        request_date = datetime.strptime(date_request, '%Y%m%d')
+        for id_no in list_emp_id:
+            emp_id = 'TIQN-' + str(id_no)
+            emp_name = emp_id_name[emp_id]
+            ot_last_request_id_db += 1
+            mydict = {"_id": ot_last_request_id_db, "requestNo": ot_request_no, "requestDate": request_date,
+                      "otDate": ot_date, 'otTimeBegin': ot_time_begin_str, 'otTimeEnd': ot_time_end_str,
+                      "empId": emp_id, "name": emp_name}
+            collectionOtRegister.insert_one(mydict)
+    return ot_last_request_id_db
+
+
+def ot_register_detect_qr_and_save():
+    begin = datetime.now()
+    ot_folder_path = r"\\fs\tiqn\03.Department\01.Operation Management\03.HR-GA\01.HR\20.OT request"
+    ot_folder_pdf_path = ot_folder_path + r"\02.Pdf"
+    ot_excel_file_name = "01.OT summary.xlsx"
+    my_poppler_path = r'C:\Program Files\poppler-24.02.0\Library\bin'
+    ot_last_request_id_db = collectionLastModifiedDataHR.find_one()['otRequestId']
+    # ot_last_form_request_time=None
+    for doc in collectionLastModifiedDataHR.find().limit(1):
+        ot_last_form_request_time = doc['otFormRequestTime']
+    # print(f'detect_qr : database : last otRequestId = {ot_last_request_id_db}      last otFormRequestTime: {ot_last_form_request_time}')
+    list_qr = []
+    pdf_paths = []
+    try:
+        # Use glob with wildcard for efficient PDF search
+        for filename in os.listdir(ot_folder_pdf_path):
+            if filename.endswith('.pdf') and filename.startswith("202"):
+                pdf_paths.append(os.path.join(ot_folder_pdf_path, filename))
+        # Sort PDFs by last modified time (descending) using reverse=True
+        pdf_paths.sort(key=os.path.getmtime)
+        # print(f"pdf_paths:{pdf_paths}")
+    except Exception as e:
+        print(f"Error processing folder {ot_folder_pdf_path}: {e}")
+    for file_path in pdf_paths:
+        file_last_modified = datetime.fromtimestamp(os.path.getmtime(file_path))
+        print(f'File: {file_path} => file_last_modified : {file_last_modified}')
+        list_qr = []
+        diff_time = file_last_modified - ot_last_form_request_time
+        if diff_time.total_seconds() > 1:
+            try:
+                temp_pages = convert_from_path(file_path, dpi=100, output_file='qr.png', paths_only=True,
+                                               output_folder=ot_folder_pdf_path, poppler_path=my_poppler_path)
+                for temp_page in temp_pages:
+                    try:
+                        page = cv2.imread(temp_page)
+                        gray = cv2.cvtColor(page, cv2.COLOR_BGR2GRAY)  # Convert to grayscale for better detection
+                        # Detect QR codes
+                        qr_codes = decode(gray)
+                        # Extract data from QR codes
+                        for qr_code in qr_codes:
+                            qr = str(qr_code.data.decode('utf-8'))
+                            ot_request_no = qr.split(';')[0].strip()
+                            date_request = qr.split(';')[1].strip()
+                            list_date_time = qr.split(';')[2].strip().split(', ')
+                            list_emp_id = qr.split(';')[3].strip().split(' ')
+                            ot_last_request_time = file_last_modified
+                            ot_last_request_id_db = qr_code_ot_register_to_db(ot_last_request_id_db, ot_request_no,date_request,
+                                                                              list_date_time, list_emp_id)
+                            query = {'_id': 1}
+                            update = {
+                                "$set": {'otFormRequestTime': ot_last_request_time,
+                                         "otRequestId": ot_last_request_id_db}}
+                            collectionLastModifiedDataHR.update_one(query, update)
+
+                    except Exception as e:
+                        print(f"detect_qr : Error 1 :{e}")
+
+            except Exception as e:
+                print(f"detect_qr : Error 2 :{e}")
+        else:
+            print(f'  => Pass')
+    try:
+        ot_register_append_excel(ot_folder_path, ot_excel_file_name)
+    except Exception as e:
+        print(f"detect_qr : Error 3 :{e}")
+
+    for filename in os.listdir(ot_folder_pdf_path):
+        file_path = os.path.join(ot_folder_pdf_path, filename)
+        if filename.endswith('.ppm'):
+            os.remove(file_path)
+    end = datetime.now()
+    time = end - begin
+    print(f' Total time total_seconds : {time.total_seconds()}')
+
 
 if __name__ == "__main__":  # confirms that the code is under main function
 
@@ -222,15 +432,26 @@ if __name__ == "__main__":  # confirms that the code is under main function
     machine4 = ZK('192.168.1.34', port=4370, timeout=5, password=0, force_udp=False, ommit_ping=False)
     attMachines = [machine1, machine2, machine3, machine4]
 
-    # Read excel
-    updateExceltoMongoDb()
-    # Read Att log, excel
-    machineNo = 0
-    for machine in attMachines:
-        machineNo += 1
-        Process(target=live_capture_attendance, args=(machine, machineNo)).start()
-        # Create a new process
-    schedule.every().minute.do(updateExceltoMongoDb)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    run_one_time = False
+    if run_one_time:
+        get_emp_id_name()
+        update_excel_to_mongoDb()
+        ot_register_detect_qr_and_save()
+        machineNo = 0
+        for machine in attMachines:
+            machineNo += 1
+            Process(target=get_att_log_one_time, args=(machine, machineNo)).start()
+    else:
+        get_emp_id_name()
+        update_excel_to_mongoDb()
+        ot_register_detect_qr_and_save() 
+        machineNo = 0
+        for machine in attMachines:
+            machineNo += 1
+            Process(target=live_capture_attendance, args=(machine, machineNo)).start()
+            # Create a new process
+        schedule.every().minute.do(update_excel_to_mongoDb)
+        schedule.every().minute.do(ot_register_detect_qr_and_save)
+        while True:
+            schedule.run_pending()
+            time.sleep(1)

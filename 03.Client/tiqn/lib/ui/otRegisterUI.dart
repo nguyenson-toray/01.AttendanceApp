@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pluto_grid/pluto_grid.dart';
@@ -34,10 +33,12 @@ class _OtRegisterUIState extends State<OtRegisterUI>
     columns = getColumns();
     rows = getRows(gValue.otRegisters);
     Timer.periodic(const Duration(seconds: 2), (_) => refreshData());
-    timeBegin = DateTime.now().appliedFromTimeOfDay(const TimeOfDay(
-      hour: 0,
-      minute: 1,
-    ));
+    timeBegin = DateTime.now()
+        .subtract(const Duration(days: 7))
+        .appliedFromTimeOfDay(const TimeOfDay(
+          hour: 0,
+          minute: 0,
+        ));
     timeEnd = DateTime.now().appliedFromTimeOfDay(const TimeOfDay(
       hour: 23,
       minute: 59,
@@ -67,6 +68,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
   Future<void> refreshData() async {
     List<OtRegister> newList =
         await gValue.mongoDb.getOTRegisterByRangeDate(timeBegin, timeEnd);
+    // await gValue.mongoDb.getOTRegisterAll();
     if (checkDiff(gValue.otRegisters, newList)) {
       print(
           'OtRegisterUI Data changed : ${gValue.otRegisters.length} => ${newList.length} records');
@@ -93,18 +95,22 @@ class _OtRegisterUIState extends State<OtRegisterUI>
       body: Row(
         children: [
           SizedBox(
-            width: 200,
+            width: 500,
             height: 600,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 200,
-                  height: 250,
+                  height: 230,
+                  width: 500,
                   child: SfDateRangePicker(
+                    enableMultiView: true,
+                    // monthViewSettings: DateRangePickerMonthViewSettings(
+                    //     showWeekNumber: false, firstDayOfWeek: 1, weekendDays: [7]),
+                    view: DateRangePickerView.month,
                     showTodayButton: true,
-                    minDate: DateTime.now().subtract(const Duration(days: 31)),
+                    // minDate: DateTime.now().subtract(Duration(days: 31)),
                     maxDate: DateTime.now(),
                     backgroundColor: Colors.blue[100],
                     todayHighlightColor: Colors.green,
@@ -114,12 +120,13 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                     ),
                     onSelectionChanged: onSelectionChangedDate,
                     selectionMode: DateRangePickerSelectionMode.range,
-                    initialSelectedDate: DateTime.now(),
+                    initialSelectedRange: PickerDateRange(timeBegin, timeEnd),
                   ),
                 ),
                 const Divider(),
                 Text('OT employees: $countOt'),
                 const Divider(),
+                /*
                 TextButton.icon(
                   onPressed: () {
                     setState(() {
@@ -137,8 +144,8 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                 ),
                 TextButton.icon(
                   onPressed: () async {
-                    gValue.mongoDb
-                        .insertOtRegisters(await MyFile.readExcelOtRegister());
+                    // gValue.mongoDb
+                    //     .insertOtRegisters(await MyFile.readExcelOtRegister());
                     List<Text> logs = [];
                     for (var log in gValue.logs) {
                       logs.add(Text(
@@ -176,6 +183,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                   ),
                   label: const Text('Import from excel'),
                 ),
+                */
                 TextButton.icon(
                   onPressed: () {
                     MyFile.createExcelOtRegisters(gValue.otRegisters,
@@ -235,6 +243,17 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                 stateManager = event.stateManager;
                 stateManager.setShowColumnFilter(true);
               },
+              rowColorCallback: (rowColorContext) {
+                if (rowColorContext.row.cells.entries
+                    .elementAt(3)
+                    .value
+                    .value
+                    .toString()
+                    .contains('16:00')) {
+                  return Color.fromARGB(255, 164, 201, 245);
+                }
+                return Colors.white;
+              },
             ),
           ),
         ],
@@ -242,12 +261,13 @@ class _OtRegisterUIState extends State<OtRegisterUI>
     );
   }
 
+/*
   List<PlutoColumn> getColumns() {
     List<PlutoColumn> columns = [];
     columns = [
       PlutoColumn(
-          title: 'From Date',
-          field: 'fromDate',
+          title: 'Requets No',
+          field: 'requetsNo',
           width: 200,
           type: PlutoColumnType.date(
               format: "dd-MMM-yyyy", defaultValue: DateTime.now()),
@@ -369,8 +389,8 @@ class _OtRegisterUIState extends State<OtRegisterUI>
                                     value)
                               }
                             : {
-                                checkNewOtRegisterEditBeforeImport(
-                                    currentOtRegister)
+                                // checkNewOtRegisterEditBeforeImport(
+                                //     currentOtRegister)
                               };
                         setState(() {
                           newOrEdit = '';
@@ -427,20 +447,74 @@ class _OtRegisterUIState extends State<OtRegisterUI>
     ];
     return columns;
   }
+*/
+  List<PlutoColumn> getColumns() {
+    List<PlutoColumn> columns = [];
+    columns = [
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'ID',
+        field: 'objectId',
+        width: 55,
+        type: PlutoColumnType.number(),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Requets number',
+        field: 'requestNo',
+        type: PlutoColumnType.text(),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Date',
+        field: 'otDate',
+        type: PlutoColumnType.date(
+          format: "dd-MMM-yyyy",
+        ),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Time begin',
+        field: 'otTimeBegin',
+        width: 120,
+        type: PlutoColumnType.text(),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Time end',
+        field: 'otTimeEnd',
+        width: 120,
+        type: PlutoColumnType.text(),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Employee ID',
+        field: 'empId',
+        type: PlutoColumnType.text(),
+      ),
+      PlutoColumn(
+        enableEditingMode: false,
+        title: 'Employee name',
+        field: 'name',
+        type: PlutoColumnType.text(),
+      )
+    ];
+    return columns;
+  }
 
   List<PlutoRow> getRows(List<OtRegister> data) {
     List<PlutoRow> rows = [];
-    for (var element in data.reversed) {
+    for (var element in data) {
       rows.add(
         PlutoRow(
           cells: {
-            'fromDate': PlutoCell(value: element.fromDate),
-            'toDate': PlutoCell(value: element.toDate),
-            'empId': PlutoCell(value: element.empId),
-            'name': PlutoCell(value: element.name),
-            'fromTime': PlutoCell(value: element.fromTime),
-            'toTime': PlutoCell(value: element.toTime),
             'objectId': PlutoCell(value: element.objectId),
+            'requestNo': PlutoCell(value: element.requestNo),
+            'otDate': PlutoCell(value: element.otDate),
+            'otTimeBegin': PlutoCell(value: element.otTimeBegin),
+            'otTimeEnd': PlutoCell(value: element.otTimeEnd),
+            'empId': PlutoCell(value: element.empId),
+            'name': PlutoCell(value: element.name)
           },
         ),
       );
@@ -452,18 +526,18 @@ class _OtRegisterUIState extends State<OtRegisterUI>
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
-  checkNewOtRegisterEditBeforeImport(Map<String, dynamic> newOtRegisterMap) {
-    for (var currentOtRegister in gValue.otRegisters) {
-      if (currentOtRegister.toDate.isAfter(newOtRegisterMap['fromDate']) &&
-          currentOtRegister.empId == newOtRegisterMap['empId']) {
-        gValue.mongoDb.updateOneOtRegisterByObjectId(
-            currentOtRegister.objectId.substring(10, 34),
-            'toDate',
-            newOtRegisterMap['fromDate'].subtract(const Duration(days: 1)));
-      }
-      gValue.mongoDb.addOneOtRegisterFromMap(newOtRegisterMap);
-    }
-  }
+  // checkNewOtRegisterEditBeforeImport(Map<String, dynamic> newOtRegisterMap) {
+  //   for (var currentOtRegister in gValue.otRegisters) {
+  //     if (currentOtRegister.toDate.isAfter(newOtRegisterMap['fromDate']) &&
+  //         currentOtRegister.empId == newOtRegisterMap['empId']) {
+  //       gValue.mongoDb.updateOneOtRegisterByObjectId(
+  //           currentOtRegister.objectId.substring(10, 34),
+  //           'toDate',
+  //           newOtRegisterMap['fromDate'].subtract(const Duration(days: 1)));
+  //     }
+  //     gValue.mongoDb.addOneOtRegisterFromMap(newOtRegisterMap);
+  //   }
+  // }
 
   void onSelectionChangedDate(DateRangePickerSelectionChangedArgs args) {
     setState(() {
@@ -476,7 +550,7 @@ class _OtRegisterUIState extends State<OtRegisterUI>
       }
       timeBegin = timeBegin.appliedFromTimeOfDay(const TimeOfDay(
         hour: 0,
-        minute: 1,
+        minute: 0,
       ));
       timeEnd = timeEnd.appliedFromTimeOfDay(const TimeOfDay(
         hour: 23,

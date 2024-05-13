@@ -682,14 +682,13 @@ class MyFile {
     sheetSummary.getRangeByName('D1').setText('Department');
     sheetSummary.getRangeByName('E1').setText('Section');
     sheetSummary.getRangeByName('F1').setText('Group');
-    ;
     sheetSummary.getRangeByName('G1').setText('Line/Team');
     sheetSummary.getRangeByName('H1').setText('Total Working hours');
     sheetSummary.getRangeByName('I1').setText('Total OT hours');
     final empIds = timeSheets.map((e) => e.empId).toSet().toList();
     row = 1;
     List<EmployeeWO> employeeWOs = [];
-    empIds.forEach((empId) {
+    for (var empId in empIds) {
       EmployeeWO employeeWO = EmployeeWO();
       final empInfo =
           gValue.employees.firstWhere((element) => element.empId == empId);
@@ -708,9 +707,9 @@ class MyFile {
       employeeWO.totalW = totalNormalHours;
       employeeWO.totalOt = totalOtHours;
       employeeWOs.add(employeeWO);
-    });
+    }
     employeeWOs.sort((a, b) => b.totalOt.round().compareTo(a.totalOt.round()));
-    employeeWOs.forEach((element) {
+    for (var element in employeeWOs) {
       row++;
       sheetSummary.getRangeByName('A$row').setNumber((row - 1));
       sheetSummary.getRangeByName('B$row').setText(element.empId);
@@ -725,7 +724,7 @@ class MyFile {
       sheetSummary
           .getRangeByName('I$row')
           .setNumber(roundDouble(element.totalOt, 1));
-    });
+    }
 
     sheetSummary.autoFitColumn(1);
     sheetSummary.autoFitColumn(2);
@@ -872,34 +871,39 @@ class MyFile {
 //Creating a new style with all properties.
     final Style styleHeader = workbook.styles.add('Style1');
     styleHeader.bold = true;
-    styleHeader.backColorRgb = const Color.fromARGB(255, 160, 168, 174);
+    styleHeader.backColorRgb = const Color.fromARGB(255, 214, 230, 242);
 // Set the text value.
-    sheet.getRangeByName('A1').setText('No');
-    sheet.getRangeByName('B1').setText('From');
-    sheet.getRangeByName('C1').setText('To');
-    sheet.getRangeByName('D1').setText('Employee ID');
-    sheet.getRangeByName('E1').setText('Name');
-    sheet.getRangeByName('F1').setText('Time begin');
-    sheet.getRangeByName('G1').setText('Time end');
-    sheet.getRangeByName('A1:G1').cellStyle = styleHeader;
+    sheet.getRangeByName('A1').setText('_id');
+    sheet.getRangeByName('B1').setText('Request number');
+    sheet.getRangeByName('C1').setText('Request date');
+    sheet.getRangeByName('D1').setText('OT date');
+    sheet.getRangeByName('E1').setText('Time begin');
+    sheet.getRangeByName('F1').setText('Time end');
+    sheet.getRangeByName('G1').setText('Employee ID');
+    sheet.getRangeByName('H1').setText('Full name');
+    sheet.getRangeByName('A1:H1').cellStyle = styleHeader;
     int row = 1;
     for (var otRegister in otRegisters) {
       row++;
-      sheet.getRangeByName('A$row').setNumber((row - 1));
-      sheet.getRangeByName('B$row').numberFormat = 'dd-MMM-yyyy';
-      sheet.getRangeByName('B$row').setDateTime(otRegister.fromDate);
+      sheet.getRangeByName('A$row').setNumber(otRegister.objectId.toDouble());
+      sheet.getRangeByName('A$row').numberFormat = '0';
+      sheet.getRangeByName('B$row').setText(otRegister.requestNo);
       sheet.getRangeByName('C$row').numberFormat = 'dd-MMM-yyyy';
-      sheet.getRangeByName('C$row').setDateTime(otRegister.toDate);
-      sheet.getRangeByName('D$row').setText(otRegister.empId);
-      sheet.getRangeByName('E$row').setText(otRegister.name);
-      sheet.getRangeByName('F$row').setText(otRegister.fromTime);
-      sheet.getRangeByName('G$row').setText(otRegister.toTime);
+      sheet.getRangeByName('C$row').setDateTime(otRegister.requestDate);
+      sheet.getRangeByName('D$row').numberFormat = 'dd-MMM-yyyy';
+      sheet.getRangeByName('D$row').setDateTime(otRegister.otDate);
+      sheet.getRangeByName('E$row').setText(otRegister.otTimeBegin);
+      sheet.getRangeByName('F$row').setText(otRegister.otTimeEnd);
+      sheet.getRangeByName('G$row').setText(otRegister.empId);
+      sheet.getRangeByName('H$row').setText(otRegister.name);
     }
-
-    final Range range = sheet.getRangeByName('A2:G2');
+    final Range range = sheet.getRangeByName('A2:H2');
 
 // Auto-Fit column the range
     range.autoFitColumns();
+    sheet.autoFitColumn(4);
+    sheet.autoFitColumn(5);
+    sheet.autoFitColumn(7);
 //Save and launch the excel.
     final List<int> bytes = workbook.saveSync();
 //Dispose the document.
@@ -921,7 +925,7 @@ class MyFile {
       await Process.run('xdg-open', <String>[(file.path)], runInShell: true);
     }
   }
-
+/*
   static Future<List<OtRegister>> readExcelOtRegister() async {
     List<OtRegister> otRegisters = [];
     print('readExcelOtRegister'); //sheet Name
@@ -969,6 +973,7 @@ class MyFile {
     } catch (e) {}
     return otRegisters;
   }
+  */
 }
 
 double roundDouble(double value, int places) {

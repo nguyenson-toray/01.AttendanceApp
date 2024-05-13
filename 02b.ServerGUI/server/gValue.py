@@ -1,0 +1,2 @@
+attMachines=[]
+getLogType='oneTime'
